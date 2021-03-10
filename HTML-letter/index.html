@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
-      width: 100% !important;
+      max-width: 100% !important;
       -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
       margin: 0;
@@ -44,16 +44,6 @@
     .header-td {
       padding-top: 30px;
       padding-bottom: 30px;
-    }
-
-    .visually-hidden {
-      position: absolute !important;
-      clip: rect(1px 1px 1px 1px);
-      clip: rect(1px, 1px, 1px, 1px);
-      padding: 0 !important;
-      border: 0 !important;
-      height: 1px !important;
-      width: 1px overflow: hidden;
     }
 
     h2 {
@@ -114,11 +104,39 @@
       color: #ffffff;
       font-weight: 700;
     }
+
+    @media screen and (max-width: 280px) {
+      .table-600 {
+        width: 280px !important;
+      }
+
+      .table-520 {
+        width: 244px !important;
+      }
+
+      .logo {
+        width: 114px !important;
+      }
+
+      .artist-img {
+        height: 84px !important;
+      }
+
+      .posibilities {
+        display: block;
+      }
+
+      .link {
+        width: 195px;
+        font-size: 14px;
+      }
+    }
+
   </style>
 </head>
 
 <body style="margin: 0; padding: 0;">
-  <div style="font-size:0px;font-color:#ffffff;opacity:0;visibility:hidden;width:0;height:0;display:none;">
+  <div style="font-size:0px;color:#ffffff;opacity:0;visibility:hidden;width:0;height:0;display:none;">
     Blanchard mail
   </div>
   <table cellpadding="0" cellspacing="0" width="100%" bgcolor="#ededed">
@@ -127,10 +145,11 @@
         <table class="table-600" align="center" cellpadding="0" cellspacing="0" width="600" bgcolor="#000000">
           <tr>
             <td class="header-td" align="center">
-              <h1 class="visually-hidden">
+              <h1
+                style="position: absolute;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);padding: 0 ;border: 0 ;height: 1px ;width: 1px ;overflow: hidden;">
                 Blanchard mail
               </h1>
-              <img src="img/Icons/Logo.svg" width="188" alt="Logo" />
+              <img class="logo" src="https://kurkmas.github.io/HTML-letter/img/Icons/logo.png" width="188" alt="Logo" />
             </td>
           </tr>
         </table>
@@ -141,7 +160,8 @@
         <table class="table-600" align="center" cellpadding="0" cellspacing="0" width="600" bgcolor="#C4C4C4">
           <tr>
             <td>
-              <img align="center" src="img/Images/hero-img.jpg" width="600" height="300" alt="hero-img" />
+              <img align="center" src="https://kurkmas.github.io/HTML-letter/img/Images/hero-img.jpg" width="600"
+                height="300" alt="hero-img" />
             </td>
           </tr>
         </table>
@@ -196,7 +216,9 @@
                 </tr>
                 <tr>
                   <td>
-                    <img width="520" height="180" src="img/Images/gogen-img.jpg" alt="Paul Gauguin - picture" />
+                    <img class="artist-img" width="520" height="180"
+                      src="https://kurkmas.github.io/HTML-letter/img/Images/gogen-img.jpg"
+                      alt="Paul Gauguin - picture" />
                   </td>
                 </tr>
                 <tr>
@@ -213,7 +235,8 @@
 
                 <tr>
                   <td>
-                    <img width="520" height="180" src="img/Images/renuar-img.jpg"
+                    <img class="artist-img" width="520" height="180"
+                      src="https://kurkmas.github.io/HTML-letter/img/Images/renuar-img.jpg"
                       alt="Pierre-Auguste Renoir - picture" />
                   </td>
                 </tr>
@@ -231,7 +254,9 @@
 
                 <tr>
                   <td>
-                    <img width="520" height="180" src="img/Images/mone-img.png" alt="Oscar-Claude Monet - picture" />
+                    <img class="artist-img" width="520" height="180"
+                      src="https://kurkmas.github.io/HTML-letter/img/Images/mone-img.png"
+                      alt="Oscar-Claude Monet - picture" />
                   </td>
                 </tr>
                 <tr>
@@ -247,7 +272,9 @@
 
                 <tr>
                   <td>
-                    <img width="520" height="180" src="img/Images/mane-img.jpg" alt="Édouard Manet - picture" />
+                    <img class="artist-img" width="520" height="180"
+                      src="https://kurkmas.github.io/HTML-letter/img/Images/mane-img.jpg"
+                      alt="Édouard Manet - picture" />
                   </td>
                 </tr>
                 <tr>
@@ -263,7 +290,9 @@
 
                 <tr>
                   <td>
-                    <img width="520" height="180" src="img/Images/van_gog.jpg" alt="Vincent van Gogh - picture" />
+                    <img class="artist-img" width="520" height="180"
+                      src="https://kurkmas.github.io/HTML-letter/img/Images/van_gog.jpg"
+                      alt="Vincent van Gogh - picture" />
                   </td>
                 </tr>
                 <tr>
@@ -288,7 +317,8 @@
         <table class="table-600" align="center" cellpadding="0" cellspacing="0" width="600" bgcolor="#ffffff">
           <tr>
             <td style="padding-top: 20px; padding-bottom: 20px;">
-              <table class="table-520" align="center" cellpadding="0" cellspacing="0" width="520">
+              <table style="table-layout: fixed;" class="table-520" align="center" cellpadding="0" cellspacing="0"
+                width="520">
                 <tr>
                   <td>
                     <h3 style="font-family: 'Arial', sans-serif;" class="additionals">
@@ -297,21 +327,24 @@
                   </td>
                 </tr>
                 <tr>
-                  <td style="padding-right: 20px;">
-                    <img width="36" height="36" src="img/Icons/check-square.svg" alt="check-square" />
-                    <p style="font-family: 'Arial', sans-serif;">
+                  <td class="posibilities" style="padding-right: 20px;">
+                    <img width="36" height="36" src="https://kurkmas.github.io/HTML-letter/img/Icons/check-square.png"
+                      alt="check-square" />
+                    <p style="font-family: 'Arial', sans-serif; display: inline-block;">
                       Уникальные подборки работ с авторскими рецензиями
                     </p>
                   </td>
-                  <td style="padding-right: 20px;">
-                    <img width="36" height="36" src="img/Icons/calendar.svg" alt="calendar" />
-                    <p style="font-family: 'Arial', sans-serif;">
+                  <td class="posibilities" style="padding-right: 20px;">
+                    <img width="36" height="36" src="https://kurkmas.github.io/HTML-letter/img/Icons/calendar.png"
+                      alt="calendar" />
+                    <p style="font-family: 'Arial', sans-serif; display: inline-block;">
                       Возможность настроить нашу рассылку под свой личный вкус
                     </p>
                   </td>
-                  <td style="padding-right: 20px;">
-                    <img width="36" height="36" src="img/Icons/arrow-up-circle.svg" alt="arrow-up-circle" />
-                    <p style="font-family: 'Arial', sans-serif;">
+                  <td class="posibilities" style="padding-right: 20px;">
+                    <img width="36" height="36"
+                      src="https://kurkmas.github.io/HTML-letter/img/Icons/arrow-up-circle.png" alt="arrow-up-circle" />
+                    <p style="font-family: 'Arial', sans-serif; display: inline-block;">
                       У вас есть пожелания и предложения?
                       Напишите нам в ответ на это письмо!
                     </p>
@@ -320,7 +353,8 @@
                 <table class="table-520" align="center" cellpadding="0" cellspacing="0" width="520">
                   <tr>
                     <td align="center" style="padding-top: 20px;">
-                      <a style="font-family: 'Arial', sans-serif;" class="link" href="#">
+                      <a href="https://kurkmas.github.io/Course%20work/index.html"
+                        style="font-family: 'Arial', sans-serif;" class="link">
                         Узнать все подробности
                       </a>
                     </td>
@@ -329,59 +363,59 @@
               </table>
             </td>
           </tr>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <table class="table-600" align="center" cellpadding="0" cellspacing="0" width="600" bgcolor="#000000">
           <tr>
-            <td style="padding-top: 15px;">
-              <table align="center" cellpadding="0" cellspacing="0" width="180">
+            <td>
+              <table class="table-600" align="center" cellpadding="0" cellspacing="0" width="600" bgcolor="#000000">
                 <tr>
-                  <td align="center">
-                    <a href="#">
-                      <img src="img/Icons/vk.svg" alt="" />
-                    </a>
-                  </td>
-                  <td align="center">
-                    <a href="#">
-                      <img src="img/Icons/instagram.svg" alt="" />
-                    </a>
-                  </td>
-                  <td align="center">
-                    <a href="#">
-                      <img src="img/Icons/fb.svg" alt="" />
-                    </a>
-                  </td>
-                </tr>
-              </table>
-              <table align="center" cellpadding="0" cellspacing="0" width="230">
-                <tr>
-                  <td>
-                    <p style="font-family: 'Arial', sans-serif;">
-                      Blanchard © 2020 / Все права защищены
-                    </p>
+                  <td style="padding-top: 15px;">
+                    <table align="center" cellpadding="0" cellspacing="0" width="180">
+                      <tr>
+                        <td align="center">
+                          <a href="#">
+                            <img src="https://kurkmas.github.io/HTML-letter/img/Icons/vk.png" alt="" />
+                          </a>
+                        </td>
+                        <td align="center">
+                          <a href="#">
+                            <img src="https://kurkmas.github.io/HTML-letter/img/Icons/instagram.png" alt="" />
+                          </a>
+                        </td>
+                        <td align="center">
+                          <a href="#">
+                            <img src="https://kurkmas.github.io/HTML-letter/img/Icons/fb.png" alt="" />
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                    <table style="table-layout:fixed" align="center" cellpadding="0" cellspacing="0" width="250">
+                      <tr>
+                        <td>
+                          <p style="font-family: 'Arial', sans-serif;">
+                            Blanchard © 2020 / Все права защищены
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <table class="table-600" align="center" cellpadding="0" cellspacing="0" width="600" bgcolor="EBEBEB">
           <tr>
             <td>
-              <table align="center" cellpadding="0" cellspacing="0" width="250">
+              <table class="table-600" align="center" cellpadding="0" cellspacing="0" width="600" bgcolor="EBEBEB">
                 <tr>
                   <td>
-                    <p
-                      style="font-family: 'Arial', sans-serif; margin-top: 7px; margin-bottom: 7px; font-size: 10px; line-height: 1;">
-                      Вы можете так же <a href="#">отписаться от рассылки</a>
-                    </p>
+                    <table align="center" cellpadding="0" cellspacing="0" width="250">
+                      <tr>
+                        <td align="center">
+                          <p
+                            style="font-family: 'Arial', sans-serif; margin-top: 7px; margin-bottom: 7px; font-size: 10px; line-height: 1;">
+                            Вы можете так же <a href="#">отписаться от рассылки</a>
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
                   </td>
                 </tr>
               </table>
