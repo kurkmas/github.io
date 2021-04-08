@@ -1,0 +1,84 @@
+@font-face {
+  font-family: 'MuseoSans';
+  src: url(../css/Fonts/museosansbold-webfont.woff2),
+    url(../css/Fonts/museosansbold-webfont.woff);
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MuseoSans';
+  src: url(../css/Fonts/museosansregular-webfont.woff2),
+    url(../css/Fonts/museosansregular-webfont.woff);
+  font-display: swap;
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MuseoSans';
+  src: url(../css/Fonts/museosansregular-webfont.woff2),
+    url(../css/Fonts/museosansregular-webfont.woff);
+  font-display: swap;
+  font-weight: 200;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'MuseoSans', sans-serif;
+  position: relative;
+}
+
+ul,
+li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  max-width: 972px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1;
+  margin: 0;
+}
+
+.btn {
+  color: var(--white-color);
+  background-color: var(--red-color);
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.visibility-hidden {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
