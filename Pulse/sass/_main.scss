@@ -294,7 +294,7 @@ header {
   border: 2px solid var(--red-color);
 }
 
-.choise:active {
+.choise:hover {
   box-shadow: 0 0 15px var(--red-color);
 }
 
@@ -358,6 +358,12 @@ header {
 
 .tabs__item__wrapper-top {
   margin-bottom: 38px;
+  transform: translateX(0);
+  transition: transform .3s ease-in;
+}
+
+.tabs__item__wrapper-top.tabs__item__wrapper-top--hidden {
+  transform: translateX(-120%);
 }
 
 .tabs__item__wrapper-bottom {
@@ -472,12 +478,6 @@ header {
 
 .comment__desqr {
   line-height: 25px;
-}
-
-.map {
-  background-color: darkcyan;
-  width: 100%;
-  min-height: 630px;
 }
 
 .footer {

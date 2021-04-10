@@ -34,6 +34,14 @@ body {
   position: relative;
 }
 
+body.stop-scrolling {
+  overflow: hidden;
+}
+
+section {
+  overflow: hidden;
+}
+
 ul,
 li {
   list-style-type: none;
