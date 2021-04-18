@@ -39,7 +39,7 @@ choiseTab.forEach(function (item) {
 tabsLink.forEach(function (item) {
   item.addEventListener('click', function (e) {
     e.preventDefault();
-    this.parentElement.parentElement.querySelector('.tabs__hidden').classList.add('tabs__hidden--active');
+    this.parentElement.parentElement.parentElement.querySelector('.tabs__hidden').classList.add('tabs__hidden--active');
     this.parentElement.classList.add('tabs__item__wrapper-top--hidden');
   });
 });
