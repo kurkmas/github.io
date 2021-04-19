@@ -168,6 +168,17 @@
   .modal__form__wrapper {
     padding: 10px 15px 15px;
   }
+
+  .modal__form__wrapper {
+    width: 85%;
+    transform: translateX(-5%);
+  }
+
+  .btn-close {
+    right: -25px;
+    font-size: 25px;
+    line-height: 23px;
+  }
 }
 
 @media screen and (max-width:470px) {
@@ -299,19 +310,8 @@
     height: 430px;
   }
 
-  .modal__form__wrapper {
-    width: 85%;
-    transform: translateX(-5%);
-  }
-
   .form {
     width: 100%;
-  }
-
-  .btn-close {
-    right: -35px;
-    font-size: 30px;
-    line-height: 23px;
   }
 
   .form__btn {
