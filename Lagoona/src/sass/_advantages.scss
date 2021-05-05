@@ -1,0 +1,16 @@
+.advantages {
+  margin-bottom: 70px;
+}
+
+.advantages_list {
+  display: grid;
+  grid-template: repeat(2, 1fr)/ repeat(4, 1fr);
+  gap: 23px;
+  margin-top: 10px;
+}
+
+.advantages_list__item {
+  background-color: $primary_color;
+  border-radius: 15px;
+  padding: 40px 41px 42px 45px;
+}

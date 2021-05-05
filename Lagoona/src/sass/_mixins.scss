@@ -1,0 +1,8 @@
+@mixin button {
+  color: $orange_color;
+  border-radius: 10px;
+  border: 1px solid $orange_color;
+  background-color: transparent;
+  padding: 13px 20px;
+  cursor: pointer;
+}

@@ -1,0 +1,113 @@
+@font-face {
+  font-family: 'Muller';
+  src: url(../css/fonts/MullerLight.woff2),
+    url(../css/fonts/MullerLight.woff);
+  font-display: swap;
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Muller';
+  src: url(../css/fonts/MullerRegular.woff2),
+    url(../css/fonts/MullerRegular.woff);
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Muller';
+  src: url(../css/fonts/MullerMedium.woff2),
+    url(../css/fonts/MullerMedium.woff);
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Muller';
+  src: url(../css/fonts/MullerBold.woff2),
+    url(../css/fonts/MullerBold.woff);
+  font-display: swap;
+  font-weight: 800;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Muller', sans-serif;
+  background-color: $bg-color;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+h2 {
+  margin: 0;
+}
+
+.container {
+  max-width: 1169px;
+  margin: 0 auto;
+}
+
+.btn {
+  @include button;
+}
+
+.title_h2 {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1;
+  color: $dark_color;
+  margin-left: 40px;
+  margin-bottom: 20px;
+}
+
+.about_us__text {
+  font-size: 16px;
+  line-height: 32px;
+  color: $main_text_color;
+  max-width: 890px;
+  margin-top: 0;
+  margin-bottom: 70px;
+}

@@ -1,0 +1,64 @@
+.header {
+  margin-bottom: 70px;
+}
+
+.header_top {
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: inline-block;
+  margin-right: 40px;
+}
+
+.phone {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1;
+  color: $light_dark;
+  margin-right: auto;
+}
+
+.personal_cabinet {
+  span {
+    font-size: 16px;
+    line-height: 1;
+    color: $orange_color;
+    cursor: pointer;
+  }
+}
+
+.header_nav {
+  display: flex;
+  align-items: center;
+  padding: 14px 0 14px 45px;
+  background-color: $primary_color;
+  border-radius: 10px;
+}
+
+.nav_list {
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #E1E1E1;
+}
+
+.nav_list__item {
+  margin-right: 45px;
+}
+
+.nav_list__link {
+  font-size: 16px;
+  line-height: 45px;
+  color: $light_dark;
+}
+
+.btn__link {
+  margin-right: 40px;
+}
+
+.nav__buttons {
+  margin: 0 auto;
+}

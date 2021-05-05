@@ -1,0 +1,56 @@
+.tour {
+  margin-bottom: 70px;
+}
+
+.tour_container {
+  background-color: #E9E9E9;
+  border-radius: 15px;
+  padding: 38px 45px 71px 40px;
+}
+
+.tour_title {
+  margin-left: 0;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  border-radius: 15px;
+  padding: 30px 10px;
+
+  label {
+    height: 49px;
+    padding: 0 20px;
+    border-right: 1px solid #E1E1E1;
+
+    span {
+      display: inline-block;
+      font-size: 12px;
+      line-height: 1;
+      color: $main_text_color;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.form__select,
+.form__input {
+  display: block;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.form__select {
+  width: 169px;
+}
+
+.form__input {
+  width: 135px;
+  border-bottom: 1px solid #ccc;
+}
+
+.submit {
+  margin: 0 auto;
+}
