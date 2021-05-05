@@ -10,15 +10,15 @@
 }
 
 .article.maldiv_island {
-  background-image: url(../images/img/hero_img_1.jpg);
+  background-image: url(../img/hero_img_1.jpg);
 }
 
 .article.krit_island {
-  background-image: url(../images/img/hero_img_2.jpg);
+  background-image: url(../img/hero_img_2.jpg);
 }
 
 .article.lux_room {
-  background-image: url(../images/img/hero_img_3.jpg);
+  background-image: url(../img/hero_img_3.jpg);
   padding: 210px 234px 40px 40px;
 }
 
@@ -28,7 +28,7 @@
   object-fit: cover;
   background: linear-gradient(90deg, rgba(48, 64, 89, 0.84) -2.9%, rgba(53, 65, 83, 0) 65.7%);
   border-radius: 15px;
-  padding: 40px 234px 40px 40px;
+  padding: 40px 230px 40px 40px;
 }
 
 .article:nth-child(3) {
@@ -58,12 +58,6 @@
   font-size: 16px;
   line-height: 1;
   color: $orange_color;
-
-  img {
-    width: 13px;
-    height: 13px;
-    margin-bottom: -2px;
-  }
 }
 
 .lux_room {

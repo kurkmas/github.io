@@ -3,8 +3,7 @@ const concat = require('gulp-concat');
 const htmlMin = require('gulp-htmlmin');
 const autoprefixes = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
-const svgSprite = require('gulp-svg-sprite');
-const image = require('gulp-image');
+const image = require('gulp-imagemin');
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify-es').default;
 const del = require('del');
@@ -36,6 +35,15 @@ const styles = () => {
     .pipe(browserSync.stream());
 };
 
+const copyFonts = () => {
+  return src([
+    'src/css/fonts/**/*.woff2',
+    'src/css/fonts/**/*.woff'
+  ])
+
+    .pipe(dest('dist/styles/fonts'));
+};
+
 const htmlMinify = () => {
   return src('src/**/*.html')
     .pipe(htmlMin({
@@ -43,18 +51,6 @@ const htmlMinify = () => {
     }))
     .pipe(dest('dist'))
     .pipe(browserSync.stream());
-};
-
-const svgSprites = () => {
-  return src('src/images/svg/**/*.svg')
-    .pipe(svgSprite({
-      mode: {
-        stack: {
-          sprite: '../sprite.svg'
-        }
-      }
-    }))
-    .pipe(dest('dist/images/svg'));
 };
 
 const scripts = () => {
@@ -75,13 +71,13 @@ const scripts = () => {
 
 const imageCompress = () => {
   return src([
-    'src/images/img/**/*.jpg',
-    'src/images/img/**/*.png',
-    'src/images/img/*.svg',
-    'src/images/img/**/*.jpeg',
+    'src/img/**/*.jpg',
+    'src/img/**/*.png',
+    'src/img/*.svg',
+    'src/img/**/*.jpeg',
   ])
     .pipe(image())
-    .pipe(dest('dist/images/img'));
+    .pipe(dest('dist/img'));
 };
 
 const watchFiles = () => {
@@ -94,16 +90,15 @@ const watchFiles = () => {
 
 watch('src/**/*.html', htmlMinify);
 watch('src/styles/**/*.css', styles);
-watch('src/images/svg/**/*.svg', svgSprites);
 watch('src/js/**/*.js', scripts);
 watch('src/resources/**', resources);
 
 
 exports.scripts = scripts;
 exports.clean = clean;
-exports.default = series(clean, resources, htmlMinify, styles, svgSprites, imageCompress, scripts, watchFiles);
+exports.default = series(clean, resources, htmlMinify, styles, copyFonts, imageCompress, scripts, watchFiles);
 
-const copyFonts = () => {
+const copyFontsBuild = () => {
   return src([
     'src/styles/fonts/**/*.woff2',
     'src/styles/fonts/**/*.woff'
@@ -154,19 +149,7 @@ const buildImages = () => {
     'dist/images/img/*.svg',
     'dist/images/img/**/*.jpeg',
   ])
-    .pipe(dest('build/images'));
+    .pipe(dest('build/img'));
 };
 
-const buildSvg = () => {
-  return src('src/images/svg/**/*.svg')
-    .pipe(svgSprite({
-      mode: {
-        stack: {
-          sprite: '../sprite.svg'
-        }
-      }
-    }))
-    .pipe(dest('build/images/svg'));
-};
-
-exports.build = series(copyFonts, buildhtmlMinify, stylesBuild, scriptsBuild, resourcesBuild, buildSvg, buildImages);
+exports.build = series(copyFontsBuild, buildhtmlMinify, stylesBuild, scriptsBuild, resourcesBuild, buildImages);
