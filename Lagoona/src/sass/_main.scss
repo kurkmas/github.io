@@ -43,8 +43,14 @@ html {
 }
 
 body {
+  position: relative;
   font-family: 'Muller', sans-serif;
   background-color: $bg-color;
+  overflow-x: hidden;
+}
+
+body.stop_scroll {
+  overflow-y: hidden;
 }
 
 a {
@@ -86,7 +92,8 @@ h2 {
 }
 
 .container {
-  max-width: 1169px;
+  max-width: 1170px;
+  padding: 0 15px;
   margin: 0 auto;
 }
 

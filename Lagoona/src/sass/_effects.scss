@@ -1,0 +1,23 @@
+.btn:hover {
+  background-color: $orange_color;
+  color: $primary_color;
+  transition: .3s all;
+}
+
+.nav_list__link:hover {
+  color: $orange_color;
+}
+
+.options:hover {
+  img {
+    transform: translateX(3px);
+  }
+}
+
+.orange_link:hover {
+  color: rgb(190, 127, 25);
+}
+
+.footer_list__item:hover {
+  transform: scale(1.1);
+}

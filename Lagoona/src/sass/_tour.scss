@@ -20,7 +20,6 @@
   padding: 30px 10px;
 
   label {
-    height: 49px;
     padding: 0 20px;
     border-right: 1px solid #E1E1E1;
 
@@ -43,12 +42,16 @@
 }
 
 .form__select {
-  width: 169px;
+  width: 165px;
 }
 
 .form__input {
   width: 135px;
   border-bottom: 1px solid #ccc;
+}
+
+.input_number {
+  width: 100px;
 }
 
 .submit {

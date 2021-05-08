@@ -89,7 +89,7 @@ const watchFiles = () => {
 };
 
 watch('src/**/*.html', htmlMinify);
-watch('src/styles/**/*.css', styles);
+watch('src/css/**/*.css', styles);
 watch('src/js/**/*.js', scripts);
 watch('src/resources/**', resources);
 

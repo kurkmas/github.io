@@ -21,6 +21,10 @@
           <img src="img/Vector.svg" alt="arrow_right">
           <span>Личный кабинет</span>
         </div>
+
+        <div class="burger">
+          <span class="burger_line"></span>
+        </div>
       </div>
       <nav class="header_nav">
         <ul class="nav_list">
@@ -349,51 +353,53 @@
       </div>
     </section>
     <section class="tour">
-      <div class="container tour_container">
-        <h2 class="title_h2 tour_title">Хочу тур</h2>
-        <form action="https://jsonplaceholder.typicode.com/posts" method="POST" class="form">
-          <label>
-            <span>Город вылета</span>
-            <select name="city" class="form__select">
-              <option selected value="t1">Санкт-Петербург</option>
-              <option value="t2">Саранск</option>
-              <option value="t3">Севастополь</option>
-              <option value="t4">Северодвинск</option>
-              <option value="t5">Симферополь</option>
-              <option value="t6">Сочи</option>
-              <option value="t7">Ставрополь</option>
-              <option value="t8">Сызрань</option>
-              <option value="t8">Сыктывкар</option>
-            </select>
-          </label>
-          <label>
-            <span>Страна</span>
-            <select name="country" class="form__select">
-              <option selected value="c1">Австралия</option>
-              <option value="c1">Австрия</option>
-              <option value="c1">Азербайджан</option>
-              <option value="c1">Албания</option>
-              <option value="c1">Англия</option>
-              <option value="c1">Аргентина</option>
-              <option value="c1">Армения</option>
-              <option value="c1">Белоруссия</option>
-              <option value="c1">Бельгия</option>
-            </select>
-          </label>
-          <label>
-            <span>Дата прибытия</span>
-            <input name="date" type="date" class="form__input">
-          </label>
-          <label>
-            <span>Ночей</span>
-            <input type="number" name="night" class="form__input">
-          </label>
-          <label>
-            <span>Туристы</span>
-            <input type="number" name="person" class="form__input">
-          </label>
-          <input name="submit" type="submit" value="Найти" class="btn submit">
-        </form>
+      <div class="container">
+        <div class="tour_container">
+          <h2 class="title_h2 tour_title">Хочу тур</h2>
+          <form action="https://jsonplaceholder.typicode.com/posts" method="POST" class="form">
+            <label>
+              <span>Город вылета</span>
+              <select name="city" class="form__select">
+                <option selected value="t1">Санкт-Петербург</option>
+                <option value="t2">Саранск</option>
+                <option value="t3">Севастополь</option>
+                <option value="t4">Северодвинск</option>
+                <option value="t5">Симферополь</option>
+                <option value="t6">Сочи</option>
+                <option value="t7">Ставрополь</option>
+                <option value="t8">Сызрань</option>
+                <option value="t8">Сыктывкар</option>
+              </select>
+            </label>
+            <label>
+              <span>Страна</span>
+              <select name="country" class="form__select">
+                <option selected value="c1">Австралия</option>
+                <option value="c1">Австрия</option>
+                <option value="c1">Азербайджан</option>
+                <option value="c1">Албания</option>
+                <option value="c1">Англия</option>
+                <option value="c1">Аргентина</option>
+                <option value="c1">Армения</option>
+                <option value="c1">Белоруссия</option>
+                <option value="c1">Бельгия</option>
+              </select>
+            </label>
+            <label>
+              <span>Дата прибытия</span>
+              <input name="date" type="date" class="form__input">
+            </label>
+            <label>
+              <span>Ночей</span>
+              <input type="number" name="night" class="form__input input_number">
+            </label>
+            <label>
+              <span>Туристы</span>
+              <input type="number" name="person" class="form__input input_number">
+            </label>
+            <input name="submit" type="submit" value="Найти" class="btn submit">
+          </form>
+        </div>
       </div>
     </section>
     <section class="contacts">
@@ -440,56 +446,69 @@
     </section>
   </main>
   <footer class="footer">
-    <div class="container footer_container">
-      <div class="footer_box">
-        <p class="footer_descr">
-          © 2012-2020 Управляющая компания Объединенной сети «Лагуна Хотелс»
-        </p>
-        <p class="footer_descr">
-          Представленная на сайте информация носит справочный характер и не является публичной офертой
-        </p>
-        <a href="#" class="user_terms orange_link">Пользовательское соглашение</a>
-      </div>
-      <div class="footer_box">
-        <address class="footer_address">11710, улица Юности, дом 5 строение 4, офис 2</address>
-        <div class="footer_tel__wrapper">
-          <a href="tel:+74995356434" class="contact_tel orange_link">+7 (499) 535-64-34</a>
-          <a href="tel:+74950050544" class="contact_tel orange_link footer_tel">+7 (495) 005-05-44</a>
+    <div class="container">
+      <div class="footer_container">
+        <div class="footer_box">
+          <p class="footer_descr">
+            © 2012-2020 Управляющая компания Объединенной сети «Лагуна Хотелс»
+          </p>
+          <p class="footer_descr">
+            Представленная на сайте информация носит справочный характер и не является публичной офертой
+          </p>
+          <a href="#" class="user_terms orange_link">Пользовательское соглашение</a>
         </div>
-        <div class="footer_mail__wrapper">
-          <a href="mailto:lg.oona@mail.ru" class="orange_link footer_mail">lg.oona@mail.ru</a>
-          <a href="mailto:lg.oona@mail.ru" class="orange_link footer_mail">lg.oona@mail.ru</a>
+        <div class="footer_box">
+          <address class="footer_address">11710, улица Юности, дом 5 строение 4, офис 2</address>
+          <div class="footer_tel__wrapper">
+            <a href="tel:+74995356434" class="contact_tel orange_link">+7 (499) 535-64-34</a>
+            <a href="tel:+74950050544" class="contact_tel orange_link footer_tel">+7 (495) 005-05-44</a>
+          </div>
+          <div class="footer_mail__wrapper">
+            <a href="mailto:lg.oona@mail.ru" class="orange_link footer_mail">lg.oona@mail.ru</a>
+            <a href="mailto:lg.oona@mail.ru" class="orange_link footer_mail">lg.oona@mail.ru</a>
+          </div>
         </div>
+        <ul class="footer_list">
+          <li class="footer_list__item">
+            <a href="#" class="social__link">
+              <img src="img/tripadvisor.svg" alt="icon" class="social__icon">
+            </a>
+          </li>
+          <li class="footer_list__item">
+            <a href="#" class="social__link">
+              <img src="img/twitter.svg" alt="icon" class="social__icon">
+            </a>
+          </li>
+          <li class="footer_list__item">
+            <a href="#" class="social__link">
+              <img src="img/facebook.svg" alt="icon" class="social__icon">
+            </a>
+          </li>
+          <li class="footer_list__item">
+            <a href="#" class="social__link">
+              <img src="img/vk.svg" alt="icon" class="social__icon">
+            </a>
+          </li>
+          <li class="footer_list__item">
+            <a href="#" class="social__link">
+              <img src="img/instagram.svg" alt="icon" class="social__icon">
+            </a>
+          </li>
+        </ul>
       </div>
-      <ul class="footer_list">
-        <li class="footer_list__item">
-          <a href="#" class="social__link">
-            <img src="img/tripadvisor.svg" alt="icon" class="social__icon">
-          </a>
-        </li>
-        <li class="footer_list__item">
-          <a href="#" class="social__link">
-            <img src="img/twitter.svg" alt="icon" class="social__icon">
-          </a>
-        </li>
-        <li class="footer_list__item">
-          <a href="#" class="social__link">
-            <img src="img/facebook.svg" alt="icon" class="social__icon">
-          </a>
-        </li>
-        <li class="footer_list__item">
-          <a href="#" class="social__link">
-            <img src="img/vk.svg" alt="icon" class="social__icon">
-          </a>
-        </li>
-        <li class="footer_list__item">
-          <a href="#" class="social__link">
-            <img src="img/instagram.svg" alt="icon" class="social__icon">
-          </a>
-        </li>
-      </ul>
     </div>
   </footer>
+  <div class="modal_wrapper">
+    <div class="modal">
+      <img src="img/modal_btn.svg" alt="close_btn" class="close_btn">
+      <form class="modal__form">
+        <input type="text" required name="login" placeholder="Логин" class="modal__input">
+        <input type="password" required name="password" placeholder="Пароль" class="modal__input">
+        <input type="submit" value="Войти" class="btn modal__btn">
+      </form>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
 </body>
 
 </html>

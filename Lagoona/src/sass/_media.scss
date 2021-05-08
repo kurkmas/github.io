@@ -1,0 +1,385 @@
+@media screen and (max-width:1200px) {
+  .nav_list__item {
+    margin-right: 20px;
+  }
+
+  .article {
+    padding: 40px 100px 40px 40px;
+  }
+
+  .article.lux_room {
+    padding: 210px 170px 40px 40px;
+  }
+
+  .article_title {
+    font-size: 35px;
+  }
+
+  .services_list {
+    gap: 15px;
+  }
+
+  .list__item__inner {
+    padding: 26px 65px 50px 45px;
+  }
+
+  .advantages_list__item {
+    padding: 30px 31px 32px 35px;
+  }
+
+  .advantages_list {
+    gap: 15px;
+  }
+
+  .placement_inner {
+    padding: 36px 36px 31px 35px;
+  }
+
+  .more_options {
+    left: 30px;
+  }
+
+  .input_number {
+    width: 50px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .burger {
+    display: block;
+    position: relative;
+
+
+  }
+
+  .burger.burger_active {
+    z-index: 1;
+
+    .burger_line::before {
+      transform: rotate(45deg);
+    }
+
+    .burger_line::after {
+      transform: rotate(-45deg);
+    }
+
+    .burger_line {
+      height: 0;
+    }
+  }
+
+  .burger_line,
+  .burger_line::before,
+  .burger_line::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -1.5px;
+    margin-left: -12px;
+  }
+
+  .burger_line::before,
+  .burger_line::after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 3px;
+    background-color: $primary_color;
+    transition: .3s ease;
+  }
+
+  .burger_line::before {
+    transform: translateY(-7px);
+  }
+
+  .burger_line::after {
+    transform: translateY(7px);
+  }
+
+  .header_nav {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: start;
+    padding-top: 30px;
+    transform: translate(-100%);
+    transition: transform .3s ease;
+    background-color: $bg_color;
+  }
+
+  .header_nav.header_nav_active {
+    transform: none;
+  }
+
+  .nav_list {
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 50px;
+  }
+
+  .nav_list__link {
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  .nav__buttons {
+    margin: 0;
+  }
+
+  .article.lux_room {
+    padding: 210px 100px 40px 40px;
+  }
+
+  .list__item__inner {
+    padding: 20px 25px 50px 25px;
+  }
+
+  .advantages_list {
+    grid-template: repeat(3, 1fr)/repeat(3, 1fr);
+  }
+
+  .form {
+    flex-wrap: wrap;
+    max-width: 530px;
+
+    label:first-child,
+    label:nth-child(2) {
+      width: 50%;
+      margin-bottom: 15px;
+    }
+  }
+
+  .contacts__wrapper {
+    flex-direction: column;
+  }
+
+  .contacts__inner_left {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .contacts_list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .contacts_list__item:first-child {
+    padding-top: 25px;
+  }
+}
+
+@media screen and (max-width:900px) {
+  .articles {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .article {
+    padding: 40px 40px 40px 40px;
+    background-size: cover;
+  }
+
+  .placement_list {
+    grid-template: repeat(5, 1fr)/repeat(2, 1fr);
+  }
+
+  .placement_list__item img {
+    object-fit: cover;
+  }
+
+  .contacts_list {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width:750px) {
+  .logo {
+    width: 100px;
+  }
+
+  .phone {
+    font-size: 17px;
+  }
+
+  .personal_cabinet span {
+    font-size: 15px;
+  }
+
+  .burger {
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+  }
+
+  .burger_line,
+  .burger_line::after,
+  .burger_line::before {
+    height: 2px;
+    width: 20px;
+    margin-top: -1px;
+    margin-left: -10px;
+  }
+
+  .services_list {
+    grid-template: repeat(4, 1fr)/ 1fr;
+  }
+
+  .advantages_list {
+    grid-template: repeat(4, 1fr)/repeat(2, 1fr);
+  }
+
+  .placement_list {
+    grid-template: repeat(9, 1fr)/ 1fr;
+  }
+
+  .placement_list__item {
+    .placement_img {
+      width: 100%;
+    }
+  }
+
+  .more_options {
+    left: calc((100% - 264px)/2);
+  }
+
+  .submit {
+    margin-top: 30px;
+    width: 100%;
+  }
+
+  .footer_container {
+    flex-direction: column;
+  }
+
+  .footer_box:nth-child(2) {
+    margin-bottom: 30px;
+  }
+
+  .footer_list {
+    display: flex;
+    align-items: center;
+  }
+
+  .footer_list__item:not(:last-child) {
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
+}
+
+@media screen and (max-width:535px) {
+  .phone {
+    display: none;
+  }
+
+  .logo {
+    margin-right: auto;
+  }
+
+  .title_h2 {
+    margin-left: 0;
+  }
+
+  .service_title {
+    font-size: 16px;
+  }
+
+  .advantages_list {
+    grid-template: repeat(8, 1fr)/1fr;
+  }
+
+  .form label {
+    border-right: none;
+  }
+
+  .form label:first-child,
+  .form label:nth-child(2) {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .form label:nth-child(3) {
+    margin-bottom: 15px;
+  }
+
+  .contacts_list__item {
+    padding: 10px 0;
+    flex-direction: column;
+  }
+
+  .item_name {
+    margin-bottom: 10px;
+  }
+
+  .modal {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .header {
+    margin-bottom: 15px;
+  }
+
+  .burger {
+    margin: 0 5px;
+  }
+
+  .personal_cabinet {
+    img {
+      width: 0;
+      height: 0;
+    }
+  }
+
+  .title_h2 {
+    font-size: 30px;
+  }
+
+  .article.lux_room {
+    padding: 110px 100px 40px 40px;
+  }
+
+  .lux_room .article_title {
+    font-size: 45px;
+  }
+
+  .btn__link {
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-right: 0;
+  }
+
+  .special_offers {
+    margin-bottom: 30px;
+  }
+
+  .about_us__text {
+    margin-bottom: 10px;
+  }
+
+  .services_list__item {
+    img {
+      margin-bottom: 0;
+    }
+  }
+
+  .list__item__inner {
+    img {
+      display: none;
+    }
+  }
+
+  .service_title {
+    line-height: 20px;
+  }
+
+  p,
+  .services__descr {
+    line-height: 1.5;
+  }
+}
