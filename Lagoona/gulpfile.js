@@ -116,8 +116,8 @@ const buildhtmlMinify = () => {
 };
 
 const stylesBuild = () => {
-  return src('src/styles/**/*.css')
-    .pipe(concat('style.css'))
+  return src('src/css/**/*.css')
+    .pipe(concat('style.min.css'))
     .pipe(cleanCSS({
       level: 2
     }))
@@ -144,10 +144,10 @@ const resourcesBuild = () => {
 
 const buildImages = () => {
   return src([
-    'dist/images/img/**/*.jpg',
-    'dist/images/img/**/*.png',
-    'dist/images/img/*.svg',
-    'dist/images/img/**/*.jpeg',
+    'dist/img/**/*.jpg',
+    'dist/img/**/*.png',
+    'dist/img/*.svg',
+    'dist/img/**/*.jpeg',
   ])
     .pipe(dest('build/img'));
 };
