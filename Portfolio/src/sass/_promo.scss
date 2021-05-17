@@ -1,0 +1,75 @@
+.promo {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../img/promo_background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  object-fit: cover;
+  padding-top: 206px;
+}
+
+.subtitle {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
+  margin: 0;
+  max-width: 535px;
+  margin-bottom: 25px;
+}
+
+.btns {
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .btn {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    padding: 12px 25px;
+    background-color: $orange_color;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn_link {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    color: $text_color;
+  }
+}
+
+.sidepanel {
+  position: fixed;
+  top: 365px;
+  left: -100px;
+  width: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: rotate(-90deg);
+
+  .sidepanel__text {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: $text_color;
+  }
+
+  .sidepanel__line {
+    width: 70px;
+    height: 2px;
+    background-color: $text_color;
+    border: 1px solid $text_color;
+  }
+}

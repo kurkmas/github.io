@@ -1,0 +1,73 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url('../css/fonts/poppins-regular-webfont.woff2') format('woff2'),
+    url('../css/fonts/poppins-regular-webfont.woff') format('woff');
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../css/fonts/poppins-bold-webfont.woff2') format('woff2'),
+    url('../css/fonts/poppins-bold-webfont.woff') format('woff');
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@import 'normalize';
+@import 'variables';
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', Helvetica, sans-serif;
+  margin: 0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+.container {
+  max-width: 1170px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+@import 'header';
+@import 'promo';

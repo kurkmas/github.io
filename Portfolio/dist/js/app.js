@@ -1,0 +1,2 @@
+"use strict";console.log("hello from gulp file!");
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1haW4uanMiXSwibmFtZXMiOlsiY29uc29sZSIsImxvZyJdLCJtYXBwaW5ncyI6ImFBQUFBLFFBQVFDLElBQUkiLCJmaWxlIjoiYXBwLmpzIiwic291cmNlc0NvbnRlbnQiOlsiY29uc29sZS5sb2coJ2hlbGxvIGZyb20gZ3VscCBmaWxlIScpO1xuIl19
