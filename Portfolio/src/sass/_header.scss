@@ -5,6 +5,7 @@
   width: 100%;
   background-color: $orange_color;
   padding: 25px 0;
+  z-index: 1;
 }
 
 .header__list {
@@ -26,12 +27,19 @@
     left: 0;
     border-radius: 100%;
     border: 1px solid $text_color;
+    background-color: transparent;
   }
 
   .header__list__link {
     color: #fff;
     font-weight: 700;
     font-size: 20px;
+  }
+}
+
+.header__list__item:hover {
+  &::before {
+    background-color: #fff;
   }
 }
 

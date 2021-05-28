@@ -3,6 +3,15 @@
   src: url('../css/fonts/poppins-regular-webfont.woff2') format('woff2'),
     url('../css/fonts/poppins-regular-webfont.woff') format('woff');
   font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../css/fonts/poppins-medium-webfont.woff2') format('woff2'),
+    url('../css/fonts/poppins-medium-webfont.woff') format('woff');
+  font-display: swap;
   font-weight: 500;
   font-style: normal;
 }
@@ -18,10 +27,17 @@
 
 @import 'normalize';
 @import 'variables';
+@import 'mixins';
 
 
-* {
+html {
   box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
 }
 
 body {
@@ -50,6 +66,25 @@ li {
   list-style-type: none;
 }
 
+p {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  color: $text_color;
+}
+
+h2 {
+  margin: 0;
+}
+
+h4 {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+  color: $text_color;
+  margin: 0;
+}
+
 .visually-hidden {
   position: absolute;
   white-space: nowrap;
@@ -69,5 +104,42 @@ li {
   margin: 0 auto;
 }
 
+.title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 60px;
+}
+
+.orange_line {
+  width: 60px;
+  height: 4px;
+  background-color: $orange_color;
+}
+
+.pos_center {
+  text-align: center;
+  margin-bottom: 60px;
+
+  .experience__line {
+    margin: 0 auto;
+  }
+}
+
+.btn {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 21px;
+  padding: 12px 25px;
+  background-color: $orange_color;
+  border: none;
+  cursor: pointer;
+}
+
 @import 'header';
 @import 'promo';
+@import 'about';
+@import 'experience';
+@import 'usage';
+@import 'portfolio';
+@import 'price';
+@import 'contacts';

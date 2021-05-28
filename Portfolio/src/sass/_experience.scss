@@ -1,0 +1,101 @@
+.experience {
+  padding-bottom: 120px;
+
+  .subtitle {
+    padding: 0;
+
+    &::before {
+      transform: translate(5px, -6px);
+    }
+  }
+}
+
+.experience__title {
+  margin-bottom: 25px;
+}
+
+.experience__content {
+  padding: 0 77px;
+  display: grid;
+  grid-template-columns: repeat(2, 425px);
+  column-gap: 136px;
+
+  .experience__content__column {
+    padding-left: 43px;
+    border-left: 1px solid $text_color;
+
+    .experience__list__title {
+      position: relative;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1;
+      color: $text_color;
+      margin: 0 0 45px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -51px;
+        width: 15px;
+        height: 15px;
+        border-radius: 100px;
+        background-color: $orange_color;
+      }
+    }
+
+    .list__item:not(:last-child) {
+      margin-bottom: 45px;
+    }
+
+    .item-title__wrapper {
+      position: relative;
+      padding-left: 60px;
+      @include before_circle;
+      background-repeat: no-repeat;
+      background-position: 17px 15px;
+
+      &::before {
+        left: 0;
+        transform: none;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        height: 1px;
+        width: 45px;
+        background-color: $text_color;
+        left: -44px;
+        top: calc(50% - 1px);
+      }
+
+      .experience__subtinfo {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 18px;
+        color: $text_color;
+      }
+    }
+
+    .experience__text {
+      margin-bottom: 0;
+    }
+
+    .item-title__wrapper.university {
+      background-image: url(../img/svg/University.svg);
+    }
+
+    .item-title__wrapper.courses {
+      background-image: url(../img/svg/Courses.svg)
+    }
+
+    .item-title__wrapper.developer {
+      background-image: url(../img/svg/Developer.svg);
+    }
+
+    .item-title__wrapper.designer {
+      background-image: url(../img/svg/designer.svg);
+    }
+  }
+}

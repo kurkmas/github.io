@@ -1,0 +1,57 @@
+.about_me__container {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.about_me_foto {
+  margin-right: 70px;
+}
+
+.about_me__descr {
+  max-width: 570px;
+  padding-top: 5px;
+}
+
+.skills__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.skills__item {
+  position: relative;
+  @include before_circle;
+
+  &::before {
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+
+  max-width: 260px;
+  background-repeat: no-repeat;
+  background-position: 16px 15px;
+  padding-left: 60px;
+}
+
+.web_dev {
+  background-image: url(../img/svg/web_development.svg);
+}
+
+.mobile_dev {
+  background-image: url(../img/svg/Mobile_dev.svg);
+}
+
+.design {
+  background-image: url(../img/svg/Design.svg);
+}
+
+.skills__item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.about_me__descr_text {
+  margin-bottom: 40px;
+}

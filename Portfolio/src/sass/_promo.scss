@@ -9,16 +9,42 @@
   padding-top: 206px;
 }
 
+.burger {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  width: 36px;
+  height: 21px;
+
+  svg {
+    rect {
+      fill: #151812;
+    }
+  }
+}
+
+.burger.burger_active {
+  svg {
+    rect {
+      fill: transparent;
+    }
+  }
+}
+
 .subtitle {
+  display: inline-block;
+  position: relative;
+  @include before_circle;
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
+  z-index: 1;
+  padding-left: 10px;
+  margin-bottom: 10px;
 }
 
-.title {
-  font-weight: 700;
+.promo__title {
   font-size: 48px;
-  line-height: 60px;
   margin: 0;
   max-width: 535px;
   margin-bottom: 25px;
@@ -29,16 +55,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  .btn {
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 21px;
-    padding: 12px 25px;
-    background-color: $orange_color;
-    border: none;
-    cursor: pointer;
-  }
 
   .btn_link {
     font-weight: 700;
