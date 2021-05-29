@@ -7,6 +7,12 @@
 
 .about_me_foto {
   margin-right: 70px;
+
+  img {
+    object-fit: cover;
+    height: 100%;
+    min-width: 300px;
+  }
 }
 
 .about_me__descr {

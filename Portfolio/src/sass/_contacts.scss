@@ -84,3 +84,21 @@
   padding: 5px 10px;
   background-color: #fff;
 }
+
+.form__bottom {
+  grid-column: 1 / 3;
+}
+
+.form__btn {
+  margin-right: 35px;
+}
+
+.input__checkbox {
+  width: 11px;
+  height: 11px;
+  vertical-align: middle;
+}
+
+.checkbox__descr {
+  font-size: 12px;
+}

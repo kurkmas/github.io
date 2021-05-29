@@ -31,3 +31,11 @@
   transform: scale(1.05);
   transition: transform 0.3s ease;
 }
+
+.portfolio__item {
+  img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+}
