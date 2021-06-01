@@ -8,6 +8,7 @@ const babel = require('gulp-babel');
 const uglify = require('gulp-uglify-es').default;
 const del = require('del');
 const sourcemaps = require('gulp-sourcemaps');
+const imageWebp = require('gulp-webp');
 const notify = require('gulp-notify');
 const browserSync = require('browser-sync').create();
 
@@ -74,9 +75,18 @@ const imageCompress = () => {
     'src/img/**/*.jpg',
     'src/img/**/*.png',
     'src/img/*.svg',
-    'src/img/**/*.jpeg',
+    'src/img/**/*.jpeg'
   ])
     .pipe(image())
+    .pipe(dest('dist/img'));
+};
+
+const imageTransform = () => {
+  return src([
+    'src/img/*.jpg',
+    'src/img/*.jpeg'
+  ])
+    .pipe(imageWebp())
     .pipe(dest('dist/img'));
 };
 
@@ -101,12 +111,15 @@ watch('src/resources/**', resources);
 
 exports.scripts = scripts;
 exports.clean = clean;
-exports.default = series(clean, resources, htmlMinify, styles, copyFonts, imageCompress, copySvg, scripts, watchFiles);
+exports.imageTransform = imageTransform;
+exports.default = series(clean, resources, htmlMinify, styles,
+  copyFonts, imageCompress, imageTransform, copySvg, scripts,
+  watchFiles);
 
 const copyFontsBuild = () => {
   return src([
-    'src/styles/fonts/**/*.woff2',
-    'src/styles/fonts/**/*.woff'
+    'src/css/fonts/**/*.woff2',
+    'src/css/fonts/**/*.woff'
   ])
 
     .pipe(dest('build/styles/fonts'));
@@ -157,4 +170,19 @@ const buildImages = () => {
     .pipe(dest('build/img'));
 };
 
-exports.build = series(copyFontsBuild, buildhtmlMinify, stylesBuild, scriptsBuild, resourcesBuild, buildImages);
+const imageTransformBuild = () => {
+  return src([
+    'src/img/*.jpg',
+    'src/img/*.jpeg'
+  ])
+    .pipe(imageWebp())
+    .pipe(dest('build/img'));
+};
+
+const copySvgBuild = () => {
+  return src('src/img/svg/*.svg')
+    .pipe(dest('build/img/svg'));
+};
+
+exports.build = series(copyFontsBuild, buildhtmlMinify, stylesBuild,
+  scriptsBuild, resourcesBuild, buildImages, imageTransformBuild, copySvgBuild);
