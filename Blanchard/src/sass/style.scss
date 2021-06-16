@@ -42,12 +42,11 @@
 *,
 ::before,
 ::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
   outline: none;
 }
 
 html {
-  box-sizing: border-box;
   font-family: 'Open sans', sans-serif;
   scroll-behavior: smooth;
 }
@@ -669,7 +668,7 @@ h2 {
 
 .hero {
   padding: 0;
-  background: url(../img/birmingham-museums-trust-MK_98NuC4-4-unsplash_2.png);
+  background: url(../img/birmingham-museums-trust-MK_98NuC4-4-unsplash_2.jpg);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: center;
@@ -783,7 +782,7 @@ h2 {
 }
 
 .gallery {
-  background-image: url(../img/birmingham-museums-trust-MK_98NuC4-4-unsplash_3.png);
+  background-image: url(../img/birmingham-museums-trust-MK_98NuC4-4-unsplash_3.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -2009,7 +2008,7 @@ footer {
 
 .modal__wrapper {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -2017,6 +2016,7 @@ footer {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, .6);
+  z-index: 1;
 }
 
 .modal__wrapper.modal--active {
@@ -2581,7 +2581,6 @@ footer {
   }
 
   .gallery-slide {
-    max-width: 280px;
     max-height: 280px;
   }
 
@@ -2962,6 +2961,23 @@ footer {
 
   .map {
     width: 50%;
+  }
+
+  .gallery-modal {
+    flex-direction: column;
+    width: 60%;
+    height: inherit;
+    padding: 50px;
+  }
+
+  .gallery-modal__img {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .gallery-modal__descr {
+    padding: 0;
   }
 }
 
@@ -3409,6 +3425,10 @@ footer {
     width: 30px;
     height: 30px;
   }
+
+  .gallery-modal {
+    width: 75%;
+  }
 }
 
 @media screen and (max-width: 590px) {
@@ -3536,6 +3556,33 @@ footer {
 
   .map {
     width: 100%;
+  }
+
+  .modal {
+    width: 90%;
+    height: 400px;
+  }
+
+  .modal h3 {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .modal__form input {
+    font-size: 16px;
+    color: #000;
+    width: 100%;
+    border: 1px solid #333;
+    border-radius: 100px;
+    margin-bottom: 20px;
+    padding: 10px 0 10px 20px;
+  }
+
+  .modal__form .modal_btn {
+    font-size: 16px;
+    line-height: 20px;
+    padding: 8px 20px;
   }
 }
 
@@ -3907,6 +3954,11 @@ footer {
     width: 25px;
     height: 25px;
   }
+
+  .gallery-modal {
+    width: 90%;
+  }
+
 }
 
 @media screen and (max-width: 410px) {

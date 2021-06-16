@@ -10,7 +10,7 @@ const gallerySwiper = new Swiper('.gallery-swiper-container', {
       slidesPerGroup: 2,
       slidesPerColumn: 1,
       slidesPerView: 2,
-      spaceBetween: 20,
+      spaceBetween: 20
     },
 
     760: {
@@ -184,6 +184,7 @@ const modalBtn = document.querySelector('.get-in__inner');
 const modalClose = document.querySelectorAll('.modalCloseBtn');
 const modalWindow = document.querySelector('.modal__wrapper');
 const galleryModalContent = document.querySelector('.gallery-modal');
+const tabletModalBtn = document.querySelector('.get-in__box');
 
 modalBtn.addEventListener('click', function (e) {
   const target = e.target;
@@ -191,6 +192,13 @@ modalBtn.addEventListener('click', function (e) {
     document.querySelector('.modal').style.display = 'block';
   }
   modalWindow.classList.add('modal--active');
+  document.body.style.overflowY = 'hidden';
+});
+
+tabletModalBtn.addEventListener('click', function () {
+  document.querySelector('.modal').style.display = 'block';
+  modalWindow.classList.add('modal--active');
+  document.body.style.overflowY = 'hidden';
 });
 
 function closeHiddenList() {
@@ -206,7 +214,7 @@ styleList.addEventListener('click', function (e) {
   const target = e.target;
   closeHiddenList();
   styleLIstItems.forEach(function (item, i) {
-    if (target == styleLIstItems[i]) {
+    if (target == item) {
       headerHiddenList[i].classList.add('hidden__list--active');
       svgArrow[i].classList.add('list__item__svg--active');
     }
@@ -215,7 +223,7 @@ styleList.addEventListener('click', function (e) {
 
 article.addEventListener('click', function (e) {
   const target = e.target;
-  if (target != styleList) {
+  if (target !== styleList) {
     closeHiddenList();
   }
 });
@@ -239,15 +247,18 @@ galleryContent.addEventListener('click', function (e) {
   if (target === document.querySelector('.gallery-img__hover') || document.querySelector('.gallery-img__hover-loupe')) {
     document.querySelector('.modal__wrapper').classList.add('modal--active');
     galleryModalContent.style.display = 'flex';
+    document.body.style.overflowY = 'hidden';
   }
 });
 
 modalClose.forEach(function (item) {
   item.addEventListener('click', function (e) {
-    const target = e.target;
-    target.parentElement.parentElement.parentElement.classList.remove('modal--active');
+    item.parentElement.parentElement.parentElement.classList.remove('modal--active');
+    modalWindow.classList.remove('modal--active');
     document.querySelector('.modal').style.display = 'none';
     galleryModalContent.style.display = 'none';
+    document.body.style.overflowY = 'auto';
+
   });
 });
 
