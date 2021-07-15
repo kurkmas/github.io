@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>High pass</title>
+  <link rel="stylesheet" href="styles/style.min.css">
+  <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="img/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="img/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__top">
+      <div class="container">
+        <div class="header__top__inner">
+          <a href="#" aria-label="главная страница" class="logo">
+            <svg viewbox="0 0 112 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M25.2119 14.658V2.34528H28.466V6.91857H33.2152V2.34528H36.4692V14.658H33.2152V9.90879H28.466V14.658H25.2119Z"
+                fill="white" />
+              <path
+                d="M38.3958 3.04886C38.3958 2.62671 38.5542 2.27492 38.8708 1.99349C39.1874 1.70033 39.5861 1.55375 40.0669 1.55375C40.5476 1.55375 40.9463 1.70033 41.2629 1.99349C41.5796 2.27492 41.7379 2.62671 41.7379 3.04886C41.7379 3.45928 41.5796 3.81107 41.2629 4.10423C40.9463 4.39739 40.5476 4.54397 40.0669 4.54397C39.5861 4.54397 39.1874 4.39739 38.8708 4.10423C38.5542 3.81107 38.3958 3.45928 38.3958 3.04886ZM38.5717 14.658V5.5114H41.562V14.658H38.5717Z"
+                fill="white" />
+              <path
+                d="M44.2404 13.2684C43.4547 12.4007 43.0619 11.2808 43.0619 9.90879C43.0619 8.53681 43.4547 7.41694 44.2404 6.54918C45.0261 5.68143 45.9818 5.24756 47.1075 5.24756C47.9166 5.24756 48.6143 5.48208 49.2007 5.95114C49.4704 6.16221 49.6814 6.39674 49.8339 6.65472H50.0098V5.5114H53V18H44.2932V15.6254H50.0098V13.2508H49.8339C49.6697 13.5088 49.4586 13.7316 49.2007 13.9192C48.6261 14.3531 47.9283 14.57 47.1075 14.57C45.9818 14.57 45.0261 14.1362 44.2404 13.2684ZM46.6678 8.36091C46.316 8.73616 46.1401 9.25212 46.1401 9.90879C46.1401 10.5655 46.316 11.0814 46.6678 11.4567C47.0196 11.8319 47.4886 12.0195 48.0749 12.0195C48.6612 12.0195 49.1303 11.8319 49.4821 11.4567C49.8339 11.0814 50.0098 10.5655 50.0098 9.90879C50.0098 9.25212 49.8339 8.73616 49.4821 8.36091C49.1303 7.98567 48.6612 7.79805 48.0749 7.79805C47.4886 7.79805 47.0196 7.98567 46.6678 8.36091Z"
+                fill="white" />
+              <path
+                d="M54.7507 14.658V2.34528H57.7409V6.74267H57.9168C58.081 6.46124 58.2921 6.21498 58.5501 6.00391C59.1481 5.49967 59.8458 5.24756 60.6432 5.24756C61.7221 5.24756 62.5605 5.5759 63.1585 6.23257C63.7683 6.87752 64.0732 7.80977 64.0732 9.02932V14.658H61.083V9.46905C61.083 8.94137 60.9422 8.53094 60.6608 8.23778C60.3794 7.94462 59.9924 7.79805 59.4999 7.79805C58.9957 7.79805 58.5735 7.98567 58.2335 8.36091C57.9051 8.72443 57.7409 9.21107 57.7409 9.82085V14.658H54.7507Z"
+                fill="white" />
+              <path
+                d="M70.6741 18V5.5114H73.6643V6.74267H73.8402C74.0044 6.47296 74.2272 6.22671 74.5086 6.00391C75.1536 5.49967 75.8396 5.24756 76.5666 5.24756C77.6923 5.24756 78.648 5.69316 79.4337 6.58436C80.2194 7.46384 80.6122 8.63062 80.6122 10.0847C80.6122 11.5388 80.2194 12.7114 79.4337 13.6026C78.648 14.4821 77.6923 14.9218 76.5666 14.9218C75.8278 14.9218 75.1418 14.6756 74.5086 14.1831C74.2272 13.9603 74.0044 13.7081 73.8402 13.4267H73.6643V18H70.6741ZM74.192 8.39609C73.8402 8.79479 73.6643 9.35765 73.6643 10.0847C73.6643 10.8117 73.8402 11.3746 74.192 11.7733C74.5438 12.172 75.0129 12.3713 75.5992 12.3713C76.1855 12.3713 76.6546 12.172 77.0063 11.7733C77.3581 11.3746 77.534 10.8117 77.534 10.0847C77.534 9.35765 77.3581 8.79479 77.0063 8.39609C76.6546 7.99739 76.1855 7.79805 75.5992 7.79805C75.0129 7.79805 74.5438 7.99739 74.192 8.39609Z"
+                fill="white" />
+              <path
+                d="M82.8378 13.6026C82.0522 12.7114 81.6593 11.5388 81.6593 10.0847C81.6593 8.63062 82.0522 7.46384 82.8378 6.58436C83.6235 5.69316 84.5792 5.24756 85.7049 5.24756C86.432 5.24756 87.118 5.49967 87.7629 6.00391C88.0326 6.22671 88.2554 6.47296 88.4313 6.74267H88.6072V5.5114H91.5974V14.658H88.6072V13.4267H88.4313C88.2671 13.7081 88.0443 13.9603 87.7629 14.1831C87.1297 14.6756 86.4437 14.9218 85.7049 14.9218C84.5792 14.9218 83.6235 14.4821 82.8378 13.6026ZM85.2652 8.39609C84.9134 8.79479 84.7375 9.35765 84.7375 10.0847C84.7375 10.8117 84.9134 11.3746 85.2652 11.7733C85.617 12.172 86.086 12.3713 86.6724 12.3713C87.2587 12.3713 87.7277 12.172 88.0795 11.7733C88.4313 11.3746 88.6072 10.8117 88.6072 10.0847C88.6072 9.35765 88.4313 8.79479 88.0795 8.39609C87.7277 7.99739 87.2587 7.79805 86.6724 7.79805C86.086 7.79805 85.617 7.99739 85.2652 8.39609Z"
+                fill="white" />
+              <path
+                d="M92.8205 11.6678H95.8107C95.8576 11.8436 95.9573 12.0078 96.1097 12.1603C96.4263 12.4769 96.8837 12.6352 97.4817 12.6352C98.3026 12.6352 98.713 12.43 98.713 12.0195C98.713 11.8319 98.5957 11.6853 98.3612 11.5798C98.1267 11.4625 97.7749 11.3453 97.3058 11.228C96.9188 11.1342 96.6667 11.0756 96.5495 11.0521C96.4322 11.0287 96.1859 10.9642 95.8107 10.8586C95.4354 10.7414 95.1657 10.6417 95.0016 10.5596C94.8491 10.4658 94.6322 10.3368 94.3508 10.1726C94.0811 9.99674 93.8817 9.82085 93.7527 9.64495C93.6355 9.45733 93.5241 9.22866 93.4185 8.95896C93.313 8.67752 93.2602 8.3785 93.2602 8.06189C93.2602 7.28795 93.6061 6.62541 94.298 6.07427C94.9899 5.52313 95.9631 5.24756 97.2179 5.24756C98.7892 5.24756 100.032 5.76352 100.947 6.79544C101.31 7.24104 101.562 7.75114 101.703 8.32573H98.8009C98.7306 8.13811 98.6485 7.99153 98.5547 7.88599C98.285 7.59283 97.898 7.44625 97.3938 7.44625C96.6902 7.44625 96.3384 7.65147 96.3384 8.06189C96.3384 8.26124 96.4556 8.41368 96.6902 8.51922C96.9247 8.62476 97.2824 8.72443 97.7631 8.81824C98.971 9.09967 99.7859 9.34593 100.208 9.557C101.263 10.073 101.791 10.8645 101.791 11.9316C101.791 12.7759 101.416 13.4853 100.665 14.0599C99.9267 14.6345 98.8654 14.9218 97.4817 14.9218C95.7814 14.9218 94.4856 14.3824 93.5944 13.3036C93.1957 12.8228 92.9377 12.2775 92.8205 11.6678Z"
+                fill="white" />
+              <path
+                d="M102.577 11.6678H105.567C105.614 11.8436 105.714 12.0078 105.866 12.1603C106.183 12.4769 106.64 12.6352 107.238 12.6352C108.059 12.6352 108.47 12.43 108.47 12.0195C108.47 11.8319 108.352 11.6853 108.118 11.5798C107.883 11.4625 107.532 11.3453 107.063 11.228C106.676 11.1342 106.423 11.0756 106.306 11.0521C106.189 11.0287 105.943 10.9642 105.567 10.8586C105.192 10.7414 104.922 10.6417 104.758 10.5596C104.606 10.4658 104.389 10.3368 104.107 10.1726C103.838 9.99674 103.638 9.82085 103.509 9.64495C103.392 9.45733 103.281 9.22866 103.175 8.95896C103.07 8.67752 103.017 8.3785 103.017 8.06189C103.017 7.28795 103.363 6.62541 104.055 6.07427C104.747 5.52313 105.72 5.24756 106.975 5.24756C108.546 5.24756 109.789 5.76352 110.704 6.79544C111.067 7.24104 111.319 7.75114 111.46 8.32573H108.558C108.487 8.13811 108.405 7.99153 108.311 7.88599C108.042 7.59283 107.655 7.44625 107.15 7.44625C106.447 7.44625 106.095 7.65147 106.095 8.06189C106.095 8.26124 106.212 8.41368 106.447 8.51922C106.681 8.62476 107.039 8.72443 107.52 8.81824C108.728 9.09967 109.543 9.34593 109.965 9.557C111.02 10.073 111.548 10.8645 111.548 11.9316C111.548 12.7759 111.173 13.4853 110.422 14.0599C109.683 14.6345 108.622 14.9218 107.238 14.9218C105.538 14.9218 104.242 14.3824 103.351 13.3036C102.952 12.8228 102.694 12.2775 102.577 11.6678Z"
+                fill="white" />
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M3.51792 3.51792V14.0717H14.0717L3.51792 3.51792ZM0 0V17.5896H17.5896V0H0Z" fill="#FF6E30" />
+            </svg>
+          </a>
+
+          <nav class="header__nav">
+            <ul class="nav__list">
+              <li class="nav__list__item">
+                <a href="#studio" class="nav__link">О студии</a>
+              </li>
+              <li class="nav__list__item">
+                <a href="#projects" class="nav__link">Наши проекты</a>
+              </li>
+              <li class="nav__list__item">
+                <a href="#service" class="nav__link">Услуги</a>
+              </li>
+              <li class="nav__list__item">
+                <a href="#master" class="nav__link">Мастер классы</a>
+              </li>
+              <li class="nav__list__item">
+                <a href="#contacts" class="nav__link">Контакты</a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="social header__social">
+            <a href="#" aria-label="Наша страница в инстаграм" class="social__link">
+              <svg width="30" height="30" viewbox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12.1289 15.0001C12.1289 16.5858 13.4143 17.8712 15 17.8712C16.5857 17.8712 17.8711 16.5858 17.8711 15.0001C17.8711 13.4144 16.5857 12.129 15 12.129C13.4143 12.129 12.1289 13.4144 12.1289 15.0001Z"
+                  fill="" />
+                <path
+                  d="M8.28558 9.92003C8.4236 9.54604 8.64378 9.20752 8.92989 8.92966C9.20775 8.64355 9.54604 8.42337 9.92026 8.28535C10.2238 8.16748 10.6797 8.02718 11.5195 7.98895C12.4279 7.94753 12.7003 7.9386 15.0001 7.9386C17.3001 7.9386 17.5725 7.9473 18.4807 7.98872C19.3204 8.02718 19.7766 8.16748 20.0799 8.28535C20.4541 8.42337 20.7926 8.64355 21.0702 8.92966C21.3563 9.20752 21.5765 9.54581 21.7148 9.92003C21.8326 10.2235 21.9729 10.6797 22.0112 11.5195C22.0526 12.4277 22.0615 12.7 22.0615 15.0001C22.0615 17.2999 22.0526 17.5722 22.0112 18.4807C21.9729 19.3204 21.8326 19.7764 21.7148 20.0799C21.5765 20.4541 21.3566 20.7924 21.0705 21.0702C20.7926 21.3563 20.4543 21.5765 20.0801 21.7145C19.7766 21.8326 19.3204 21.9729 18.4807 22.0112C17.5725 22.0526 17.3003 22.0613 15.0003 22.0613C12.7 22.0613 12.4277 22.0526 11.5197 22.0112C10.6799 21.9729 10.2238 21.8326 9.92026 21.7145C9.16907 21.4248 8.57535 20.8311 8.28558 20.0799C8.16771 19.7764 8.0274 19.3204 7.98895 18.4807C7.94753 17.5722 7.93883 17.2999 7.93883 15.0001C7.93883 12.7 7.94753 12.4277 7.98895 11.5195C8.02718 10.6797 8.16748 10.2235 8.28558 9.92003ZM15.0001 19.4227C17.4429 19.4227 19.4232 17.4427 19.4232 14.9998C19.4232 12.557 17.4429 10.5769 15.0001 10.5769C12.5574 10.5769 10.5771 12.557 10.5771 14.9998C10.5771 17.4427 12.5574 19.4227 15.0001 19.4227ZM10.4023 11.4357C10.9731 11.4357 11.4359 10.9729 11.4359 10.4021C11.4359 9.83122 10.9731 9.36842 10.4023 9.36842C9.83145 9.36842 9.36865 9.83122 9.36865 10.4021C9.36888 10.9729 9.83145 11.4357 10.4023 11.4357Z"
+                  fill="" />
+                <path
+                  d="M15 0C23.283 0 30 6.717 30 15C30 23.283 23.283 30 15 30C6.717 30 0 23.283 0 15C0 6.717 6.717 0 15 0ZM6.43867 18.5511C6.48033 19.468 6.62613 20.094 6.83899 20.6419C7.28645 21.7989 8.20107 22.7135 9.35806 23.161C9.90578 23.3739 10.532 23.5194 11.4487 23.5613C12.3672 23.6032 12.6606 23.6133 14.9998 23.6133C17.3392 23.6133 17.6324 23.6032 18.5511 23.5613C19.4678 23.5194 20.094 23.3739 20.6417 23.161C21.2167 22.9447 21.7371 22.6057 22.1674 22.1674C22.6055 21.7374 22.9445 21.2167 23.1608 20.6419C23.3736 20.0942 23.5194 19.468 23.5611 18.5513C23.6034 17.6326 23.6133 17.3392 23.6133 15C23.6133 12.6608 23.6034 12.3674 23.5613 11.4489C23.5197 10.532 23.3741 9.90601 23.1612 9.35806C22.9449 8.78334 22.6057 8.26263 22.1674 7.83257C21.7374 7.39426 21.2167 7.05528 20.6419 6.83899C20.094 6.62613 19.468 6.48056 18.5511 6.43867C17.6326 6.39679 17.3392 6.38672 15 6.38672C12.6608 6.38672 12.3674 6.39679 11.4489 6.4389C10.532 6.48056 9.90601 6.62613 9.35806 6.83876C8.78334 7.05505 8.26263 7.39426 7.83234 7.83257C7.39426 8.26286 7.05505 8.78334 6.83899 9.35806C6.6259 9.90601 6.48033 10.532 6.43845 11.4489C6.39656 12.3674 6.38672 12.6608 6.38672 15C6.38672 17.3392 6.39656 17.6326 6.43867 18.5511Z"
+                  fill="" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Наша страница в фейсбук" class="social__link">
+              <svg width="30" height="30" viewbox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M15 0C6.74999 0 0 6.76205 0 15.0904C0 22.6205 5.48999 28.8705 12.66 30V19.4578H8.84999V15.0904H12.66V11.762C12.66 7.98193 14.895 5.90361 18.33 5.90361C19.965 5.90361 21.675 6.18976 21.675 6.18976V9.90964H19.785C17.925 9.90964 17.34 11.0693 17.34 12.259V15.0904H21.51L20.835 19.4578H17.34V30C20.8746 29.4395 24.0933 27.6288 26.4149 24.8947C28.7364 22.1606 30.008 18.6832 30 15.0904C30 6.76205 23.25 0 15 0Z"
+                  fill="" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Наша страница в вконтакте" class="social__link">
+              <svg width="30" height="30" viewbox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M15 0C6.71601 0 0 6.7157 0 15C0 23.2843 6.71601 30 15 30C23.284 30 30 23.2843 30 15C30 6.7157 23.284 0 15 0ZM22.6088 16.6223C23.3079 17.3052 24.0476 17.9478 24.6752 18.7013C24.9532 19.0346 25.2153 19.3792 25.4148 19.7669C25.6996 20.3196 25.4425 20.9257 24.9477 20.9586L21.8747 20.958C21.081 21.0236 20.4494 20.7035 19.9169 20.1609C19.4919 19.7285 19.0975 19.2666 18.6881 18.8194C18.5208 18.6359 18.3447 18.4631 18.1347 18.3272C17.7158 18.0546 17.3518 18.1381 17.1118 18.5758C16.8672 19.0211 16.8114 19.5146 16.788 20.0102C16.7546 20.7348 16.5361 20.9242 15.809 20.9583C14.2554 21.031 12.7814 20.7953 11.4114 20.0121C10.2028 19.3212 9.26731 18.3462 8.45217 17.2423C6.86486 15.0902 5.64921 12.7283 4.55693 10.2985C4.3111 9.7513 4.49095 9.45852 5.09463 9.44716C6.0976 9.42783 7.10056 9.43028 8.10353 9.44624C8.51171 9.45268 8.78179 9.68624 8.93862 10.0714C9.48061 11.4049 10.1451 12.6737 10.9777 13.8503C11.1996 14.1637 11.4261 14.4761 11.7486 14.6974C12.1047 14.9417 12.376 14.861 12.5438 14.4635C12.6513 14.2109 12.6976 13.9409 12.7209 13.6702C12.8007 12.743 12.8102 11.8162 12.6721 10.8927C12.5862 10.3148 12.2612 9.94158 11.6851 9.83233C11.3917 9.77678 11.4347 9.66813 11.5774 9.50056C11.8251 9.21084 12.0571 9.03161 12.5208 9.03161L15.9928 9.031C16.5401 9.13841 16.6628 9.38394 16.7371 9.93514L16.7402 13.7936C16.7337 14.0069 16.8473 14.6391 17.2303 14.7787C17.5372 14.88 17.7397 14.6339 17.9233 14.4396C18.7559 13.556 19.3492 12.5131 19.8804 11.4338C20.1149 10.9577 20.3171 10.4652 20.5136 9.97166C20.6596 9.60675 20.8868 9.42721 21.2986 9.43335L24.642 9.43734C24.7406 9.43734 24.8406 9.43826 24.9382 9.45514C25.5017 9.55151 25.6561 9.79396 25.4817 10.3436C25.2074 11.2073 24.6743 11.9266 24.1531 12.6479C23.5946 13.4201 22.9989 14.1652 22.4458 14.9408C21.9376 15.6497 21.9778 16.0066 22.6088 16.6223Z"
+                  fill="" />
+              </svg>
+            </a>
+          </div>
+          <a href="tel:+749542423532" class="tel__link">
+            <svg width="18" height="18" viewbox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16.3425 12.0983C15.215 12.0983 14.1242 11.915 13.1067 11.585C12.7858 11.475 12.4283 11.5575 12.1808 11.805L10.7417 13.6108C8.1475 12.3733 5.71833 10.0358 4.42583 7.35L6.21333 5.82833C6.46083 5.57167 6.53417 5.21417 6.43333 4.89333C6.09417 3.87583 5.92 2.785 5.92 1.6575C5.92 1.1625 5.5075 0.75 5.0125 0.75H1.84083C1.34583 0.75 0.75 0.97 0.75 1.6575C0.75 10.1733 7.83583 17.25 16.3425 17.25C16.9933 17.25 17.25 16.6725 17.25 16.1683V13.0058C17.25 12.5108 16.8375 12.0983 16.3425 12.0983Z"
+                fill="" />
+            </svg>
+            <span class="tel__number">+7 (495) 42-423-532</span>
+          </a>
+          <button class="tablet_serch__btn"></button>
+          <form class="header__form">
+            <button type="submit" aria-label="кнопка поиска по сайту" class="btn_reset header__form__btn"></button>
+            <input type="search" aria-label="поле поиска по сайту" name="search" placeholder="Что будем иcкать?"
+              class="header__form__search">
+            <div class="header__form__close">
+              <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1.20709" y="0.5" width="12" height="1" transform="rotate(45 1.20709 0.5)" fill="white"></rect>
+                <rect x="0.59137" y="8.98535" width="12" height="1" transform="rotate(-45 0.59137 8.98535)"
+                  fill="white">
+                </rect>
+              </svg>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="header__bottom">
+      <div class="container header__bottom__inner">
+        <div class="burger">
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+        </div>
+        <a href="tel:+749542423532" class="tel__link bottom">
+          <svg width="18" height="18" viewbox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M16.3425 12.0983C15.215 12.0983 14.1242 11.915 13.1067 11.585C12.7858 11.475 12.4283 11.5575 12.1808 11.805L10.7417 13.6108C8.1475 12.3733 5.71833 10.0358 4.42583 7.35L6.21333 5.82833C6.46083 5.57167 6.53417 5.21417 6.43333 4.89333C6.09417 3.87583 5.92 2.785 5.92 1.6575C5.92 1.1625 5.5075 0.75 5.0125 0.75H1.84083C1.34583 0.75 0.75 0.97 0.75 1.6575C0.75 10.1733 7.83583 17.25 16.3425 17.25C16.9933 17.25 17.25 16.6725 17.25 16.1683V13.0058C17.25 12.5108 16.8375 12.0983 16.3425 12.0983Z"
+              fill="" />
+          </svg>
+          <span class="tel__number">+7 (495) 42-423-532</span>
+        </a>
+
+        <nav class="header__nav header__bottom__nav">
+          <div class="nav__close_btn">
+            <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1.20709" y="0.5" width="12" height="1" transform="rotate(45 1.20709 0.5)" fill="white"></rect>
+              <rect x="0.59137" y="8.98535" width="12" height="1" transform="rotate(-45 0.59137 8.98535)" fill="white">
+              </rect>
+            </svg>
+          </div>
+          <ul class="nav__list">
+            <li class="nav__list__item">
+              <a href="#studio" class="nav__link">О студии</a>
+            </li>
+            <li class="nav__list__item">
+              <a href="#projects" class="nav__link">Наши проекты</a>
+            </li>
+            <li class="nav__list__item">
+              <a href="#service" class="nav__link">Услуги</a>
+            </li>
+            <li class="nav__list__item">
+              <a href="#master" class="nav__link">Мастер классы</a>
+            </li>
+            <li class="nav__list__item">
+              <a href="#contacts" class="nav__link">Контакты</a>
+            </li>
+          </ul>
+          <a href="tel:+749542423532" class="tel__link nav__tel__link">
+            <svg width="18" height="18" viewbox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16.3425 12.0983C15.215 12.0983 14.1242 11.915 13.1067 11.585C12.7858 11.475 12.4283 11.5575 12.1808 11.805L10.7417 13.6108C8.1475 12.3733 5.71833 10.0358 4.42583 7.35L6.21333 5.82833C6.46083 5.57167 6.53417 5.21417 6.43333 4.89333C6.09417 3.87583 5.92 2.785 5.92 1.6575C5.92 1.1625 5.5075 0.75 5.0125 0.75H1.84083C1.34583 0.75 0.75 0.97 0.75 1.6575C0.75 10.1733 7.83583 17.25 16.3425 17.25C16.9933 17.25 17.25 16.6725 17.25 16.1683V13.0058C17.25 12.5108 16.8375 12.0983 16.3425 12.0983Z"
+                fill="" />
+            </svg>
+            <span class="tel__number">+7 (495) 42-423-532</span>
+          </a>
+        </nav>
+
+        <form class="header__form">
+          <button type="submit" aria-label="кнопка поиска по сайту" class="btn_reset header__form__btn"></button>
+          <input type="search" aria-label="поле поиска по сайту" name="search" placeholder="Что будем искать?"
+            class="header__form__search">
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1 class="visually-hidden">Фотостудия High pass® 2018-2020</h1>
+      <div class="container hero__field">
+        <article class="hero__photo neon_photoset">
+          <span class="hero__subtitle">Мастер-класс от Игоря Робова</span>
+          <h2 class="hero__title">Неоновый фотосет 2.0 7 июля 20:00</h2>
+          <a href="#" class="hero__link btn_change">Узнать больше</a>
+          <div class="hashtag">#мастеркласс</div>
+        </article>
+        <div class="hero__grid">
+          <div class="grid__item">
+            <h3 class="hero__photo__title">Работы участников предыдущего мастер-класса</h3>
+            <picture>
+              <source type="image/webp" srcset="img/webp/images/hero-img_2.webp">
+              <img src="img/images/hero-img_2.jpg" alt="photo" class="hero__img">
+            </picture>
+          </div>
+          <picture>
+            <source type="image/webp" srcset="img/webp/images/hero-img_3.webp">
+            <img src="img/images/hero-img_3.jpg" alt="photo" class="hero__img">
+          </picture>
+          <picture>
+            <source type="image/webp" srcset="img/webp/images/hero-img_4.webp">
+            <img src="img/images/hero-img_4.jpg" alt="photo" class="hero__img">
+          </picture>
+        </div>
+      </div>
+    </section>
+    <section class="studio" id="studio">
+      <div class="container studio__container">
+        <h2 class="studio__title section_title">О студии</h2>
+        <div class="studio__content_wrapper">
+          <p class="studio__descr">
+            В&nbsp;рамках спецификации современных стандартов, интерактивные прототипы, инициированные исключительно
+            синтетически, ограничены исключительно образом мышления. Предварительные выводы неутешительны:
+            высокотехнологичная концепция общественного уклада требует от&nbsp;нас анализа соответствующих условий
+            активизации! Следует отметить, что семантический разбор внешних противодействий фиксирует необходимость
+            распределения внутренних резервов и&nbsp;ресурсов. Безусловно, граница обучения кадров предоставляет широкие
+            возможности для первоочередных требований. Повседневная практика показывает, что глубокий уровень погружения
+            предполагает независимые способы реализации новых принципов формирования материально-технической
+            и&nbsp;кадровой базы. Приятно, граждане, наблюдать, как явные признаки институционализации являются только
+            методом политического участия и&nbsp;нарушающими общечеловеческие нормы этики.
+          </p>
+          <div class="mailing_wrapper">
+            <picture>
+              <source type="image/webp" srcset="img/webp/images/about-img-tablet.webp" media="(max-width: 860px)">
+              <source type="image/jpg" srcset="img/images/about-img-tablet.jpg" media="(max-width: 860px)">
+              <source type="image/webp" srcset="img/webp/images/about-img.webp">
+              <img class="studio__img" src="img/images/about-img.jpg" alt="camera">
+            </picture>
+            <div class="mailing__inner">
+              <span class="form_title">Подписаться на рассылку</span>
+              <form class="about__form">
+                <label class="mail_label">
+                  <input type="email" name="mail" required placeholder="E-mail" class="about__form__input mail_input"
+                    aria-label="Введите адрес электронной почты чтобы подписаться на рассылку">
+                  <span>Недопустимый формат</span>
+                </label>
+                <input type="submit" value="Отправить" name="submit" class="about__form__btn btn_reset btn_change">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="projects" id="projects">
+      <div class="container projects__container">
+        <h2 class="projects__title section_title">Наши проекты</h2>
+        <div class="projects_window">
+          <div class="projects_content__wrapper projects_content_left">
+            <article class="card">
+              <h3 class="visually-hidden">Card</h3>
+              <picture>
+                <source type="image/webp" srcset="img/webp/images/projects-img_1.webp">
+                <img src="img/images/projects-img_1.jpg" alt="photo" class="card__img">
+              </picture>
+              <p class="card__descr">Синтетически, смешаны с&nbsp;не&nbsp;уникальными данными до&nbsp;степени...</p>
+              <div class="card__date">
+                <img src="img/svg/calendar.svg" alt="calendar">
+                <span class="card__day">16 июня</span>
+              </div>
+              <div class="hashtag">#пейзаж</div>
+            </article>
+            <article class="card">
+              <h3 class="visually-hidden">Card</h3>
+              <picture>
+                <source type="image/webp" srcset="img/webp/images/projects-img_2.webp">
+                <img src="img/images/projects-img_2.jpg" alt="photo" class="card__img">
+              </picture>
+              <p class="card__descr">В&nbsp;своём стремлении улучшить опыт мы&nbsp;упускаем, что явные...</p>
+              <div class="card__date">
+                <img src="img/svg/calendar.svg" alt="calendar">
+                <span class="card__day">28 мая</span>
+              </div>
+              <div class="hashtag">#портрет</div>
+            </article>
+            <article class="card">
+              <h3 class="visually-hidden">Card</h3>
+              <picture>
+                <source type="image/webp" srcset="img/webp/images/projects-img_3.webp">
+                <img src="img/images/projects-img_3.jpg" alt="photo" class="card__img">
+              </picture>
+              <p class="card__descr">Равным образом, высокое качество позиционных...</p>
+              <div class="card__date">
+                <img src="img/svg/calendar.svg" alt="calendar" class="calendar_icon">
+                <span class="card__day">14 мая</span>
+              </div>
+              <div class="hashtag">#предмет</div>
+            </article>
+            <article class="card tablet_card">
+              <h3 class="visually-hidden">Card</h3>
+              <picture>
+                <source type="image/webp" srcset="img/webp/images/projects-img_1.webp">
+                <img src="img/images/projects-img_1.jpg" alt="photo" class="card__img">
+              </picture>
+              <p class="card__descr">Синтетически, смешаны с&nbsp;не&nbsp;уникальными данными до&nbsp;степени...</p>
+              <div class="card__date">
+                <img src="img/svg/calendar.svg" alt="calendar">
+                <span class="card__day">16 июня</span>
+              </div>
+              <div class="hashtag">#пейзаж</div>
+            </article>
+            <article class="project__article fuji">
+              <h3 class="visually-hidden">Card</h3>
+              <div class="card__date">
+                <img src="img/svg/calendar_white.svg" alt="calendar">
+                <span class="card__day">9 апреля</span>
+              </div>
+              <h3 class="project__article__title">Семантический <br />разбор</h3>
+              <p class="project__article__descr">В&nbsp;рамках спецификации современных стандартов, интерактивные
+                прототипы</p>
+              <a href="#" aria-label="Семантический разбор. Нажмите интер чтобы узнать подробнее"
+                class="project__article__link">О проекте</a>
+              <div class="hashtag">#fuji</div>
+            </article>
+            <article class="project__article oblivion">
+              <h3 class="visually-hidden">Card</h3>
+              <div class="card__date">
+                <img src="img/svg/calendar_white.svg" alt="calendar">
+                <span class="card__day">20 марта</span>
+              </div>
+              <h3 class="project__article__title">Забвение</h3>
+              <p class="project__article__descr">Играет важную роль в формировании глубокомысленных рассуждений</p>
+              <a href="#" aria-label="Забвение. Нажмите интер чтобы узнать подробнее" class="project__article__link">О
+                проекте</a>
+              <div class="hashtag">#проектзабвение</div>
+            </article>
+            <article class="card card5">
+              <h3 class="visually-hidden">Card</h3>
+              <picture>
+                <source type="image/webp" srcset="img/webp/images/projects-img_4.webp">
+                <img src="img/images/projects-img_4.jpg" alt="photo" class="card__img">
+              </picture>
+              <p class="card__descr">Как принято считать, многие известные личности и&nbsp;по&nbsp;сей день остаются
+                уделом либералов...</p>
+              <div class="card__date">
+                <img src="img/svg/calendar.svg" alt="calendar">
+                <span class="card__day">9 марта</span>
+              </div>
+              <div class="hashtag">#ретушь</div>
+            </article>
+            <article class="card card6">
+              <h3 class="visually-hidden">Card</h3>
+              <picture>
+                <source type="image/webp" srcset="img/webp/images/projects-img_5.webp">
+                <img src="img/images/projects-img_5.jpg" alt="photo" class="card__img">
+              </picture>
+              <p class="card__descr">С&nbsp;учётом сложившейся международной обстановки, новая модель
+                организационной...
+              </p>
+              <div class="card__date">
+                <img src="img/svg/calendar.svg" alt="calendar">
+                <span class="card__day">1 марта</span>
+              </div>
+              <div class="hashtag">#портрет</div>
+            </article>
+          </div>
+          <div class="projects_content__wrapper projects_content_right">
+            <article class="project__article portrait">
+              <h3 class="visually-hidden">Card</h3>
+              <div class="card__date">
+                <img src="img/svg/calendar_white.svg" alt="calendar">
+                <span class="card__day">24 февраля</span>
+              </div>
+              <h3 class="project__article__title">Спорная точка зрения</h3>
+              <p class="project__article__descr">Ясность нашей позиции очевидна: убеждённость некоторых оппонентов</p>
+              <a href="#" aria-label="Спорная точка зрения. Нажмите интер чтобы узнать подробнее"
+                class="project__article__link">
+                О проекте
+              </a>
+              <div class="hashtag">#портрет</div>
+            </article>
+            <article class="card card1">
+              <h3 class="visually-hidden">Card</h3>
+              <picture>
+                <source type="image/webp" srcset="img/webp/images/projects-img_6.webp">
+                <img src="img/images/projects-img_6.jpg" alt="photo" class="card__img">
+              </picture>
+              <p class="card__descr">Идейные соображения высшего порядка, а&nbsp;также убеждённость некоторых
+                оппонентов...</p>
+              <div class="card__date">
+                <img src="img/svg/calendar.svg" alt="calendar">
+                <span class="card__day">20 февраля</span>
+              </div>
+              <div class="hashtag">#ретушь</div>
+            </article>
+            <article class="card card2">
+              <h3 class="visually-hidden">Card</h3>
+              <picture>
+                <source type="image/webp" srcset="img/webp/images/projects-img_7.webp">
+                <img src="img/images/projects-img_7.jpg" alt="photo" class="card__img">
+              </picture>
+              <p class="card__descr">Прежде всего, повышение уровня гражданского сознания говорит о&nbsp;возможностях
+                приоритизации...</p>
+              <div class="card__date">
+                <img src="img/svg/calendar.svg" alt="calendar">
+                <span class="card__day">18 февраля</span>
+              </div>
+              <div class="hashtag">#портрет</div>
+            </article>
+            <article class="card">
+              <h3 class="visually-hidden">Card</h3>
+              <picture>
+                <source type="image/webp" srcset="img/webp/images/projects-img_8.webp">
+                <img src="img/images/projects-img_8.jpg" alt="photo" class="card__img">
+              </picture>
+              <p class="card__descr">Равным образом, сложившаяся структура организации...</p>
+              <div class="card__date">
+                <img src="img/svg/calendar.svg" alt="calendar">
+                <span class="card__day">15 февраля</span>
+              </div>
+              <div class="hashtag">#пейзаж</div>
+            </article>
+            <article class="card">
+              <h3 class="visually-hidden">Card</h3>
+              <picture>
+                <source type="image/webp" srcset="img/webp/images/projects-img_9.webp">
+                <img src="img/images/projects-img_9.jpg" alt="photo" class="card__img">
+              </picture>
+              <p class="card__descr">Безусловно, реализация намеченных плановых заданий обеспечивает...</p>
+              <div class="card__date">
+                <img src="img/svg/calendar.svg" alt="calendar">
+                <span class="card__day">10 февраля</span>
+              </div>
+              <div class="hashtag">#предмет</div>
+            </article>
+            <article class="card tablet_card">
+              <h3 class="visually-hidden">Card</h3>
+              <picture>
+                <source type="image/webp" srcset="img/webp/images/projects-img_10.webp">
+                <img src="img/images/projects-img_10.jpg" alt="photo" class="card__img">
+              </picture>
+              <p class="card__descr">Безусловно, курс на&nbsp;социальный национальный...</p>
+              <div class="card__date">
+                <img src="img/svg/calendar.svg" alt="calendar" class="calendar_icon">
+                <span class="card__day">7 февраля</span>
+              </div>
+              <div class="hashtag">#пейзаж</div>
+            </article>
+            <article class="card">
+              <h3 class="visually-hidden">Card</h3>
+              <picture>
+                <source type="image/webp" srcset="img/webp/images/projects-img_10.webp">
+                <img src="img/images/projects-img_10.jpg" alt="photo" class="card__img">
+              </picture>
+              <p class="card__descr">Безусловно, курс на&nbsp;социальный национальный...</p>
+              <div class="card__date">
+                <img src="img/svg/calendar.svg" alt="calendar" class="calendar_icon">
+                <span class="card__day">7 февраля</span>
+              </div>
+              <div class="hashtag">#пейзаж</div>
+            </article>
+            <article class="project__article jas">
+              <h3 class="visually-hidden">Card</h3>
+              <div class="card__date">
+                <img src="img/svg/calendar_white.svg" alt="calendar">
+                <span class="card__day">2 февраля</span>
+              </div>
+              <h3 class="project__article__title">Задания по разработке своевременного</h3>
+              <p class="project__article__descr">Повседневная практика показывает, что сложившаяся структура организации
+                играет важную роль</p>
+              <a href="#" aria-label="Задания по разработке. Нажмите интер чтобы узнать подробнее"
+                class="project__article__link">О проекте</a>
+              <div class="hashtag">#проектджаз</div>
+            </article>
+          </div>
+        </div>
+        <div class="btns__wrapper">
+          <button aria-label="Нажмите чтобы посмотреть первую половину наших проектов"
+            class="projects__btn btn_reset projects__btn_active">1</button>
+          <button aria-label="Нажмите чтобы посмотреть вторую половину наших проектов"
+            class="projects__btn btn_reset">2</button>
+        </div>
+      </div>
+    </section>
+    <section class="service" id="service">
+      <div class="container service_container">
+        <div class="service__left">
+          <h2 class="section_title service_title">Услуги студии</h2>
+          <div class="service_types__field">
+            <div class="service_type__inner">
+              <button class="service_type__item service__left_btn btn_reset colored">Основной перечень</button>
+              <button class="service_type__item service__right_btn btn_reset">Услуги по ретуши</button>
+            </div>
+            <div class="service_type__line"></div>
+          </div>
+          <div class="service__field">
+            <ul class="service__main_list">
+              <li class="main_list__item">
+                <picture>
+                  <source type="image/webp" srcset="img/webp/images/service-img_1.webp">
+                  <img class="main_list__img" src="img/images/service-img_1.jpg" alt="picture">
+                </picture>
+                <div class="main_list__content">
+                  <a href="#" class="main_list__title">Высокий уровень вовлечения</a>
+                  <p class="main_list__descr">
+                    Высокий уровень вовлечения представителей целевой аудитории является четким доказательством
+                    <span>простого факта.</span>
+                  </p>
+                  <a href="#" class="main_list__link">
+                    <span>Подробнее</span>
+                    <svg width="27" height="14" viewbox="0 0 27 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M20.3431 0.928941L26.7071 6.2929C27.0976 6.68343 27.0976 7.31659 26.7071 7.70712L20.3431 13.0711C19.9526 13.4616 19.3195 13.4616 18.9289 13.0711C18.5384 12.6806 18.5384 12.0474 18.9289 11.6569L23.5858 8.00001H1C0.447715 8.00001 0 7.55229 0 7.00001C0 6.44772 0.447715 6.00001 0.999999 6.00001H23.5858L18.9289 2.34315C18.5384 1.95263 18.5384 1.31947 18.9289 0.928941C19.3195 0.538416 19.9526 0.538416 20.3431 0.928941Z" />
+                    </svg>
+                  </a>
+                </div>
+              </li>
+              <li class="main_list__item">
+                <picture>
+                  <source type="image/webp" srcset="img/webp/images/service-img_2.webp">
+                  <img class="main_list__img" src="img/images/service-img_2.jpg" alt="picture">
+                </picture>
+                <div class="main_list__content">
+                  <a href="#" class="main_list__title">Диаграммы связей</a>
+                  <p class="main_list__descr">
+                    Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий влечет
+                    за&nbsp;собой процесс.
+                  </p>
+                  <a href="#" class="main_list__link">
+                    <span>Подробнее</span>
+                    <svg width="27" height="14" viewbox="0 0 27 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M20.3431 0.928941L26.7071 6.2929C27.0976 6.68343 27.0976 7.31659 26.7071 7.70712L20.3431 13.0711C19.9526 13.4616 19.3195 13.4616 18.9289 13.0711C18.5384 12.6806 18.5384 12.0474 18.9289 11.6569L23.5858 8.00001H1C0.447715 8.00001 0 7.55229 0 7.00001C0 6.44772 0.447715 6.00001 0.999999 6.00001H23.5858L18.9289 2.34315C18.5384 1.95263 18.5384 1.31947 18.9289 0.928941C19.3195 0.538416 19.9526 0.538416 20.3431 0.928941Z" />
+                    </svg>
+                  </a>
+                </div>
+              </li>
+              <li class="main_list__item">
+                <picture>
+                  <source type="image/webp" srcset="img/webp/images/service-img_3.webp">
+                  <img class="main_list__img" src="img/images/service-img_3.jpg" alt="picture">
+                </picture>
+                <div class="main_list__content">
+                  <a href="#" class="main_list__title">Высокотехнологичная концепция</a>
+                  <p class="main_list__descr">
+                    В&nbsp;частности, убеждённость некоторых оппонентов способствует подготовке и&nbsp;реализации
+                    анализа
+                    существующих паттернов.
+                  </p>
+                  <a href="#" class="main_list__link">
+                    <span>Подробнее</span>
+                    <svg width="27" height="14" viewbox="0 0 27 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M20.3431 0.928941L26.7071 6.2929C27.0976 6.68343 27.0976 7.31659 26.7071 7.70712L20.3431 13.0711C19.9526 13.4616 19.3195 13.4616 18.9289 13.0711C18.5384 12.6806 18.5384 12.0474 18.9289 11.6569L23.5858 8.00001H1C0.447715 8.00001 0 7.55229 0 7.00001C0 6.44772 0.447715 6.00001 0.999999 6.00001H23.5858L18.9289 2.34315C18.5384 1.95263 18.5384 1.31947 18.9289 0.928941C19.3195 0.538416 19.9526 0.538416 20.3431 0.928941Z" />
+                    </svg>
+                  </a>
+                </div>
+              </li>
+              <li class="main_list__item">
+                <picture>
+                  <source type="image/webp" srcset="img/webp/images/service-img_4.webp">
+                  <img class="main_list__img" src="img/images/service-img_4.jpg" alt="picture">
+                </picture>
+                <div class="main_list__content">
+                  <a href="#" class="main_list__title">Сложившаяся структура организации</a>
+                  <p class="main_list__descr">
+                    Кстати, сторонники тоталитаризма в&nbsp;науке будут объединены в&nbsp;целые кластеры себе подобных.
+                  </p>
+                  <a href="#" class="main_list__link">
+                    <span>Подробнее</span>
+                    <svg width="27" height="14" viewbox="0 0 27 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M20.3431 0.928941L26.7071 6.2929C27.0976 6.68343 27.0976 7.31659 26.7071 7.70712L20.3431 13.0711C19.9526 13.4616 19.3195 13.4616 18.9289 13.0711C18.5384 12.6806 18.5384 12.0474 18.9289 11.6569L23.5858 8.00001H1C0.447715 8.00001 0 7.55229 0 7.00001C0 6.44772 0.447715 6.00001 0.999999 6.00001H23.5858L18.9289 2.34315C18.5384 1.95263 18.5384 1.31947 18.9289 0.928941C19.3195 0.538416 19.9526 0.538416 20.3431 0.928941Z" />
+                    </svg>
+                  </a>
+                </div>
+              </li>
+              <li class="main_list__item">
+                <picture>
+                  <source type="image/webp" srcset="img/webp/images/service-img_5.webp">
+                  <img class="main_list__img" src="img/images/service-img_5.jpg" alt="picture">
+                </picture>
+                <div class="main_list__content">
+                  <a href="#" class="main_list__title">Внутренние резервы и ресурсы</a>
+                  <p class="main_list__descr">
+                    Банальные, но&nbsp;неопровержимые выводы, а&nbsp;также ключевые особенности структуры проекта
+                    являются
+                    только методом.
+                  </p>
+                  <a href="#" class="main_list__link">
+                    <span>Подробнее</span>
+                    <svg width="27" height="14" viewbox="0 0 27 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M20.3431 0.928941L26.7071 6.2929C27.0976 6.68343 27.0976 7.31659 26.7071 7.70712L20.3431 13.0711C19.9526 13.4616 19.3195 13.4616 18.9289 13.0711C18.5384 12.6806 18.5384 12.0474 18.9289 11.6569L23.5858 8.00001H1C0.447715 8.00001 0 7.55229 0 7.00001C0 6.44772 0.447715 6.00001 0.999999 6.00001H23.5858L18.9289 2.34315C18.5384 1.95263 18.5384 1.31947 18.9289 0.928941C19.3195 0.538416 19.9526 0.538416 20.3431 0.928941Z" />
+                    </svg>
+                  </a>
+                </div>
+              </li>
+            </ul>
+            <ul class="retouch_list">
+              <li class="retouch_list__item">
+                <picture>
+                  <source type="image/webp" srcset="img/webp/images/service-img_6.webp">
+                  <img class="retouch_list__img" src="img/images/service-img_6.jpg" alt="picture">
+                </picture>
+                <div class="retouch__item__inner">
+                  <a href="#" class="main_list__title">Принимая во внимание показатели</a>
+                  <a href="#" class="main_list__link">
+                    <span>Подробнее</span>
+                    <svg width="27" height="14" viewbox="0 0 27 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M20.3431 0.928941L26.7071 6.2929C27.0976 6.68343 27.0976 7.31659 26.7071 7.70712L20.3431 13.0711C19.9526 13.4616 19.3195 13.4616 18.9289 13.0711C18.5384 12.6806 18.5384 12.0474 18.9289 11.6569L23.5858 8.00001H1C0.447715 8.00001 0 7.55229 0 7.00001C0 6.44772 0.447715 6.00001 0.999999 6.00001H23.5858L18.9289 2.34315C18.5384 1.95263 18.5384 1.31947 18.9289 0.928941C19.3195 0.538416 19.9526 0.538416 20.3431 0.928941Z" />
+                    </svg>
+                  </a>
+                </div>
+              </li>
+              <li class="retouch_list__item">
+                <picture>
+                  <source type="image/webp" srcset="img/webp/images/service-img_7.webp">
+                  <img class="retouch_list__img" src="img/images/service-img_7.jpg" alt="picture">
+                </picture>
+                <div class="retouch__item__inner">
+                  <a href="#" class="main_list__title">Также как высокое качество...</a>
+                  <a href="#" class="main_list__link">
+                    <span>Подробнее</span>
+                    <svg width="27" height="14" viewbox="0 0 27 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M20.3431 0.928941L26.7071 6.2929C27.0976 6.68343 27.0976 7.31659 26.7071 7.70712L20.3431 13.0711C19.9526 13.4616 19.3195 13.4616 18.9289 13.0711C18.5384 12.6806 18.5384 12.0474 18.9289 11.6569L23.5858 8.00001H1C0.447715 8.00001 0 7.55229 0 7.00001C0 6.44772 0.447715 6.00001 0.999999 6.00001H23.5858L18.9289 2.34315C18.5384 1.95263 18.5384 1.31947 18.9289 0.928941C19.3195 0.538416 19.9526 0.538416 20.3431 0.928941Z" />
+                    </svg>
+                  </a>
+                </div>
+              </li>
+              <li class="retouch_list__item">
+                <picture>
+                  <source type="image/webp" srcset="img/webp/images/service-img_8.webp">
+                  <img class="retouch_list__img" src="img/images/service-img_8.jpg" alt="picture">
+                </picture>
+                <div class="retouch__item__inner">
+                  <a href="#" class="main_list__title">Внезапно, предприниматели в интернете...</a>
+                  <a href="#" class="main_list__link">
+                    <span>Подробнее</span>
+                    <svg width="27" height="14" viewbox="0 0 27 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M20.3431 0.928941L26.7071 6.2929C27.0976 6.68343 27.0976 7.31659 26.7071 7.70712L20.3431 13.0711C19.9526 13.4616 19.3195 13.4616 18.9289 13.0711C18.5384 12.6806 18.5384 12.0474 18.9289 11.6569L23.5858 8.00001H1C0.447715 8.00001 0 7.55229 0 7.00001C0 6.44772 0.447715 6.00001 0.999999 6.00001H23.5858L18.9289 2.34315C18.5384 1.95263 18.5384 1.31947 18.9289 0.928941C19.3195 0.538416 19.9526 0.538416 20.3431 0.928941Z" />
+                    </svg>
+                  </a>
+                </div>
+              </li>
+              <li class="retouch_list__item">
+                <picture>
+                  <source type="image/webp" srcset="img/webp/images/service-img_9.webp">
+                  <img class="retouch_list__img" src="img/images/service-img_9.jpg" alt="picture">
+                </picture>
+                <div class="retouch__item__inner">
+                  <a href="#" class="main_list__title">Сделанные на базе аналитики выводы...</a>
+                  <a href="#" class="main_list__link">
+                    <span>Подробнее</span>
+                    <svg width="27" height="14" viewbox="0 0 27 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M20.3431 0.928941L26.7071 6.2929C27.0976 6.68343 27.0976 7.31659 26.7071 7.70712L20.3431 13.0711C19.9526 13.4616 19.3195 13.4616 18.9289 13.0711C18.5384 12.6806 18.5384 12.0474 18.9289 11.6569L23.5858 8.00001H1C0.447715 8.00001 0 7.55229 0 7.00001C0 6.44772 0.447715 6.00001 0.999999 6.00001H23.5858L18.9289 2.34315C18.5384 1.95263 18.5384 1.31947 18.9289 0.928941C19.3195 0.538416 19.9526 0.538416 20.3431 0.928941Z" />
+                    </svg>
+                  </a>
+                </div>
+              </li>
+              <li class="retouch_list__item">
+                <picture>
+                  <source type="image/webp" srcset="img/webp/images/service-img_10.webp">
+                  <img class="retouch_list__img" src="img/images/service-img_10.jpg" alt="picture">
+                </picture>
+                <div class="retouch__item__inner">
+                  <a href="#" class="main_list__title">Задача организации, в особенности...</a>
+                  <a href="#" class="main_list__link">
+                    <span>Подробнее</span>
+                    <svg width="27" height="14" viewbox="0 0 27 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M20.3431 0.928941L26.7071 6.2929C27.0976 6.68343 27.0976 7.31659 26.7071 7.70712L20.3431 13.0711C19.9526 13.4616 19.3195 13.4616 18.9289 13.0711C18.5384 12.6806 18.5384 12.0474 18.9289 11.6569L23.5858 8.00001H1C0.447715 8.00001 0 7.55229 0 7.00001C0 6.44772 0.447715 6.00001 0.999999 6.00001H23.5858L18.9289 2.34315C18.5384 1.95263 18.5384 1.31947 18.9289 0.928941C19.3195 0.538416 19.9526 0.538416 20.3431 0.928941Z" />
+                    </svg>
+                  </a>
+                </div>
+              </li>
+              <li class="retouch_list__item">
+                <picture>
+                  <source type="image/webp" srcset="img/webp/images/service-img_11.webp">
+                  <img class="retouch_list__img" src="img/images/service-img_11.jpg" alt="picture">
+                </picture>
+                <div class="retouch__item__inner">
+                  <a href="#" class="main_list__title">Таким образом, выбранный нами...</a>
+                  <a href="#" class="main_list__link">
+                    <span>Подробнее</span>
+                    <svg width="27" height="14" viewbox="0 0 27 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M20.3431 0.928941L26.7071 6.2929C27.0976 6.68343 27.0976 7.31659 26.7071 7.70712L20.3431 13.0711C19.9526 13.4616 19.3195 13.4616 18.9289 13.0711C18.5384 12.6806 18.5384 12.0474 18.9289 11.6569L23.5858 8.00001H1C0.447715 8.00001 0 7.55229 0 7.00001C0 6.44772 0.447715 6.00001 0.999999 6.00001H23.5858L18.9289 2.34315C18.5384 1.95263 18.5384 1.31947 18.9289 0.928941C19.3195 0.538416 19.9526 0.538416 20.3431 0.928941Z" />
+                    </svg>
+                  </a>
+                </div>
+              </li>
+              <li class="retouch_list__item">
+                <picture>
+                  <source type="image/webp" srcset="img/webp/images/service-img_12.webp">
+                  <img class="retouch_list__img" src="img/images/service-img_12.jpg" alt="picture">
+                </picture>
+                <div class="retouch__item__inner">
+                  <a href="#" class="main_list__title">Безусловно, семантический разбор...</a>
+                  <a href="#" class="main_list__link">
+                    <span>Подробнее</span>
+                    <svg width="27" height="14" viewbox="0 0 27 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M20.3431 0.928941L26.7071 6.2929C27.0976 6.68343 27.0976 7.31659 26.7071 7.70712L20.3431 13.0711C19.9526 13.4616 19.3195 13.4616 18.9289 13.0711C18.5384 12.6806 18.5384 12.0474 18.9289 11.6569L23.5858 8.00001H1C0.447715 8.00001 0 7.55229 0 7.00001C0 6.44772 0.447715 6.00001 0.999999 6.00001H23.5858L18.9289 2.34315C18.5384 1.95263 18.5384 1.31947 18.9289 0.928941C19.3195 0.538416 19.9526 0.538416 20.3431 0.928941Z" />
+                    </svg>
+                  </a>
+                </div>
+              </li>
+              <li class="retouch_list__item">
+                <picture>
+                  <source type="image/webp" srcset="img/webp/images/service-img_13.webp">
+                  <img class="retouch_list__img" src="img/images/service-img_13.jpg" alt="picture">
+                </picture>
+                <div class="retouch__item__inner">
+                  <a href="#" class="main_list__title">Есть над чем подумать: активные...</a>
+                  <a href="#" class="main_list__link">
+                    <span>Подробнее</span>
+                    <svg width="27" height="14" viewbox="0 0 27 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M20.3431 0.928941L26.7071 6.2929C27.0976 6.68343 27.0976 7.31659 26.7071 7.70712L20.3431 13.0711C19.9526 13.4616 19.3195 13.4616 18.9289 13.0711C18.5384 12.6806 18.5384 12.0474 18.9289 11.6569L23.5858 8.00001H1C0.447715 8.00001 0 7.55229 0 7.00001C0 6.44772 0.447715 6.00001 0.999999 6.00001H23.5858L18.9289 2.34315C18.5384 1.95263 18.5384 1.31947 18.9289 0.928941C19.3195 0.538416 19.9526 0.538416 20.3431 0.928941Z" />
+                    </svg>
+                  </a>
+                </div>
+              </li>
+              <li class="retouch_list__item">
+                <picture>
+                  <source type="image/webp" srcset="img/webp/images/service-img_14.webp">
+                  <img class="retouch_list__img" src="img/images/service-img_14.jpg" alt="picture">
+                </picture>
+                <div class="retouch__item__inner">
+                  <a href="#" class="main_list__title">Как принято считать, сторонники...</a>
+                  <a href="#" class="main_list__link">
+                    <span>Подробнее</span>
+                    <svg width="27" height="14" viewbox="0 0 27 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M20.3431 0.928941L26.7071 6.2929C27.0976 6.68343 27.0976 7.31659 26.7071 7.70712L20.3431 13.0711C19.9526 13.4616 19.3195 13.4616 18.9289 13.0711C18.5384 12.6806 18.5384 12.0474 18.9289 11.6569L23.5858 8.00001H1C0.447715 8.00001 0 7.55229 0 7.00001C0 6.44772 0.447715 6.00001 0.999999 6.00001H23.5858L18.9289 2.34315C18.5384 1.95263 18.5384 1.31947 18.9289 0.928941C19.3195 0.538416 19.9526 0.538416 20.3431 0.928941Z" />
+                    </svg>
+                  </a>
+                </div>
+              </li>
+              <li class="retouch_list__item">
+                <picture>
+                  <source type="image/webp" srcset="img/webp/images/service-img_15.webp">
+                  <img class="retouch_list__img" src="img/images/service-img_15.jpg" alt="picture">
+                </picture>
+                <div class="retouch__item__inner">
+                  <a href="#" class="main_list__title">Активно развивающиеся страны...</a>
+                  <a href="#" class="main_list__link">
+                    <span>Подробнее</span>
+                    <svg width="27" height="14" viewbox="0 0 27 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M20.3431 0.928941L26.7071 6.2929C27.0976 6.68343 27.0976 7.31659 26.7071 7.70712L20.3431 13.0711C19.9526 13.4616 19.3195 13.4616 18.9289 13.0711C18.5384 12.6806 18.5384 12.0474 18.9289 11.6569L23.5858 8.00001H1C0.447715 8.00001 0 7.55229 0 7.00001C0 6.44772 0.447715 6.00001 0.999999 6.00001H23.5858L18.9289 2.34315C18.5384 1.95263 18.5384 1.31947 18.9289 0.928941C19.3195 0.538416 19.9526 0.538416 20.3431 0.928941Z" />
+                    </svg>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="service__right">
+          <div class="service__banner">
+            <div class="service__banner__sale">
+              Акция!
+              <span>Только в июне</span>
+            </div>
+            <div class="service__banner__percent">-20%</div>
+            <span class="service__banner__text">1,5 часа портретной съемки + ретушь 10 снимков</span>
+            <a href="#" class="service__banner__link btn_change">Узнать больше</a>
+          </div>
+          <h2 class="service__right__title">Выполненные работы</h2>
+          <div class="works__field">
+            <ul class="service__works_list">
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_1.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_2.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_3.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_4.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_5.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_6.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_7.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_8.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_9.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_10.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_11.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_12.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_13.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_14.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_15.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_16.jpg" alt="image" class="works_list__img">
+              </li>
+            </ul>
+            <ul class="service__works_list retouch__works_list">
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_17.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_18.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_19.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_20.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_21.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_22.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_23.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_24.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_25.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_26.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_27.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_28.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_29.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_30.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_31.jpg" alt="image" class="works_list__img">
+              </li>
+              <li class="works_list__item">
+                <img src="img/images/service-img_done-works_32.jpg" alt="image" class="works_list__img">
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="master" id="master">
+      <div class="container">
+        <h2 class="master_title section_title">Мастер-классы</h2>
+        <div class="master__content">
+          <picture>
+            <source type="image/webp" srcset="img/webp/images/master-img_1.webp">
+            <img src="img/images/master-img_1.jpg" alt="camera" class="master__img">
+          </picture>
+          <article class="master__article">
+            <h3 class="visually-hidden">Card</h3>
+            <div class="card__date master__date">
+              <img src="img/svg/calendar_white.svg" alt="calendar">
+              <span class="card__day">8 июня</span>
+              <img src="img/svg/watch.svg" alt="watch">
+              <span class="time">15:00</span>
+            </div>
+            <h3 class="master__article__title">Пленка для начинающих</h3>
+            <p class="master__article__descr">
+              Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого
+              факта: семантический разбор внешних противодействий, в&nbsp;своём классическом представлении.
+            </p>
+            <a href="#" aria-label="Мастер классы. Нажмите интер чтобы узнать больше"
+              class="master__link btn_change">Узнать больше</a>
+          </article>
+          <ul class="master__list">
+            <li class="master__list__item">
+              <picture>
+                <source type="image/webp" srcset="img/webp/images/master-img_2.webp">
+                <img class="list__item__img" src="img/images/master-img_2.jpg" alt="picture">
+              </picture>
+              <div class="item__inner">
+                <div class="card__date master__date">
+                  <img src="img/svg/calendar_white.svg" alt="calendar">
+                  <span class="card__day">9 июня</span>
+                  <img src="img/svg/watch.svg" alt="watch">
+                  <span class="time">15:00</span>
+                </div>
+                <h4 class="list__item__title">Ретушь. Продвинутый уровень</h4>
+              </div>
+            </li>
+            <li class="master__list__item">
+              <picture>
+                <source type="image/webp" srcset="img/webp/images/master-img_3.webp">
+                <img class="list__item__img" src="img/images/master-img_3.jpg" alt="picture">
+              </picture>
+              <div class="item__inner">
+                <div class="card__date master__date">
+                  <img src="img/svg/calendar_white.svg" alt="calendar">
+                  <span class="card__day">10 июня</span>
+                  <img src="img/svg/watch.svg" alt="watch">
+                  <span class="time">16:00</span>
+                </div>
+                <h4 class="list__item__title">Портретная съемка. Свет</h4>
+              </div>
+            </li>
+            <li class="master__list__item">
+              <picture>
+                <source type="image/webp" srcset="img/webp/images/master-img_4.webp">
+                <img class="list__item__img" src="img/images/master-img_4.jpg" alt="picture">
+              </picture>
+              <div class="item__inner">
+                <div class="card__date master__date">
+                  <img src="img/svg/calendar_white.svg" alt="calendar">
+                  <span class="card__day">11 июня</span>
+                  <img src="img/svg/watch.svg" alt="watch">
+                  <span class="time">15:00</span>
+                </div>
+                <h4 class="list__item__title">Макросъемка. Проблемы и нюансы</h4>
+              </div>
+            </li>
+            <li class="master__list__item">
+              <picture>
+                <source type="image/webp" srcset="img/webp/images/master-img_5.webp">
+                <img class="list__item__img" src="img/images/master-img_5.jpg" alt="picture">
+              </picture>
+              <div class="item__inner">
+                <div class="card__date master__date">
+                  <img src="img/svg/calendar_white.svg" alt="calendar">
+                  <span class="card__day">13 июня</span>
+                  <img src="img/svg/watch.svg" alt="watch">
+                  <span class="time">18:00</span>
+                </div>
+                <h4 class="list__item__title">Творческая ретушь для начинающих
+                </h4>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="contacts" id="contacts">
+      <div class="container contacts__container">
+        <h2 class="section_title contacts__title">Контакты</h2>
+        <div class="contacts__content">
+          <div class="map" id="map">
+            <div class="map__address">
+              <div class="map__address__content">
+                <div class="map__close_btn">
+                  <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="1.20709" y="0.5" width="12" height="1" transform="rotate(45 1.20709 0.5)" fill="white" />
+                    <rect x="0.59137" y="8.98535" width="12" height="1" transform="rotate(-45 0.59137 8.98535)"
+                      fill="white" />
+                  </svg>
+                </div>
+                <div class="map__address__inner">
+                  <span class="studio__name">Студия “High pass”</span>
+                  <address>107045, Москва, Даев переулок, дом&nbsp;41, бизнес-центр &laquo;Даев Плаза&raquo;,
+                    этаж&nbsp;8,
+                    офис &#8470;&nbsp;82 &nbsp;
+                  </address>
+                  <a href="tel:+749542423532" class="tel__link"><svg width="18" height="18" viewbox="0 0 18 18"
+                      fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M16.3425 12.0983C15.215 12.0983 14.1242 11.915 13.1067 11.585C12.7858 11.475 12.4283 11.5575 12.1808 11.805L10.7417 13.6108C8.1475 12.3733 5.71833 10.0358 4.42583 7.35L6.21333 5.82833C6.46083 5.57167 6.53417 5.21417 6.43333 4.89333C6.09417 3.87583 5.92 2.785 5.92 1.6575C5.92 1.1625 5.5075 0.75 5.0125 0.75H1.84083C1.34583 0.75 0.75 0.97 0.75 1.6575C0.75 10.1733 7.83583 17.25 16.3425 17.25C16.9933 17.25 17.25 16.6725 17.25 16.1683V13.0058C17.25 12.5108 16.8375 12.0983 16.3425 12.0983Z"
+                        fill=""></path>
+                    </svg>
+                    <span class="tel__number">+7 (495) 42-423-532</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form__wrapper">
+            <h3 class="form__title">Оставить заявку</h3>
+            <p class="form__descr">
+              Оставьте ваши данные, указав в&nbsp;графе &laquo;Комментарий&raquo; желаемые время и&nbsp;дату съемки или
+              другого мероприятия
+            </p>
+            <form class="contacts__form">
+              <input type="text" name="name" placeholder="Имя" required
+                aria-label="Поле ввода имени. Напишите свои данные в форме для заявки мероприятия"
+                class="contacts__form__input">
+              <label class="mail_label">
+                <input type="email" name="name" placeholder="E-mail" required
+                  aria-label="Поле ввода элетронной почты. Напишите свои данные в форме для заявки мероприятия"
+                  class="contacts__form__input mail_input">
+                <span>Недопустимый формат</span>
+              </label>
+              <textarea name="comments" placeholder="Комментарий"
+                aria-label="Поле ввода для комментариев. Напишите свои данные в форме для заявки мероприятия"
+                class="contacts__comments contacts__form__input"></textarea>
+              <input type="submit" value="Отправить" name="submit" class="btn_reset contacts__form_btn">
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer__container">
+      <div class="footer__logo_container">
+        <a href="#" aria-label="главная страница" class="logo footer__logo">
+          <svg viewbox="0 0 112 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M25.2119 14.658V2.34528H28.466V6.91857H33.2152V2.34528H36.4692V14.658H33.2152V9.90879H28.466V14.658H25.2119Z"
+              fill="white" />
+            <path
+              d="M38.3958 3.04886C38.3958 2.62671 38.5542 2.27492 38.8708 1.99349C39.1874 1.70033 39.5861 1.55375 40.0669 1.55375C40.5476 1.55375 40.9463 1.70033 41.2629 1.99349C41.5796 2.27492 41.7379 2.62671 41.7379 3.04886C41.7379 3.45928 41.5796 3.81107 41.2629 4.10423C40.9463 4.39739 40.5476 4.54397 40.0669 4.54397C39.5861 4.54397 39.1874 4.39739 38.8708 4.10423C38.5542 3.81107 38.3958 3.45928 38.3958 3.04886ZM38.5717 14.658V5.5114H41.562V14.658H38.5717Z"
+              fill="white" />
+            <path
+              d="M44.2404 13.2684C43.4547 12.4007 43.0619 11.2808 43.0619 9.90879C43.0619 8.53681 43.4547 7.41694 44.2404 6.54918C45.0261 5.68143 45.9818 5.24756 47.1075 5.24756C47.9166 5.24756 48.6143 5.48208 49.2007 5.95114C49.4704 6.16221 49.6814 6.39674 49.8339 6.65472H50.0098V5.5114H53V18H44.2932V15.6254H50.0098V13.2508H49.8339C49.6697 13.5088 49.4586 13.7316 49.2007 13.9192C48.6261 14.3531 47.9283 14.57 47.1075 14.57C45.9818 14.57 45.0261 14.1362 44.2404 13.2684ZM46.6678 8.36091C46.316 8.73616 46.1401 9.25212 46.1401 9.90879C46.1401 10.5655 46.316 11.0814 46.6678 11.4567C47.0196 11.8319 47.4886 12.0195 48.0749 12.0195C48.6612 12.0195 49.1303 11.8319 49.4821 11.4567C49.8339 11.0814 50.0098 10.5655 50.0098 9.90879C50.0098 9.25212 49.8339 8.73616 49.4821 8.36091C49.1303 7.98567 48.6612 7.79805 48.0749 7.79805C47.4886 7.79805 47.0196 7.98567 46.6678 8.36091Z"
+              fill="white" />
+            <path
+              d="M54.7507 14.658V2.34528H57.7409V6.74267H57.9168C58.081 6.46124 58.2921 6.21498 58.5501 6.00391C59.1481 5.49967 59.8458 5.24756 60.6432 5.24756C61.7221 5.24756 62.5605 5.5759 63.1585 6.23257C63.7683 6.87752 64.0732 7.80977 64.0732 9.02932V14.658H61.083V9.46905C61.083 8.94137 60.9422 8.53094 60.6608 8.23778C60.3794 7.94462 59.9924 7.79805 59.4999 7.79805C58.9957 7.79805 58.5735 7.98567 58.2335 8.36091C57.9051 8.72443 57.7409 9.21107 57.7409 9.82085V14.658H54.7507Z"
+              fill="white" />
+            <path
+              d="M70.6741 18V5.5114H73.6643V6.74267H73.8402C74.0044 6.47296 74.2272 6.22671 74.5086 6.00391C75.1536 5.49967 75.8396 5.24756 76.5666 5.24756C77.6923 5.24756 78.648 5.69316 79.4337 6.58436C80.2194 7.46384 80.6122 8.63062 80.6122 10.0847C80.6122 11.5388 80.2194 12.7114 79.4337 13.6026C78.648 14.4821 77.6923 14.9218 76.5666 14.9218C75.8278 14.9218 75.1418 14.6756 74.5086 14.1831C74.2272 13.9603 74.0044 13.7081 73.8402 13.4267H73.6643V18H70.6741ZM74.192 8.39609C73.8402 8.79479 73.6643 9.35765 73.6643 10.0847C73.6643 10.8117 73.8402 11.3746 74.192 11.7733C74.5438 12.172 75.0129 12.3713 75.5992 12.3713C76.1855 12.3713 76.6546 12.172 77.0063 11.7733C77.3581 11.3746 77.534 10.8117 77.534 10.0847C77.534 9.35765 77.3581 8.79479 77.0063 8.39609C76.6546 7.99739 76.1855 7.79805 75.5992 7.79805C75.0129 7.79805 74.5438 7.99739 74.192 8.39609Z"
+              fill="white" />
+            <path
+              d="M82.8378 13.6026C82.0522 12.7114 81.6593 11.5388 81.6593 10.0847C81.6593 8.63062 82.0522 7.46384 82.8378 6.58436C83.6235 5.69316 84.5792 5.24756 85.7049 5.24756C86.432 5.24756 87.118 5.49967 87.7629 6.00391C88.0326 6.22671 88.2554 6.47296 88.4313 6.74267H88.6072V5.5114H91.5974V14.658H88.6072V13.4267H88.4313C88.2671 13.7081 88.0443 13.9603 87.7629 14.1831C87.1297 14.6756 86.4437 14.9218 85.7049 14.9218C84.5792 14.9218 83.6235 14.4821 82.8378 13.6026ZM85.2652 8.39609C84.9134 8.79479 84.7375 9.35765 84.7375 10.0847C84.7375 10.8117 84.9134 11.3746 85.2652 11.7733C85.617 12.172 86.086 12.3713 86.6724 12.3713C87.2587 12.3713 87.7277 12.172 88.0795 11.7733C88.4313 11.3746 88.6072 10.8117 88.6072 10.0847C88.6072 9.35765 88.4313 8.79479 88.0795 8.39609C87.7277 7.99739 87.2587 7.79805 86.6724 7.79805C86.086 7.79805 85.617 7.99739 85.2652 8.39609Z"
+              fill="white" />
+            <path
+              d="M92.8205 11.6678H95.8107C95.8576 11.8436 95.9573 12.0078 96.1097 12.1603C96.4263 12.4769 96.8837 12.6352 97.4817 12.6352C98.3026 12.6352 98.713 12.43 98.713 12.0195C98.713 11.8319 98.5957 11.6853 98.3612 11.5798C98.1267 11.4625 97.7749 11.3453 97.3058 11.228C96.9188 11.1342 96.6667 11.0756 96.5495 11.0521C96.4322 11.0287 96.1859 10.9642 95.8107 10.8586C95.4354 10.7414 95.1657 10.6417 95.0016 10.5596C94.8491 10.4658 94.6322 10.3368 94.3508 10.1726C94.0811 9.99674 93.8817 9.82085 93.7527 9.64495C93.6355 9.45733 93.5241 9.22866 93.4185 8.95896C93.313 8.67752 93.2602 8.3785 93.2602 8.06189C93.2602 7.28795 93.6061 6.62541 94.298 6.07427C94.9899 5.52313 95.9631 5.24756 97.2179 5.24756C98.7892 5.24756 100.032 5.76352 100.947 6.79544C101.31 7.24104 101.562 7.75114 101.703 8.32573H98.8009C98.7306 8.13811 98.6485 7.99153 98.5547 7.88599C98.285 7.59283 97.898 7.44625 97.3938 7.44625C96.6902 7.44625 96.3384 7.65147 96.3384 8.06189C96.3384 8.26124 96.4556 8.41368 96.6902 8.51922C96.9247 8.62476 97.2824 8.72443 97.7631 8.81824C98.971 9.09967 99.7859 9.34593 100.208 9.557C101.263 10.073 101.791 10.8645 101.791 11.9316C101.791 12.7759 101.416 13.4853 100.665 14.0599C99.9267 14.6345 98.8654 14.9218 97.4817 14.9218C95.7814 14.9218 94.4856 14.3824 93.5944 13.3036C93.1957 12.8228 92.9377 12.2775 92.8205 11.6678Z"
+              fill="white" />
+            <path
+              d="M102.577 11.6678H105.567C105.614 11.8436 105.714 12.0078 105.866 12.1603C106.183 12.4769 106.64 12.6352 107.238 12.6352C108.059 12.6352 108.47 12.43 108.47 12.0195C108.47 11.8319 108.352 11.6853 108.118 11.5798C107.883 11.4625 107.532 11.3453 107.063 11.228C106.676 11.1342 106.423 11.0756 106.306 11.0521C106.189 11.0287 105.943 10.9642 105.567 10.8586C105.192 10.7414 104.922 10.6417 104.758 10.5596C104.606 10.4658 104.389 10.3368 104.107 10.1726C103.838 9.99674 103.638 9.82085 103.509 9.64495C103.392 9.45733 103.281 9.22866 103.175 8.95896C103.07 8.67752 103.017 8.3785 103.017 8.06189C103.017 7.28795 103.363 6.62541 104.055 6.07427C104.747 5.52313 105.72 5.24756 106.975 5.24756C108.546 5.24756 109.789 5.76352 110.704 6.79544C111.067 7.24104 111.319 7.75114 111.46 8.32573H108.558C108.487 8.13811 108.405 7.99153 108.311 7.88599C108.042 7.59283 107.655 7.44625 107.15 7.44625C106.447 7.44625 106.095 7.65147 106.095 8.06189C106.095 8.26124 106.212 8.41368 106.447 8.51922C106.681 8.62476 107.039 8.72443 107.52 8.81824C108.728 9.09967 109.543 9.34593 109.965 9.557C111.02 10.073 111.548 10.8645 111.548 11.9316C111.548 12.7759 111.173 13.4853 110.422 14.0599C109.683 14.6345 108.622 14.9218 107.238 14.9218C105.538 14.9218 104.242 14.3824 103.351 13.3036C102.952 12.8228 102.694 12.2775 102.577 11.6678Z"
+              fill="white" />
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M3.51792 3.51792V14.0717H14.0717L3.51792 3.51792ZM0 0V17.5896H17.5896V0H0Z" fill="#FF6E30" />
+          </svg>
+        </a>
+        <span class="footer__logo_name">Фотостудия High pass® 2018-2020</span>
+      </div>
+      <div class="author_quote">
+        Которая из&nbsp;моих фотографий самая любимая? Та, которую я&nbsp;собираюсь снять завтра.
+        <span>&copy;&nbsp;Имоджен Каннингем</span>
+      </div>
+      <div class="footer_links">
+        <span class="footer_links__span">Больше интересного</span>
+        <div class="social">
+          <a href="#" aria-label="Наша страница в инстаграм" class="social__link">
+            <svg width="30" height="30" viewbox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12.1289 15.0001C12.1289 16.5858 13.4143 17.8712 15 17.8712C16.5857 17.8712 17.8711 16.5858 17.8711 15.0001C17.8711 13.4144 16.5857 12.129 15 12.129C13.4143 12.129 12.1289 13.4144 12.1289 15.0001Z"
+                fill="#CACACA"></path>
+              <path
+                d="M8.28558 9.92003C8.4236 9.54604 8.64378 9.20752 8.92989 8.92966C9.20775 8.64355 9.54604 8.42337 9.92026 8.28535C10.2238 8.16748 10.6797 8.02718 11.5195 7.98895C12.4279 7.94753 12.7003 7.9386 15.0001 7.9386C17.3001 7.9386 17.5725 7.9473 18.4807 7.98872C19.3204 8.02718 19.7766 8.16748 20.0799 8.28535C20.4541 8.42337 20.7926 8.64355 21.0702 8.92966C21.3563 9.20752 21.5765 9.54581 21.7148 9.92003C21.8326 10.2235 21.9729 10.6797 22.0112 11.5195C22.0526 12.4277 22.0615 12.7 22.0615 15.0001C22.0615 17.2999 22.0526 17.5722 22.0112 18.4807C21.9729 19.3204 21.8326 19.7764 21.7148 20.0799C21.5765 20.4541 21.3566 20.7924 21.0705 21.0702C20.7926 21.3563 20.4543 21.5765 20.0801 21.7145C19.7766 21.8326 19.3204 21.9729 18.4807 22.0112C17.5725 22.0526 17.3003 22.0613 15.0003 22.0613C12.7 22.0613 12.4277 22.0526 11.5197 22.0112C10.6799 21.9729 10.2238 21.8326 9.92026 21.7145C9.16907 21.4248 8.57535 20.8311 8.28558 20.0799C8.16771 19.7764 8.0274 19.3204 7.98895 18.4807C7.94753 17.5722 7.93883 17.2999 7.93883 15.0001C7.93883 12.7 7.94753 12.4277 7.98895 11.5195C8.02718 10.6797 8.16748 10.2235 8.28558 9.92003ZM15.0001 19.4227C17.4429 19.4227 19.4232 17.4427 19.4232 14.9998C19.4232 12.557 17.4429 10.5769 15.0001 10.5769C12.5574 10.5769 10.5771 12.557 10.5771 14.9998C10.5771 17.4427 12.5574 19.4227 15.0001 19.4227ZM10.4023 11.4357C10.9731 11.4357 11.4359 10.9729 11.4359 10.4021C11.4359 9.83122 10.9731 9.36842 10.4023 9.36842C9.83145 9.36842 9.36865 9.83122 9.36865 10.4021C9.36888 10.9729 9.83145 11.4357 10.4023 11.4357Z"
+                fill="#CACACA"></path>
+              <path
+                d="M15 0C23.283 0 30 6.717 30 15C30 23.283 23.283 30 15 30C6.717 30 0 23.283 0 15C0 6.717 6.717 0 15 0ZM6.43867 18.5511C6.48033 19.468 6.62613 20.094 6.83899 20.6419C7.28645 21.7989 8.20107 22.7135 9.35806 23.161C9.90578 23.3739 10.532 23.5194 11.4487 23.5613C12.3672 23.6032 12.6606 23.6133 14.9998 23.6133C17.3392 23.6133 17.6324 23.6032 18.5511 23.5613C19.4678 23.5194 20.094 23.3739 20.6417 23.161C21.2167 22.9447 21.7371 22.6057 22.1674 22.1674C22.6055 21.7374 22.9445 21.2167 23.1608 20.6419C23.3736 20.0942 23.5194 19.468 23.5611 18.5513C23.6034 17.6326 23.6133 17.3392 23.6133 15C23.6133 12.6608 23.6034 12.3674 23.5613 11.4489C23.5197 10.532 23.3741 9.90601 23.1612 9.35806C22.9449 8.78334 22.6057 8.26263 22.1674 7.83257C21.7374 7.39426 21.2167 7.05528 20.6419 6.83899C20.094 6.62613 19.468 6.48056 18.5511 6.43867C17.6326 6.39679 17.3392 6.38672 15 6.38672C12.6608 6.38672 12.3674 6.39679 11.4489 6.4389C10.532 6.48056 9.90601 6.62613 9.35806 6.83876C8.78334 7.05505 8.26263 7.39426 7.83234 7.83257C7.39426 8.26286 7.05505 8.78334 6.83899 9.35806C6.6259 9.90601 6.48033 10.532 6.43845 11.4489C6.39656 12.3674 6.38672 12.6608 6.38672 15C6.38672 17.3392 6.39656 17.6326 6.43867 18.5511Z"
+                fill="#CACACA"></path>
+            </svg>
+          </a>
+          <a href="#" aria-label="Наша страница в фейсбук" class="social__link">
+            <svg width="30" height="30" viewbox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M15 0C6.74999 0 0 6.76205 0 15.0904C0 22.6205 5.48999 28.8705 12.66 30V19.4578H8.84999V15.0904H12.66V11.762C12.66 7.98193 14.895 5.90361 18.33 5.90361C19.965 5.90361 21.675 6.18976 21.675 6.18976V9.90964H19.785C17.925 9.90964 17.34 11.0693 17.34 12.259V15.0904H21.51L20.835 19.4578H17.34V30C20.8746 29.4395 24.0933 27.6288 26.4149 24.8947C28.7364 22.1606 30.008 18.6832 30 15.0904C30 6.76205 23.25 0 15 0Z"
+                fill="#CACACA"></path>
+            </svg>
+          </a>
+          <a href="#" aria-label="Наша страница в вконтакте" class="social__link">
+            <svg width="30" height="30" viewbox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M15 0C6.71601 0 0 6.7157 0 15C0 23.2843 6.71601 30 15 30C23.284 30 30 23.2843 30 15C30 6.7157 23.284 0 15 0ZM22.6088 16.6223C23.3079 17.3052 24.0476 17.9478 24.6752 18.7013C24.9532 19.0346 25.2153 19.3792 25.4148 19.7669C25.6996 20.3196 25.4425 20.9257 24.9477 20.9586L21.8747 20.958C21.081 21.0236 20.4494 20.7035 19.9169 20.1609C19.4919 19.7285 19.0975 19.2666 18.6881 18.8194C18.5208 18.6359 18.3447 18.4631 18.1347 18.3272C17.7158 18.0546 17.3518 18.1381 17.1118 18.5758C16.8672 19.0211 16.8114 19.5146 16.788 20.0102C16.7546 20.7348 16.5361 20.9242 15.809 20.9583C14.2554 21.031 12.7814 20.7953 11.4114 20.0121C10.2028 19.3212 9.26731 18.3462 8.45217 17.2423C6.86486 15.0902 5.64921 12.7283 4.55693 10.2985C4.3111 9.7513 4.49095 9.45852 5.09463 9.44716C6.0976 9.42783 7.10056 9.43028 8.10353 9.44624C8.51171 9.45268 8.78179 9.68624 8.93862 10.0714C9.48061 11.4049 10.1451 12.6737 10.9777 13.8503C11.1996 14.1637 11.4261 14.4761 11.7486 14.6974C12.1047 14.9417 12.376 14.861 12.5438 14.4635C12.6513 14.2109 12.6976 13.9409 12.7209 13.6702C12.8007 12.743 12.8102 11.8162 12.6721 10.8927C12.5862 10.3148 12.2612 9.94158 11.6851 9.83233C11.3917 9.77678 11.4347 9.66813 11.5774 9.50056C11.8251 9.21084 12.0571 9.03161 12.5208 9.03161L15.9928 9.031C16.5401 9.13841 16.6628 9.38394 16.7371 9.93514L16.7402 13.7936C16.7337 14.0069 16.8473 14.6391 17.2303 14.7787C17.5372 14.88 17.7397 14.6339 17.9233 14.4396C18.7559 13.556 19.3492 12.5131 19.8804 11.4338C20.1149 10.9577 20.3171 10.4652 20.5136 9.97166C20.6596 9.60675 20.8868 9.42721 21.2986 9.43335L24.642 9.43734C24.7406 9.43734 24.8406 9.43826 24.9382 9.45514C25.5017 9.55151 25.6561 9.79396 25.4817 10.3436C25.2074 11.2073 24.6743 11.9266 24.1531 12.6479C23.5946 13.4201 22.9989 14.1652 22.4458 14.9408C21.9376 15.6497 21.9778 16.0066 22.6088 16.6223Z"
+                fill="#CACACA"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="modal">
+    <div class="modal__field">
+      <div class="modal__title">
+        Зарегистрируйтесь и получите <span>скидку в 15%</span>
+      </div>
+      <form class="modal__form">
+        <input class="modal__input" type="text" required name="name" placeholder="Введите свое имя" id="modal_name">
+        <label class="mail_label">
+          <input class="modal__input mail_input" type="email" required name="mail" placeholder="Введите адресс почты"
+            id="modal_mail">
+          <span>Недопустимый формат</span>
+        </label>
+        <button class="btn_reset modal__btn">Зарегестрироваться</button>
+      </form>
+      <button tabindex="1" class="modal__close btn_reset">
+        <svg width="100%" height="100%" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1.20709" y="0.5" width="12" height="1" transform="rotate(45 1.20709 0.5)" fill="white"></rect>
+          <rect x="0.59137" y="8.98535" width="12" height="1" transform="rotate(-45 0.59137 8.98535)" fill="white">
+          </rect>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU">
+  </script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

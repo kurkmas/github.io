@@ -1,0 +1,143 @@
+@import '_normalize';
+
+:root {
+  --dark-color: #202020;
+  --white-color: #fff;
+  --gray-color: #a3a3a3;
+  --orange-color: #ff6e30;
+  --light-gray-color: #cacaca;
+  --hover-color: #bc572b;
+  --active-color: #ce4307;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url(../styles/fonts/roboto-regular-webfont.woff2),
+    url(../styles/fonts/roboto-regular-webfont.woff);
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url(../styles/fonts/roboto-bold-webfont.woff2),
+    url(../styles/fonts/roboto-bold-webfont.woff);
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TT First neue';
+  src: url(../styles/fonts/ttfirsneue-bold-webfont.woff2),
+    url(../styles/fonts/ttfirsneue-bold-webfont.woff);
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+
+@font-face {
+  font-family: 'TT Firs neue';
+  src: url(../styles/fonts/ttfirsneue-regular-webfont.woff2),
+    url(../styles/fonts/ttfirsneue-regular-webfont.woff);
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  outline: none;
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.section_title {
+  font-family: 'TT Firs Neue', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  margin: 0;
+}
+
+.btn_reset {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hashtag {
+  display: inline-block;
+  position: absolute;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 7px 14px;
+  color: var(--white-color);
+  background-color: var(--dark-color);
+}
+
+@import '_mixins';
+@import '_header';
+@import '_hero';
+@import '_studio';
+@import '_projects';
+@import '_service';
+@import '_master';
+@import '_contacts';
+@import '_footer';
+@import '_modal';
+@import '_media';

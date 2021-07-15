@@ -1,0 +1,99 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(26, 24, 24, 0.4);
+  opacity: 0;
+  z-index: -1;
+}
+
+.modal.modal_active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.modal__field {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  padding: 30px;
+  padding-top: 80px;
+  border-radius: 2px;
+  background-color: var(--white-color);
+}
+
+.modal__title {
+  font-family: 'TT Firs Neue', sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 31px;
+  margin-bottom: 30px;
+  color: var(--dark-color);
+
+  span {
+    display: inline-block;
+    margin-left: 10px;
+    color: rgb(211, 22, 22);
+    animation: 1s saleAnimation infinite;
+  }
+}
+
+@keyframes saleAnimation {
+  0% {
+    transform: scale(1);
+    color: rgb(211, 22, 22);
+  }
+
+  50% {
+    transform: scale(1.1);
+    color: rgb(165, 11, 11);
+  }
+
+  100% {
+    transform: scale(1);
+    color: rgb(211, 22, 22);
+  }
+}
+
+.modal__form {
+  .mail_label {
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+.modal__input {
+  width: 70%;
+  padding: 15px 23px;
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 19px;
+  border: 1px solid transparent;
+  color: var(--dark-color);
+  background-color: #e9e9e9;
+}
+
+.modal__btn {
+  @include orangeBtn;
+}
+
+.modal__close {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 30px;
+  right: 30px;
+  border-radius: 50%;
+  border-color: 1px solid var(--gray-color);
+  background-color: var(--gray-color);
+}
+
+.modal__close:focus {
+  border-color: 1px solid var(--hover-color);
+}

@@ -1,0 +1,44 @@
+.footer {
+  @include transparented;
+  padding: 25px 0;
+  background-color: var(--dark-color);
+}
+
+.footer.active {
+  @include reverseTransparent;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__logo {
+  margin: 0;
+  margin-bottom: 6px;
+}
+
+.footer__logo_name {
+  display: block;
+  font-family: 'TT Firs Neue', sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  color: #E9E9E9;
+}
+
+.footer_links {
+  text-align: center;
+}
+
+.footer_links__span {
+  display: block;
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--light-gray-color);
+  margin-bottom: 8px;
+}
+
+.author_quote {
+  display: none;
+}
