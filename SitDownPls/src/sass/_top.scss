@@ -1,0 +1,128 @@
+.top__field {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 32px;
+}
+
+.top__card {
+  position: relative;
+  grid-column: 2 span;
+  padding: 25px 0 82px 30px;
+  @include greyBgCard;
+}
+
+.top__card:nth-child(1),
+.top__card:nth-child(2) {
+  grid-column: 3 span;
+}
+
+.feature {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1;
+  color: var(--grey);
+  margin-bottom: 14px;
+}
+
+.feature:not(:last-of-type) {
+  margin-right: 30px;
+}
+
+.top__card__name {
+  font-size: 24px;
+  line-height: 33px;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 30px;
+  color: var(--black);
+}
+
+.top__card__img {
+  display: block;
+  max-width: 90%;
+  margin-left: -30px;
+  margin-bottom: 3px;
+  object-fit: cover;
+}
+
+.top__card__link {
+  display: inline-block;
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+  padding-bottom: 2px;
+
+  .link__inner {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.2;
+    color: var(--primary_main);
+    vertical-align: 2px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom .2s ease;
+  }
+}
+
+.link__arrow {
+  display: inline-block;
+  @include сircleBtn;
+  width: 22px;
+  height: 22px;
+
+  span {
+    width: 8px;
+    height: 8px;
+    margin-top: -4px;
+    margin-left: 3.5px;
+  }
+}
+
+.top__card__link:hover {
+  .link__inner {
+    border-bottom: 2px solid var(--primary_main);
+    transition: border-bottom .2s ease;
+  }
+
+  .link__arrow {
+    background-color: var(--primary_main);
+
+    span {
+      border-top: 2px solid var(--white);
+      border-right: 2px solid var(--white);
+    }
+  }
+}
+
+.top__card__link:focus {
+  .link__inner {
+    border-bottom: 2px solid var(--primary_main);
+    transition: border-bottom .2s ease;
+  }
+
+  .link__arrow {
+    background-color: var(--primary_light);
+
+    span {
+      border-top: 2px solid var(--white);
+      border-right: 2px solid var(--white);
+    }
+  }
+}
+
+.top__card__link:active {
+  .link__inner {
+    color: var(--primary_shade);
+    border-bottom: 2px solid var(--primary_shade);
+    transition: border-bottom .2s ease;
+  }
+
+  .link__arrow {
+    background-color: var(--primary_shade);
+    border: 2px solid var(--primary_shade);
+
+    span {
+      border-top: 2px solid var(--white);
+      border-right: 2px solid var(--white);
+    }
+  }
+}
