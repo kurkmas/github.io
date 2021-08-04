@@ -20105,11 +20105,22 @@ document.addEventListener('DOMContentLoaded', () => {
     slidesPerView: 3,
     spaceBetween: 32,
     pagination: {
-      el: ".catalog_pagination.swiper-pagination",
+      el: '.catalog_pagination.swiper-pagination',
       clickable: true,
       renderBullet: function (index, className) {
         return '<span class="' + className + '">' + (index + 1) + "</span>";
       }
+    }
+  });
+  const productSwiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_1__["default"]('.product__swiper.swiper-container', {
+    direction: 'horizontal',
+    slidesPerGroup: 2,
+    slidesPerColumn: 1,
+    slidesPerView: 'auto',
+    spaceBetween: 32,
+    navigation: {
+      nextEl: '.product__button_next',
+      prevEl: '.product__button_prev'
     }
   });
   const rangeSlider = document.querySelector('.fiter__range');
@@ -20119,10 +20130,11 @@ document.addEventListener('DOMContentLoaded', () => {
     nouislider__WEBPACK_IMPORTED_MODULE_2___default.a.create(rangeSlider, {
       start: [2000, 250000],
       connect: true,
-      step: 1,
+      step: 25000,
+      keyboardSupport: true,
       range: {
         'min': [2000],
-        'max': [150000]
+        'max': [250000]
       }
     });
     rangeSlider.noUiSlider.on('update', (values, handle) => {
@@ -20136,10 +20148,70 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     rangeInputs.forEach((item, i) => {
-      item.addEventListener('update', e => {
+      item.addEventListener('change', e => {
         setRangeSlider(i, e.currentTarget.value);
       });
     });
+  }
+
+  const handles = document.querySelectorAll('.noUi-handle');
+  const noUiLine = document.querySelector('.noUi-connect');
+  handles.forEach(el => {
+    el.addEventListener('focus', () => {
+      noUiLine.style.background = '#7033ac';
+    });
+  });
+  handles.forEach(el => {
+    el.addEventListener('blur', () => {
+      noUiLine.style.background = '#a65cf0';
+    });
+  });
+  const productBtn = document.querySelector('.product__btn');
+  const modalField = document.querySelector('.modal__field');
+  const body = document.querySelector('body');
+  const modalCloseBtn = document.querySelector('.modal__close_btn svg');
+
+  if (productBtn) {
+    productBtn.addEventListener('click', () => {
+      modalField.classList.add('active');
+      body.style.overflowY = 'hidden';
+    });
+  }
+
+  if (modalCloseBtn) {
+    modalCloseBtn.addEventListener('click', () => {
+      modalField.classList.remove('active');
+      body.style.overflowY = 'auto';
+    });
+  }
+
+  if (modalField) {
+    modalField.addEventListener('click', e => {
+      if (e.target == modalField) {
+        modalField.classList.remove('active');
+        body.style.overflowY = 'auto';
+      }
+    });
+  }
+
+  const map = document.getElementById('map');
+
+  if (map) {
+    ymaps.ready(init);
+
+    function init() {
+      const myMap = new ymaps.Map("map", {
+        center: [55.75, 37.62],
+        zoom: 16
+      });
+      const myPlacemark = new ymaps.Placemark([55.75, 37.64], {}, {
+        iconLayout: 'default#image',
+        iconImageHref: 'img/svg/mapIcon.svg',
+        iconImageSize: [32, 22],
+        iconImageOffset: [-3, -42]
+      });
+      myMap.geoObjects.add(myPlacemark);
+    }
   }
 });
 

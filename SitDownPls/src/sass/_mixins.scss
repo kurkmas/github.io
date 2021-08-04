@@ -82,6 +82,7 @@
 }
 
 @mixin transparentBtn {
+  display: inline-block;
   font-weight: 600;
   font-size: 16px;
   line-height: 1;
@@ -139,5 +140,42 @@
   &:active {
     color: var(--primary_shade);
     background-color: transparent;
+  }
+}
+
+@mixin formInput {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--black);
+  padding: 15px;
+  margin-bottom: 30px;
+  @include greyBgCard;
+  border: 1px solid transparent;
+  outline: none;
+
+  &:hover {
+    background-color: var(--md_grey);
+  }
+
+  &:focus {
+    background-color: var(--pink_light);
+    border: 1px solid var(--primary_main);
+  }
+
+  &:focus::placeholder {
+    color: transparent;
+  }
+
+  &:active {
+    background-color: var(--grey_light);
+    border: 1px solid var(--green_input);
+  }
+
+  &::placeholder {
+    font-size: 16px;
+    line-height: 1;
+    color: var(--grey);
   }
 }

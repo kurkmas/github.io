@@ -464,3 +464,24 @@
     }
   }
 }
+
+.breadcrumb__list {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbs__link {
+  font-size: 14px;
+  line-height: 1;
+  color: var(--grey);
+}
+
+.breadcrumbs__item:not(:last-child) {
+  margin-right: 6px;
+}
+
+.breadcrumbs__item:last-child {
+  .breadcrumbs__link {
+    color: var(--primary_shade);
+  }
+}

@@ -88,40 +88,7 @@
 }
 
 .feedback__input {
-  display: block;
-  width: 100%;
-  font-size: 16px;
-  line-height: 1;
-  color: var(--black);
-  padding: 15px;
-  margin-bottom: 30px;
-  @include greyBgCard;
-  border: 1px solid transparent;
-  outline: none;
-}
-
-.feedback__input:hover {
-  background-color: var(--md_grey);
-}
-
-.feedback__input:focus {
-  background-color: var(--pink_light);
-  border: 1px solid var(--primary_main);
-}
-
-.feedback__input:focus::placeholder {
-  color: transparent;
-}
-
-.feedback__input:active {
-  background-color: var(--grey_light);
-  border: 1px solid var(--green_input);
-}
-
-.feedback__input::placeholder {
-  font-size: 16px;
-  line-height: 1;
-  color: var(--grey);
+  @include formInput;
 }
 
 .feedback__btn {

@@ -6,27 +6,6 @@
   margin-bottom: 23px;
 }
 
-.breadcrumb__list {
-  display: flex;
-  align-items: center;
-}
-
-.breadcrumbs__link {
-  font-size: 14px;
-  line-height: 1;
-  color: var(--gray);
-}
-
-.breadcrumbs__item:not(:last-child) {
-  margin-right: 6px;
-}
-
-.breadcrumbs__item:last-child {
-  .breadcrumbs__link {
-    color: var(--primary_shade);
-  }
-}
-
 .filters__wrapper {
   min-width: 296px;
   margin-right: 32px;
@@ -187,7 +166,8 @@
       background-color: var(--primary_light);
     }
 
-    &:focus {
+    &:focus,
+    &:active {
       background-color: var(--primary_shade);
     }
   }
