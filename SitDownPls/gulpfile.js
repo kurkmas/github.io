@@ -7,6 +7,7 @@ const { src, dest, series, watch } = require('gulp'),
   babel = require('gulp-babel'),
   uglify = require('gulp-uglify-es').default,
   webpack = require('webpack-stream'),
+  webp = require('gulp-webp'),
   del = require('del'),
   sourcemaps = require('gulp-sourcemaps'),
   notify = require('gulp-notify'),
@@ -57,6 +58,16 @@ const imgCompress = () => {
       imageMin.optipng({ optimizationLevel: 5 }),
     ]))
     .pipe(dest('dist/img/images'));
+};
+
+const webpImg = () => {
+  return src([
+    'src/img/images/**/*.jpg',
+    'src/img/images/**/*.jpeg',
+    'src/img/images/**/*.png'
+  ])
+    .pipe(webp())
+    .pipe(dest('dist/img/webp'));
 };
 
 const faviconFiles = () => {
@@ -123,4 +134,4 @@ watch('src/css/**/*.css', styles);
 watch('src/js/**/*.js', scripts);
 
 
-exports.default = series(clean, copyFonts, htmlMinify, styles, imgCompress, faviconFiles, copySvg, scripts, watchFiles);
+exports.default = series(clean, copyFonts, htmlMinify, styles, imgCompress, webpImg, faviconFiles, copySvg, scripts, watchFiles);

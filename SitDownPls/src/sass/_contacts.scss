@@ -27,3 +27,36 @@
 .ymaps-2-1-79-image:hover {
   width: 50px;
 }
+
+.balloon {
+  max-width: 283px;
+  font-family: 'OpenSans', sans-serif;
+  color: var(--black);
+  padding: 10px;
+
+  h4 {
+    font-size: 16px;
+    line-height: 1;
+    margin: 0;
+    margin-bottom: 7px;
+  }
+
+  address {
+    font-size: 14px;
+    font-style: normal;
+    line-height: 1.8;
+    margin-bottom: 8px;
+  }
+
+  .tel_number {
+    margin-bottom: 26px;
+  }
+
+  .worktime {
+    margin-bottom: 22px;
+  }
+
+  .grey_text {
+    color: var(--grey);
+  }
+}

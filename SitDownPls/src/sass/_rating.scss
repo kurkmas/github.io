@@ -27,12 +27,6 @@
   padding: 0 30px 30px;
 }
 
-.product__item:nth-child(2) {
-  .card__title {
-    max-width: 230px;
-  }
-}
-
 .product__item:nth-child(4n) {
   margin-right: 0;
 }
@@ -61,6 +55,9 @@
   }
 
   svg {
+    width: 16px;
+    height: 15px;
+
     path {
       fill: var(--secondary_main);
     }

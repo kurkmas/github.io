@@ -8,7 +8,7 @@
 
 .swiper-slide.useful__article {
   position: relative;
-  max-width: 624px;
+  width: calc((100% - 32px) /2);
   min-height: 676px;
   @include greyBgCard;
   padding-bottom: 100px;

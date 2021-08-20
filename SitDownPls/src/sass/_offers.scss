@@ -12,14 +12,14 @@
 
 .card {
   position: relative;
-  max-width: 296px;
+  width: 24%;
   padding: 0 30px 30px 30px;
   @include greyBgCard;
 }
 
 .card:nth-child(2),
 .card:nth-child(5) {
-  max-width: 624px;
+  width: 48%;
 }
 
 .card_img__wrapper {
@@ -44,10 +44,10 @@
 }
 
 .card__title {
-  max-width: 222px;
+  max-width: 228px;
   font-weight: 400;
   font-size: 24px;
-  line-height: 130%;
+  line-height: 1.3;
   color: var(--black);
   margin: 0;
   margin-bottom: 19px;

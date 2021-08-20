@@ -1,5 +1,10 @@
 .header {
   margin-bottom: 32px;
+  z-index: 1;
+}
+
+.logo_mobile__wrapper {
+  display: none;
 }
 
 .header_top {
@@ -144,7 +149,7 @@
 
   span {
     font-size: 14px;
-    line-height: 100%;
+    line-height: 1;
     color: var(--secondary_main);
   }
 }
@@ -202,6 +207,10 @@
   @include navLink;
 }
 
+.tablet_nav__container {
+  display: none;
+}
+
 .header_middle {
   padding: 32px 0;
 }
@@ -209,6 +218,16 @@
 .header_middle__container {
   display: flex;
   align-items: center;
+}
+
+.burger {
+  display: none;
+}
+
+.header_middle__container {
+  .header__box {
+    display: none;
+  }
 }
 
 .logo {

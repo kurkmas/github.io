@@ -65,3 +65,7 @@
 .promo_btn {
   @include coloredBtn;
 }
+
+.promo_btn__container {
+  display: none;
+}
