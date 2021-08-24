@@ -20117,11 +20117,26 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   const catalogSwiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_1__["default"]('.swiper-container.catalog_products__field', {
     direction: 'horizontal',
-    slidesPerGroup: 3,
     slidesPerColumnFill: 'row',
-    slidesPerColumn: 3,
-    slidesPerView: 3,
-    spaceBetween: 32,
+    breakpoints: {
+      1: {
+        slidesPerGroup: 2,
+        slidesPerColumn: 3,
+        spaceBetween: 16,
+        slidesPerView: 2
+      },
+      767: {
+        slidesPerGroup: 2,
+        slidesPerColumn: 3,
+        spaceBetween: 32,
+        slidesPerView: 2
+      },
+      1023: {
+        slidesPerGroup: 3,
+        slidesPerColumn: 3,
+        slidesPerView: 3
+      }
+    },
     pagination: {
       el: '.catalog_pagination.swiper-pagination',
       clickable: true,
@@ -20184,6 +20199,114 @@ document.addEventListener('DOMContentLoaded', () => {
       noUiLine.style.background = '#a65cf0';
     });
   });
+  const burger = document.querySelector('.burger');
+  const hederNav = document.querySelector('.header__nav');
+
+  if (burger) {
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      hederNav.classList.toggle('active');
+    });
+  }
+
+  const filterGroup = document.querySelectorAll('.filters__title');
+  const filterDropdown = document.querySelectorAll('.tablet_filter__inner');
+  filterGroup.forEach((item, i) => {
+    item.addEventListener('click', () => {
+      item.classList.toggle('active');
+      filterDropdown[i].classList.toggle('active');
+    });
+  });
+  const checkboxIinputs = document.querySelectorAll('.filter_checkbox');
+  const optionsField = document.querySelector('.catalog__options');
+  const checkboxName = document.querySelectorAll('.checkbox_name');
+  const checkboxCost = document.querySelectorAll('.checkbox_cost');
+
+  class Option {
+    constructor(selector, checkboxName, parentSelector) {
+      this.selector = selector;
+      this.checkboxName = checkboxName;
+      this.parent = document.querySelector(parentSelector);
+    }
+
+    render() {
+      const el = document.createElement('span');
+      el.classList.add(this.selector);
+      el.innerHTML = `${this.checkboxName}
+          <button class="catalog__option_btn btn_reset">
+            <svg width="12" height="12" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M1.42872 0.238643L6.75487 5.42386C7.08171 5.74206 7.08171 6.25794 6.75487 6.57614L1.42872 11.7614C1.10188 12.0795 0.571969 12.0795 0.245129 11.7614C-0.0817098 11.4432 -0.0817098 10.9273 0.24513 10.6091L4.97949 6L0.24513 1.39091C-0.0817089 1.07272 -0.0817089 0.556834 0.24513 0.238643C0.57197 -0.0795478 1.10188 -0.0795477 1.42872 0.238643Z" />
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M10.5713 0.238643L5.24513 5.42386C4.91829 5.74206 4.91829 6.25794 5.24513 6.57614L10.5713 11.7614C10.8981 12.0795 11.428 12.0795 11.7549 11.7614C12.0817 11.4432 12.0817 10.9273 11.7549 10.6091L7.02051 6L11.7549 1.39091C12.0817 1.07272 12.0817 0.556834 11.7549 0.238643C11.428 -0.0795478 10.8981 -0.0795477 10.5713 0.238643Z" />
+            </svg>
+          </button>`;
+      this.parent.append(el);
+    }
+
+  }
+
+  const checkedFalse = () => {
+    checkboxIinputs.forEach(item => item.checked = false);
+  };
+
+  checkboxIinputs.forEach((item, i) => {
+    item.addEventListener('click', () => {
+      let currentName;
+      checkboxName.forEach(item => {
+        if (item) {
+          currentName = checkboxName[i].textContent;
+        }
+      });
+
+      if (item.checked == true) {
+        if (item.classList.contains('checkbox_category')) {
+          new Option('lime_color', currentName, '.catalog__options').render();
+        } else if (item.classList.contains('checkbox_sale')) {
+          new Option('pink_violet_color', currentName, '.catalog__options').render();
+        } else if (item.classList.contains('checkbox_color')) {
+          new Option('md_grey', currentName, '.catalog__options').render();
+        }
+      }
+
+      setTimeout(checkedFalse, 3000);
+    });
+  });
+  checkboxCost.forEach(item => {
+    item.addEventListener('change', () => {
+      const inputValue = item.value;
+      const el = document.createElement('span');
+      el.classList.add('bone_color');
+      el.innerHTML = `До ${inputValue}
+          <button class="catalog__option_btn btn_reset">
+            <svg width="12" height="12" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M1.42872 0.238643L6.75487 5.42386C7.08171 5.74206 7.08171 6.25794 6.75487 6.57614L1.42872 11.7614C1.10188 12.0795 0.571969 12.0795 0.245129 11.7614C-0.0817098 11.4432 -0.0817098 10.9273 0.24513 10.6091L4.97949 6L0.24513 1.39091C-0.0817089 1.07272 -0.0817089 0.556834 0.24513 0.238643C0.57197 -0.0795478 1.10188 -0.0795477 1.42872 0.238643Z" />
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M10.5713 0.238643L5.24513 5.42386C4.91829 5.74206 4.91829 6.25794 5.24513 6.57614L10.5713 11.7614C10.8981 12.0795 11.428 12.0795 11.7549 11.7614C12.0817 11.4432 12.0817 10.9273 11.7549 10.6091L7.02051 6L11.7549 1.39091C12.0817 1.07272 12.0817 0.556834 11.7549 0.238643C11.428 -0.0795478 10.8981 -0.0795477 10.5713 0.238643Z" />
+            </svg>
+          </button>`;
+      document.querySelector('.catalog__options').append(el);
+      item.value = '';
+    });
+  });
+
+  if (optionsField) {
+    optionsField.addEventListener('click', e => {
+      const target = e.target.parentElement;
+
+      if (target.classList.contains('catalog__option_btn') || target.tagName == 'svg') {
+        target.closest('span').remove();
+      }
+    });
+  }
+
+  const productModalBtn = document.querySelector('.modal__btn');
+  const modalThank = document.createElement('div');
+  const modalWindow = document.querySelector('.modal');
+  const modalInner = document.querySelector('.modal__inner');
+  const modalInput = document.querySelectorAll('.modal__input');
+  const agreementCheckbox = document.querySelector('.agreement_checkbox');
   const productBtn = document.querySelector('.product__btn');
   const modalField = document.querySelector('.modal__field');
   const body = document.querySelector('body');
@@ -20212,91 +20335,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const burger = document.querySelector('.burger');
-  const hederNav = document.querySelector('.header__nav');
+  modalThank.classList.add('modal__thank');
+  modalThank.innerHTML = `<div class="modal__thank__img">
+    <svg viewBox="0 0 32 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.08411 20.6446C9.11043 20.6446 9.86916 17.0981 9.86916 14.2587C10.3474 14.2587 14.1267 14.2587 15.8505 14.2587C25.2271 14.2587 25.2295 0.96875 16.1495 0.96875C13.6798 0.96875 12.0891 2.46863 11.6633 2.99113C6.59708 2.99113 5.98131 5.64294 5.98131 10.792C5.98131 11.7854 5.98131 15.0144 5.98131 15.5118C5.98131 16.7225 5.49563 17.508 4.18662 17.508C3.06901 17.508 2.53967 16.5166 2.09316 15.1254C1.86049 15.2506 0.22669 16.1359 0 16.281C0.494354 17.6708 1.0237 20.6446 5.08411 20.6446ZM10.7765 8.76935C12.3104 8.76935 12.4408 11.0806 10.668 11.0806C9.17353 11.0806 9.21241 8.76935 10.7765 8.76935ZM16.1498 15.6955C14.8534 15.6955 11.0654 15.4143 11.0654 15.4143V22.5398L14.6542 22.5912L15.5514 17.4367L26.9159 17.2228L27.2153 22.8741L31.4022 22.9257C31.4022 22.9257 32 11.8567 32 9.63608C32 5.51717 30.1604 3.18592 26.0187 2.99113C24.9809 2.94236 23.6232 2.74842 22.729 2.70221C26.6267 7.45342 23.5254 15.6955 16.1498 15.6955ZM23.3274 18.5846L23.6262 22.7714L26.0187 22.823L25.7196 18.5846H23.3274ZM15.8505 22.6431L18.243 22.6944L18.8408 18.5846H16.7474L15.8505 22.6431Z" fill="#FF862F"/>
+    </svg>
+    </div>
+    <div class="modal__thank__text">Спасибо, мы вам перезвоним!</div>`;
 
-  if (burger) {
-    burger.addEventListener('click', () => {
-      burger.classList.toggle('active');
-      hederNav.classList.toggle('active');
-    });
-  }
-
-  const filterGroup = document.querySelectorAll('.filters__title');
-  const filterDropdown = document.querySelectorAll('.tablet_filter__inner');
-  filterGroup.forEach((item, i) => {
-    item.addEventListener('click', () => {
-      item.classList.toggle('active');
-      filterDropdown[i].classList.toggle('active');
-    });
-  });
-  const checkboxIinputs = document.querySelectorAll('.input_checkbox');
-  const filterLabel = document.querySelectorAll('.filter__label');
-  const filtersField = document.querySelectorAll('.tablet_filter__inner');
-  const optionsField = document.querySelector('.catalog__options');
-
-  class Option {
-    constructor(selector, checkboxName, parentSelector) {
-      this.selector = selector;
-      this.checkboxName = checkboxName;
-      this.parent = document.querySelector(parentSelector);
-    }
-
-    render() {
-      const el = document.createElement('span');
-      el.classList.add(this.selector);
-      el.innerHTML = `${this.checkboxName}
-          <button class="catalog__option_btn btn_reset">
-            <svg width="12" height="12" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M1.42872 0.238643L6.75487 5.42386C7.08171 5.74206 7.08171 6.25794 6.75487 6.57614L1.42872 11.7614C1.10188 12.0795 0.571969 12.0795 0.245129 11.7614C-0.0817098 11.4432 -0.0817098 10.9273 0.24513 10.6091L4.97949 6L0.24513 1.39091C-0.0817089 1.07272 -0.0817089 0.556834 0.24513 0.238643C0.57197 -0.0795478 1.10188 -0.0795477 1.42872 0.238643Z" />
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M10.5713 0.238643L5.24513 5.42386C4.91829 5.74206 4.91829 6.25794 5.24513 6.57614L10.5713 11.7614C10.8981 12.0795 11.428 12.0795 11.7549 11.7614C12.0817 11.4432 12.0817 10.9273 11.7549 10.6091L7.02051 6L11.7549 1.39091C12.0817 1.07272 12.0817 0.556834 11.7549 0.238643C11.428 -0.0795478 10.8981 -0.0795477 10.5713 0.238643Z" />
-            </svg>
-          </button>`;
-      this.parent.append(el);
-    }
-
-  }
-
-  const uncheckedState = () => {
-    filterLabel.forEach(item => {
-      item.addEventListener('click', () => {
-        checkboxIinputs.forEach(item => {
-          item.checked = false;
-        });
-      });
-    });
-  };
-
-  filtersField.forEach(item => {
-    item.addEventListener('click', e => {
-      const target = e.target;
-
-      if (target.classList.contains('input_checkbox')) {
-        uncheckedState();
-        target.checked = true;
-        const currentCheckboxName = target.nextElementSibling.nextElementSibling.textContent;
-
-        if (target.classList.contains('checkbox_category')) {
-          new Option('lime_color', currentCheckboxName, '.catalog__options').render();
-        } else if (target.classList.contains('checkbox_cost')) {
-          new Option('bone_color', currentCheckboxName, '.catalog__options').render();
-        } else if (target.classList.contains('checkbox_sale')) {
-          new Option('pink_violet_color', currentCheckboxName, '.catalog__options').render();
-        } else if (target.classList.contains('checkbox_color')) {
-          new Option('md_grey', currentCheckboxName, '.catalog__options').render();
+  if (productModalBtn) {
+    productModalBtn.addEventListener('click', e => {
+      e.preventDefault();
+      modalInput.forEach(item => {
+        if (item) {
+          if (item.getAttribute('name') == 'name' && item.value == '') {
+            alert('Введите своё имя');
+          } else if (item.getAttribute('name') == 'tel' && item.value == '') {
+            alert('Введите свой номер телефона');
+          } else {
+            modalWindow.prepend(modalThank);
+            modalWindow.classList.add('thank');
+            modalInner.style.display = 'none';
+            item.value = '';
+          }
         }
-      }
+      });
+      setTimeout(() => {
+        modalThank.remove();
+        modalWindow.classList.remove('thank');
+        modalInner.style.display = 'block';
+      }, 3000);
     });
-  });
-  optionsField.addEventListener('click', e => {
-    const target = e.target.parentElement;
+  }
 
-    if (target.classList.contains('catalog__option_btn')) {
-      target.parentElement.remove();
-    }
-  });
   const map = document.getElementById('map');
 
   if (map) {

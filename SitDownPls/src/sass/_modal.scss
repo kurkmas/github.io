@@ -25,6 +25,10 @@
   border-radius: 10px;
 }
 
+.modal.thank {
+  padding: 118px 75px;
+}
+
 .modal__title {
   font-size: 32px;
   font-weight: 400;
@@ -98,4 +102,24 @@
       }
     }
   }
+}
+
+.modal__thank__img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+
+  svg {
+    width: 172px;
+    height: 117px;
+  }
+}
+
+.modal__thank__text {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--black);
+  text-align: center;
 }
