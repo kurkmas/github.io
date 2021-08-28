@@ -1,0 +1,62 @@
+.contacts__title {
+  margin-bottom: 16px;
+}
+
+.contacts__input {
+  @include formInput;
+  display: inline-block;
+  width: 624px;
+  margin: 0;
+  margin-right: 32px;
+}
+
+.contacts__btn {
+  @include coloredBtn;
+  padding: 17px 35px;
+}
+
+.contacts__form {
+  margin-bottom: 32px;
+}
+
+.contacts__map {
+  width: 100%;
+  height: 510px;
+}
+
+.ymaps-2-1-79-image:hover {
+  width: 50px;
+}
+
+.balloon {
+  max-width: 283px;
+  font-family: 'OpenSans', sans-serif;
+  color: var(--black);
+  padding: 10px;
+
+  h4 {
+    font-size: 16px;
+    line-height: 1;
+    margin: 0;
+    margin-bottom: 7px;
+  }
+
+  address {
+    font-size: 14px;
+    font-style: normal;
+    line-height: 1.8;
+    margin-bottom: 8px;
+  }
+
+  .tel_number {
+    margin-bottom: 26px;
+  }
+
+  .worktime {
+    margin-bottom: 22px;
+  }
+
+  .grey_text {
+    color: var(--grey);
+  }
+}

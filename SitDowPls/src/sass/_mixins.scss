@@ -1,0 +1,181 @@
+@mixin сircleBtn {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--primary_main);
+  border-radius: 100px;
+
+  span {
+    display: inline-block;
+    vertical-align: middle;
+    width: 10px;
+    height: 10px;
+    margin-top: -4px;
+    margin-left: -4px;
+    border-top: 2px solid var(--primary_main);
+    border-right: 2px solid var(--primary_main);
+    transform: rotate(45deg);
+  }
+
+  &:hover {
+    background-color: var(--primary_main);
+    transition: background-color .3s ease;
+
+    span {
+      border-top: 2px solid var(--white);
+      border-right: 2px solid var(--white);
+    }
+  }
+
+  &:focus {
+    background-color: var(--primary_light);
+    transition: background-color .3s ease;
+
+    span {
+      border-top: 2px solid var(--white);
+      border-right: 2px solid var(--white);
+    }
+  }
+
+  &:active {
+    background-color: var(--primary_shade);
+    transition: background-color .3s ease;
+
+    span {
+      border-top: 2px solid var(--white);
+      border-right: 2px solid var(--white);
+    }
+  }
+}
+
+@mixin coloredBtn {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--white);
+  padding: 22px 50px;
+  background-color: var(--primary_main);
+  border: 2px solid var(--primary_main);
+  border-radius: 10px;
+
+  &:hover {
+    background-color: var(--primary_light);
+    transition: background-color .3s ease;
+  }
+
+  &:focus {
+    background-color: var(--primary_light);
+    border: 2px solid var(--primary_shade);
+    transition: background-color .3s ease;
+  }
+
+  &:active {
+    background-color: var(--primary_shade);
+    border: 2px solid var(--primary_shade);
+    transition: background-color .3s ease;
+  }
+
+  &:disabled {
+    color: var(--grey);
+    background-color: var(--md_grey);
+    border: 2px solid var(--md_grey);
+  }
+}
+
+@mixin transparentBtn {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--primary_main);
+  padding: 17px 32px;
+  border: 2px solid var(--primary_main);
+  border-radius: 10px;
+
+  &:hover {
+    color: var(--white);
+    background: var(--primary_main);
+    transition: background .3s ease;
+  }
+
+  &:focus {
+    color: var(--white);
+    background: var(--primary_light);
+    transition: background .3s ease;
+  }
+
+  &:active {
+    color: var(--white);
+    background: var(--primary_shade);
+    transition: background .3s ease;
+  }
+}
+
+@mixin greyBgCard {
+  background-color: var(--grey_light);
+  border-radius: 10px;
+}
+
+
+@mixin swiperBtns {
+  position: absolute;
+  top: 0;
+  right: 15px;
+}
+
+@mixin navLink {
+  padding: 0 8px;
+  font-size: 14px;
+  line-height: 1;
+  color: var(--grey);
+
+  &:hover {
+    color: var(--primary_main);
+  }
+
+  &:focus {
+    color: var(--primary_shade);
+    background-color: var(--pink_violet);
+  }
+
+  &:active {
+    color: var(--primary_shade);
+    background-color: transparent;
+  }
+}
+
+@mixin formInput {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--black);
+  padding: 15px;
+  margin-bottom: 30px;
+  @include greyBgCard;
+  border: 1px solid transparent;
+  outline: none;
+
+  &:hover {
+    background-color: var(--md_grey);
+  }
+
+  &:focus {
+    background-color: var(--pink_light);
+    border: 1px solid var(--primary_main);
+  }
+
+  &:focus::placeholder {
+    color: transparent;
+  }
+
+  &:active {
+    background-color: var(--grey_light);
+    border: 1px solid var(--green_input);
+  }
+
+  &::placeholder {
+    font-size: 16px;
+    line-height: 1;
+    color: var(--grey);
+  }
+}

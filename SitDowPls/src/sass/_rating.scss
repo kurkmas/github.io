@@ -1,0 +1,103 @@
+.product__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product__item {
+  width: calc((100% - 102px) / 4);
+  margin-right: 34px;
+  margin-bottom: 36px;
+}
+
+.product__card {
+  position: relative;
+  @include greyBgCard;
+}
+
+.product_img__wrapper {
+  min-height: 192px;
+  padding: 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 16px;
+}
+
+.product__card__descr {
+  padding: 0 30px 30px;
+}
+
+.product__item:nth-child(4n) {
+  margin-right: 0;
+}
+
+.product__card__price {
+  display: block;
+  font-size: 16px;
+  line-height: 1.3;
+  color: var(--grey);
+  margin-bottom: 24px;
+}
+
+.product__card__link {
+  @include transparentBtn;
+}
+
+.product__index {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+
+  span {
+    font-size: 16px;
+    line-height: 1.3;
+    color: var(--secondary_main);
+  }
+
+  svg {
+    width: 16px;
+    height: 15px;
+
+    path {
+      fill: var(--secondary_main);
+    }
+  }
+}
+
+.product_btn {
+  display: block;
+  @include coloredBtn;
+  margin: 0 auto;
+  padding: 20px 34px;
+  margin-bottom: 70px;
+}
+
+.new_collection {
+  background-image: url('../img/images/rating-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  object-fit: cover;
+  padding: 150px 0;
+}
+
+.new_collection__descr {
+  max-width: 508px;
+  font-size: 48px;
+  line-height: 1.2;
+  color: var(--white);
+  margin-bottom: 50px;
+
+  span {
+    font-family: 'PlayFair', serif;
+    font-weight: 900;
+    font-size: 60px;
+    line-height: 1.2;
+    color: var(--gold);
+  }
+}
+
+.new_collection__btn {
+  @include coloredBtn;
+  padding: 22px 32px;
+}
