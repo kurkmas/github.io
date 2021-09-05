@@ -9,18 +9,20 @@
     display: none;
   }
 
-  .catalog__main {
-    margin: 0 auto;
+  .catalog_title {
+    margin-bottom: 13px;
   }
 
   .tablet_fiters__wrapper {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     margin: 0;
   }
 
   .filters__subtitle {
+    font-size: 14px;
     margin-right: 43px;
+    padding-top: 13px;
   }
 
   .filter__group__wrapper {
@@ -29,6 +31,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 32px;
+    // margin-top: -12px;
   }
 
   .filter__group {
@@ -149,6 +152,17 @@
   }
 }
 
+@media screen and(max-width: 768px) {
+  .filters__subtitle {
+    margin-bottom: 15px;
+  }
+
+  .filter__group:first-child,
+  .filter__group:nth-child(2) {
+    margin-bottom: 10px;
+  }
+}
+
 @media screen and (max-width: 420px) {
   .filter__group {
     min-width: 160px;
@@ -160,6 +174,23 @@
 }
 
 @media screen and (max-width: 360px) {
+  .catalog_title {
+    margin-bottom: 8px;
+  }
+
+  .catalog__options {
+    span {
+      margin-bottom: 9px;
+    }
+  }
+
+  .catalog__container {
+    .card__title {
+      margin-bottom: 17px;
+    }
+  }
+
+
   .breadcrumb {
     display: none;
   }

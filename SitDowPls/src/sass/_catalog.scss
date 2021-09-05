@@ -2,10 +2,6 @@
   margin-bottom: 105px;
 }
 
-.catalog__header_bottom {
-  margin-bottom: 23px;
-}
-
 .tablet_fiters__wrapper {
   display: none;
 }
@@ -32,7 +28,7 @@
   font-size: 16px;
   line-height: 1.3;
   color: var(--grey_shade);
-  margin-bottom: 9px;
+  margin-bottom: 6px;
 }
 
 .filter__inner {
@@ -121,7 +117,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 5px;
+  margin-bottom: 9px;
 
   label {
     display: inline-block;
@@ -136,7 +132,7 @@
 }
 
 .filter__sale {
-  margin-bottom: 26px;
+  margin-bottom: 30px;
 }
 
 

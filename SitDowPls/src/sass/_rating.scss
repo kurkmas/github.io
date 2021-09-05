@@ -9,6 +9,10 @@
   margin-bottom: 36px;
 }
 
+.product__item.hidden {
+  display: none;
+}
+
 .product__card {
   position: relative;
   @include greyBgCard;

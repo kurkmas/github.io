@@ -16,7 +16,7 @@
   font-size: 14px;
   line-height: 19px;
   color: var(--grey_shade);
-  margin-bottom: 16px;
+  margin-bottom: -8px;
 
   .tooltype_icon {
     position: relative;
@@ -87,13 +87,28 @@
   margin-bottom: 12px;
 }
 
+.form__alert {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1;
+  padding-left: 20px;
+  margin-bottom: 6px;
+  color: transparent;
+}
+
 .feedback__input {
   @include formInput;
+  margin-bottom: 8px;
+}
+
+.feedback__name.alert {
+  border: 1px solid #ff6972;
 }
 
 .feedback__btn {
   @include coloredBtn;
   padding: 17px 32px;
+  margin-top: 24px;
 }
 
 .checkbox__label {

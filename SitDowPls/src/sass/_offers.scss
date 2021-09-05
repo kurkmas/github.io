@@ -32,13 +32,13 @@
 
 .card__ticket {
   position: absolute;
-  top: 27px;
+  top: 28px;
   left: 0;
   font-weight: 600;
   font-size: 14px;
   line-height: 19px;
   color: var(--white);
-  padding: 7px 29px 7px 19px;
+  padding: 7px 29px 9px 19px;
   background-color: var(--secondary_main);
   clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%);
 }

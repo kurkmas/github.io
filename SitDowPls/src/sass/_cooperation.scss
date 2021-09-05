@@ -40,18 +40,16 @@
 }
 
 .benefits {
-  padding-left: 37px;
   max-width: 624px;
+  padding-left: 37px;
+  line-height: 1.5;
+  background-repeat: no-repeat;
+  background-size: 25px 25px;
+  background-position: left top;
 }
 
 .benefits:not(:last-child) {
   margin-bottom: 12px;
-}
-
-.benefits {
-  background-repeat: no-repeat;
-  background-size: 25px 25px;
-  background-position: left top;
 }
 
 .benefit1 {

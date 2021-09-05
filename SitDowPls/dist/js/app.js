@@ -20098,7 +20098,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   const usefulSwiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_1__["default"]('.useful__swiper.swiper-container', {
     direction: 'horizontal',
-    slidesPerGroup: 2,
     slidesPerColumn: 1,
     slidesPerView: 'auto',
     spaceBetween: 32,
@@ -20108,10 +20107,15 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     breakpoints: {
       320: {
-        slidesPerGroup: 1
+        slidesPerGroup: 1,
+        spaceBetween: 16
       },
       570: {
-        slidesPerGroup: 2
+        slidesPerGroup: 2,
+        spaceBetween: 32
+      },
+      1023: {
+        slidesPerGroup: 3
       }
     }
   });
@@ -20148,19 +20152,53 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   const productSwiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_1__["default"]('.swiper-container.product__swiper', {
     direction: 'horizontal',
-    slidesPerGroup: 2,
-    slidesPerColumn: 1,
-    slidesPerView: 'auto',
-    spaceBetween: 32,
+    breakpoints: {
+      300: {
+        slidesPerGroup: 2,
+        slidesPerColumn: 1,
+        slidesPerView: 'auto',
+        spaceBetween: 16
+      },
+      767: {
+        slidesPerGroup: 2,
+        slidesPerColumn: 1,
+        slidesPerView: 'auto',
+        spaceBetween: 32
+      }
+    },
     navigation: {
       nextEl: '.product__button_next',
       prevEl: '.product__button_prev'
     }
   });
   const modalSwiperThumbs = new swiper_bundle__WEBPACK_IMPORTED_MODULE_1__["default"]('.swiper-container.slider__thumbs', {
-    spaceBetween: 78,
-    slidesPerView: 4,
-    slidesPerGroup: 4
+    direction: 'horizontal',
+    breakpoints: {
+      319: {
+        spaceBetween: 63,
+        slidesPerView: 1,
+        slidesPerGroup: 1
+      },
+      400: {
+        spaceBetween: 78,
+        slidesPerView: 2,
+        slidesPerGroup: 1
+      },
+      769: {
+        spaceBetween: 78,
+        slidesPerView: 3,
+        slidesPerGroup: 1
+      },
+      1230: {
+        spaceBetween: 78,
+        slidesPerView: 4,
+        slidesPerGroup: 1
+      }
+    },
+    navigation: {
+      nextEl: '.slider__thumbs_next',
+      prevEl: '.slider__thumbs_prev'
+    }
   });
   const modalSwiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_1__["default"]('.swiper-container.modal__slider', {
     loop: true,
@@ -20171,6 +20209,37 @@ document.addEventListener('DOMContentLoaded', () => {
       swiper: modalSwiperThumbs
     }
   });
+  const productCards = document.querySelectorAll('.product__item');
+  const mainPageProductBtn = document.querySelector('.product_btn');
+
+  if (mainPageProductBtn) {
+    mainPageProductBtn.addEventListener('click', () => {
+      if (!mainPageProductBtn.classList.contains('active')) {
+        productCards.forEach(el => {
+          if (el.classList.contains('hidden')) {
+            el.classList.remove('hidden');
+
+            if (el.classList.contains('display_none')) {
+              el.classList.remove('display_none');
+            }
+          }
+        });
+        mainPageProductBtn.textContent = 'Скрыть товары';
+        mainPageProductBtn.classList.add('active');
+      } else {
+        mainPageProductBtn.textContent = 'Смотреть больше товаров';
+        mainPageProductBtn.classList.remove('active');
+        productCards.forEach(el => {
+          el.classList.add('hidden');
+
+          if (el.classList.contains('shown')) {
+            el.classList.remove('hidden');
+          }
+        });
+      }
+    });
+  }
+
   const rangeSlider = document.querySelector('.fiter__range');
   const rangeInputs = document.querySelectorAll('.input_number');
 
@@ -20221,6 +20290,35 @@ document.addEventListener('DOMContentLoaded', () => {
     burger.addEventListener('click', () => {
       burger.classList.toggle('active');
       hederNav.classList.toggle('active');
+    });
+    burger.addEventListener('keydown', e => {
+      if (e.code == 'Enter') {
+        burger.classList.toggle('active');
+        hederNav.classList.toggle('active');
+      }
+    });
+  }
+
+  const feedbackName = document.querySelector('.feedback__name');
+  const nameAlert = document.querySelector('.name_alert');
+  const feedbackForm = document.querySelector('.feedback__form');
+
+  if (feedbackForm) {
+    feedbackForm.addEventListener('submit', e => {
+      e.preventDefault();
+
+      if (feedbackName.value.match(/\w/g)) {
+        nameAlert.style.color = '#ff6972';
+        feedbackName.classList.add('alert');
+      } else {
+        nameAlert.style.color = 'transparent';
+        feedbackName.classList.remove('alert');
+        feedbackForm.reset();
+        modalField.classList.add('active');
+        setTimeout(() => {
+          modalField.classList.remove('active');
+        }, 3000);
+      }
     });
   }
 
@@ -20464,7 +20562,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `
       }, {
         iconLayout: 'default#imageWithContent',
-        iconImageHref: '../img/svg/mapIcon.svg',
+        iconImageHref: './img/svg/mapIcon.svg',
         iconImageSize: [32, 22],
         iconImageOffset: [-20, 0],
         iconContentOffset: [0],
@@ -20474,7 +20572,7 @@ document.addEventListener('DOMContentLoaded', () => {
         balloonContent: 'Второй баллун'
       }, {
         iconLayout: 'default#imageWithContent',
-        iconImageHref: '../img/svg/mapIcon.svg',
+        iconImageHref: './img/svg/mapIcon.svg',
         iconImageSize: [32, 22],
         iconImageOffset: [-20, 0],
         iconContentOffset: [0],
