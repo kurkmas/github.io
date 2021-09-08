@@ -35,6 +35,12 @@
   margin: 0;
   margin-bottom: 30px;
   color: var(--black);
+
+  a {
+    display: none;
+    line-height: 18px;
+    vertical-align: middle;
+  }
 }
 
 .top__card__img {

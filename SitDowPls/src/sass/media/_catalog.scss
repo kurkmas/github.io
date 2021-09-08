@@ -40,22 +40,33 @@
     margin: 0;
   }
 
-  .filters__title {
+  .filters__open_btn {
     display: block;
+    width: 100%;
     position: relative;
     font-weight: 400;
     font-size: 16px;
     line-height: 22px;
+    padding: 9px 15px;
     color: var(--black);
     border: 2px solid transparent;
     border-radius: 10px;
-    padding: 9px 15px;
     background-color: var(--grey_light);
+    text-align: start;
     cursor: pointer;
     z-index: 3;
   }
 
-  .filters__title::before {
+  .filters__open_btn:hover {
+    border: 2px solid var(--primary_main);
+  }
+
+  .filters__open_btn:focus {
+    border: 2px solid var(--primary_shade);
+  }
+
+
+  .filters__open_btn::before {
     content: '';
     position: absolute;
     top: 14px;
@@ -68,7 +79,7 @@
     transition: transform .3s ease;
   }
 
-  .filters__title.active::before {
+  .filters__open_btn.active::before {
     top: 18px;
     transform: rotate(-135deg);
     transition: transform .3s ease;

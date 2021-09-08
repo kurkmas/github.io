@@ -202,6 +202,13 @@
   padding-top: 30px;
   padding-left: 30px;
   padding-bottom: 53px;
+
+  .link__arrow {
+    span {
+      margin-top: -3px;
+      margin-left: 3px;
+    }
+  }
 }
 
 .filter__card__descr {

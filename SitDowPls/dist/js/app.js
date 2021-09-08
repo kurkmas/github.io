@@ -20216,26 +20216,22 @@ document.addEventListener('DOMContentLoaded', () => {
     mainPageProductBtn.addEventListener('click', () => {
       if (!mainPageProductBtn.classList.contains('active')) {
         productCards.forEach(el => {
-          if (el.classList.contains('hidden')) {
-            el.classList.remove('hidden');
-
-            if (el.classList.contains('display_none')) {
-              el.classList.remove('display_none');
-            }
+          if (el.classList.contains('display_none')) {
+            el.classList.remove('display_none');
+            el.classList.add('display_block');
           }
         });
-        mainPageProductBtn.textContent = 'Скрыть товары';
+        mainPageProductBtn.textContent = 'Свернуть';
         mainPageProductBtn.classList.add('active');
       } else {
-        mainPageProductBtn.textContent = 'Смотреть больше товаров';
-        mainPageProductBtn.classList.remove('active');
         productCards.forEach(el => {
-          el.classList.add('hidden');
-
-          if (el.classList.contains('shown')) {
-            el.classList.remove('hidden');
+          if (el.classList.contains('display_block')) {
+            el.classList.remove('display_block');
+            el.classList.add('display_none');
           }
         });
+        mainPageProductBtn.textContent = 'Смотреть больше товаров';
+        mainPageProductBtn.classList.remove('active');
       }
     });
   }
@@ -20315,16 +20311,18 @@ document.addEventListener('DOMContentLoaded', () => {
         feedbackName.classList.remove('alert');
         feedbackForm.reset();
         modalField.classList.add('active');
+        disableScroll();
         setTimeout(() => {
           modalField.classList.remove('active');
+          anableScroll();
         }, 3000);
       }
     });
   }
 
-  const filterGroup = document.querySelectorAll('.filters__title');
+  const filterOpen = document.querySelectorAll('.filters__open_btn');
   const filterDropdown = document.querySelectorAll('.tablet_filter__inner');
-  filterGroup.forEach((item, i) => {
+  filterOpen.forEach((item, i) => {
     item.addEventListener('click', () => {
       item.classList.toggle('active');
       filterDropdown[i].classList.toggle('active');
@@ -20448,23 +20446,41 @@ document.addEventListener('DOMContentLoaded', () => {
   const productBtn = document.querySelector('.product__btn');
   const modalField = document.querySelector('.modal__field');
   const body = document.querySelector('body');
-  const modalCloseBtn = document.querySelector('.modal__close_btn svg');
+  const modalCloseBtn = document.querySelector('.modal__close_btn');
   const productImg = document.querySelector('.product__main_img');
   const modalSlider = document.querySelector('.modal__slider__field');
   const modalSliderCloseBtn = document.querySelector('.modal__slider__btn');
   const modalSliderField = document.querySelector('.modal__slider__field');
+  const modalFixed = document.querySelectorAll('.fixed');
+
+  const disableScroll = () => {
+    const scrollWidth = window.innerWidth - document.body.clientWidth + 'px';
+    body.style.overflow = 'hidden';
+    modalFixed.forEach(el => {
+      el.paddingRight = scrollWidth;
+    });
+    document.body.style.paddingRight = scrollWidth;
+  };
+
+  const anableScroll = () => {
+    body.style.overflow = 'auto';
+    modalFixed.forEach(el => {
+      el.paddingRight = 0;
+    });
+    document.body.style.paddingRight = 0;
+  };
 
   if (productImg) {
     productImg.addEventListener('click', () => {
       modalSlider.classList.toggle('hidden');
-      body.style.overflow = 'hidden';
+      disableScroll();
     });
   }
 
   if (modalSliderCloseBtn) {
     modalSliderCloseBtn.addEventListener('click', () => {
       modalSlider.classList.toggle('hidden');
-      body.style.overflow = 'auto';
+      anableScroll();
     });
   }
 
@@ -20474,7 +20490,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (target == modalSliderField) {
         modalSlider.classList.toggle('hidden');
-        body.style.overflow = 'auto';
+        anableScroll();
       }
     });
   }
@@ -20482,14 +20498,14 @@ document.addEventListener('DOMContentLoaded', () => {
   if (productBtn) {
     productBtn.addEventListener('click', () => {
       modalField.classList.add('active');
-      body.style.overflowY = 'hidden';
+      disableScroll();
     });
   }
 
   if (modalCloseBtn) {
     modalCloseBtn.addEventListener('click', () => {
       modalField.classList.remove('active');
-      body.style.overflowY = 'auto';
+      anableScroll();
     });
   }
 
@@ -20497,7 +20513,7 @@ document.addEventListener('DOMContentLoaded', () => {
     modalField.addEventListener('click', e => {
       if (e.target == modalField) {
         modalField.classList.remove('active');
-        body.style.overflowY = 'auto';
+        anableScroll();
       }
     });
   }
@@ -20522,7 +20538,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalInner.style.display = 'block';
         modalForm.reset();
         modalField.classList.remove('active');
-        body.style.overflowY = 'auto';
+        anableScroll();
       }, 3000);
     });
   }
