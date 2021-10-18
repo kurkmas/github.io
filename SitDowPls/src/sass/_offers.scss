@@ -1,85 +1,98 @@
-.special_offers__container {
+.special-offers__container {
   position: relative;
 }
 
-.offer_cards__field.swiper-container {
+.special-offers__cards-field.swiper-container {
   width: 100%;
 }
 
-.offers_title {
-  margin-bottom: 26px;
-}
-
 .card {
-  position: relative;
-  width: 24%;
-  padding: 0 30px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: flex-start;
+  height: initial;
+  width: 23%;
+  padding: 0 30px 30px;
   @include greyBgCard;
 }
 
 .card:nth-child(2),
 .card:nth-child(5) {
-  width: 48%;
+  width: 49%;
 }
 
-.card_img__wrapper {
+.card:nth-child(2) {
+  .card__img-wrapper {
+    padding-top: 22px;
+  }
+}
+
+.card__img-wrapper {
   min-height: 298px;
+  width: 100%;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding-top: 45px;
+  padding-top: 51px;
 }
 
 .card__ticket {
   position: absolute;
-  top: 28px;
+  top: 31px;
   left: 0;
   font-weight: 600;
   font-size: 14px;
   line-height: 19px;
   color: var(--white);
-  padding: 7px 29px 9px 19px;
+  padding: 6px 29px 9px 19px;
   background-color: var(--secondary_main);
   clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%);
 }
 
-.card__title {
+.card-title {
   max-width: 228px;
   font-weight: 400;
   font-size: 24px;
   line-height: 1.3;
   color: var(--black);
-  margin: 0;
-  margin-bottom: 19px;
 }
 
-.card__cost_wrapper {
-  max-width: 203px;
+.card__title {
+  margin: 0;
+  margin-bottom: 22px;
+}
+
+.card__cost-wrapper {
+  width: 203px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 23px;
+  margin-bottom: 21px;
 
   span {
-    display: inline-block;
+    display: block;
   }
 }
 
-.card_sale {
+.card__sale {
   font-size: 18px;
-  line-height: 130%;
+  line-height: 1.3;
   color: var(--secondary_main);
 }
 
-.card_cost {
+.card__cost {
   font-size: 16px;
-  line-height: 130%;
+  line-height: 1.3;
   text-decoration-line: line-through;
   color: var(--grey);
 }
 
-.offer_card__link {
+.card__link {
   @include transparentBtn;
+  display: block;
+  margin-top: auto;
 }
 
 .card__pattern {
@@ -88,13 +101,4 @@
   max-height: 125px;
   right: 32px;
   bottom: 32px;
-}
-
-.offer__button_prev,
-.offer__button_next {
-  @include сircleBtn;
-}
-
-.offer__swiper_btns__wrapper {
-  @include swiperBtns;
 }

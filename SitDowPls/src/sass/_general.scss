@@ -39,8 +39,8 @@ input[type="search"]::-webkit-search-results-decoration {
 
 @font-face {
   font-family: 'OpenSans';
-  src: url('./fonts/opensans-bold-webfont.woff2') format('woff2'),
-    url('./fonts/opensans-bold-webfont.woff') format('woff');
+  src: url('../fonts/opensans-bold-webfont.woff2') format('woff2'),
+    url('../fonts/opensans-bold-webfont.woff') format('woff');
   font-display: swap;
   font-weight: 700;
   font-style: normal;
@@ -48,8 +48,8 @@ input[type="search"]::-webkit-search-results-decoration {
 
 @font-face {
   font-family: 'OpenSans';
-  src: url('./fonts/opensans-regular-webfont.woff2') format('woff2'),
-    url('./fonts/opensans-regular-webfont.woff') format('woff');
+  src: url('../fonts/opensans-regular-webfont.woff2') format('woff2'),
+    url('../fonts/opensans-regular-webfont.woff') format('woff');
   font-display: swap;
   font-weight: 400;
   font-style: normal;
@@ -57,8 +57,8 @@ input[type="search"]::-webkit-search-results-decoration {
 
 @font-face {
   font-family: 'OpenSans';
-  src: url('./fonts/opensans-semibold-webfont.woff2') format('woff2'),
-    url('./fonts/opensans-semibold-webfont.woff') format('woff');
+  src: url('../fonts/opensans-semibold-webfont.woff2') format('woff2'),
+    url('../fonts/opensans-semibold-webfont.woff') format('woff');
   font-display: swap;
   font-weight: 500;
   font-style: normal;
@@ -66,8 +66,8 @@ input[type="search"]::-webkit-search-results-decoration {
 
 @font-face {
   font-family: 'PlayFair';
-  src: url('./fonts/playfairdisplay-black-webfont.woff2') format('woff2'),
-    url('./fonts/playfairdisplay-black-webfont.woff') format('woff');
+  src: url('../fonts/playfairdisplay-black-webfont.woff2') format('woff2'),
+    url('../fonts/playfairdisplay-black-webfont.woff') format('woff');
   font-display: swap;
   font-weight: 900;
   font-style: normal;
@@ -132,17 +132,18 @@ select {
   background-color: transparent;
 }
 
-.btn_reset {
+.btn-reset {
   border: none;
   background-color: transparent;
   cursor: pointer;
+  padding: 0;
 }
 
 section {
   margin-bottom: 70px;
 }
 
-.section_title {
+.section-title {
   font-size: 32px;
   font-weight: 400;
   line-height: 1;
@@ -151,44 +152,62 @@ section {
   margin-bottom: 26px;
 }
 
-.swiper__button_prev {
+.swiper-slide {
+  height: initial;
+}
+
+.swiper-controls {
+  @include swiperBtns;
+}
+
+.swiper-btn-next,
+.swiper-btn-prev {
+  @include сircleBtn;
+}
+
+.swiper-btn-prev {
   margin-right: 10px;
 
-  .btn_arrow {
+  .btn-arrow {
     margin-left: 3px;
     transform: rotate(-135deg);
   }
 }
 
-.swiper__button_prev.swiper-button-disabled,
-.swiper__button_next.swiper-button-disabled {
+.swiper-btn-prev.swiper-button-disabled,
+.swiper-btn-next.swiper-button-disabled {
   border-color: var(--grey);
 
-  .btn_arrow {
+  .btn-arrow {
     border-top: 2px solid var(--grey);
     border-right: 2px solid var(--grey);
   }
 }
 
-.swiper__button_prev.swiper-button-disabled:hover,
-.swiper__button_next.swiper-button-disabled:hover {
+.swiper-btn-prev.swiper-button-disabled:hover,
+.swiper-btn-next.swiper-button-disabled:hover {
   background-color: transparent;
   cursor: auto;
 }
 
-.input_checkbox {
+.swiper-pagination-bullet:focus {
+  background-color: var(--primary_main);
+  box-shadow: 0 0 10px var(--primary_main);
+}
+
+.input-checkbox {
   width: 1px;
   height: 1px;
   opacity: 0;
 }
 
-.fake_checkbox {
+.fake-checkbox {
   display: inline-block;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   margin-right: 8px;
-  padding-left: 3px;
-  margin-top: -1px;
+  padding-left: 2px;
+  margin-top: -2px;
   background-color: var(--white);
   border: 1px solid var(--grey);
   border-radius: 2px;
@@ -198,32 +217,28 @@ section {
 
   svg {
     vertical-align: 3px;
-
-    path {
-      stroke: transparent;
-    }
+    fill: transparent;
   }
 }
 
-.input_checkbox:checked+.fake_checkbox {
+.input-checkbox:checked+.fake-checkbox {
   background-color: var(--primary_main);
   transition: background-color .2s ease;
 
   svg {
-
-    path {
-      stroke: var(--white);
-    }
+    stroke: var(--white);
   }
 }
 
-.input_checkbox:focus+.fake_checkbox {
+.input-checkbox:focus+.fake-checkbox {
   box-shadow: 0 0 2px 1px var(--primary_main);
 
   svg {
-
-    path {
-      stroke: var(--white);
-    }
+    stroke: var(--white);
   }
+}
+
+.input-name.alert,
+.feedback__mail.alert {
+  border: 1px solid #ff6972;
 }

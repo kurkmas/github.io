@@ -1,24 +1,25 @@
 .feedback__title {
-  margin-bottom: 5px;
+  margin-bottom: 9px;
 }
 
 .feedback__container {
-  display: flex;
-  align-items: center;
+  background-image: url('../img/images/contact_img.png');
+  background-repeat: no-repeat;
+  background-size: 49% auto;
+  background-position: bottom 25px right 0;
 }
 
-.feedback_form__wrapper {
-  max-width: 624px;
-  margin-right: 32px;
+.feedback__form-wrapper {
+  max-width: 49%;
 }
 
 .feedback__text {
   font-size: 14px;
   line-height: 19px;
   color: var(--grey_shade);
-  margin-bottom: -8px;
+  margin-bottom: -4px;
 
-  .tooltype_icon {
+  .tooltype-icon {
     position: relative;
     display: inline-block;
     width: 14px;
@@ -38,8 +39,8 @@
     }
   }
 
-  .tooltype_icon:hover,
-  .tooltype_icon:focus {
+  .tooltype-icon:hover,
+  .tooltype-icon:focus {
     width: 16px;
     height: 16px;
     margin-left: -1px;
@@ -72,8 +73,8 @@
   clip-path: polygon(0 0, 100% 0, 99% 84%, 56% 83%, 48% 100%, 40% 84%, 0 84%);
 }
 
-.tooltype_icon:hover,
-.tooltype_icon:focus {
+.tooltype-icon:hover,
+.tooltype-icon:focus {
   .tooltype {
     margin-left: 1px;
     margin-top: 1px;
@@ -84,15 +85,15 @@
 
 .feedback__form {
   width: 100%;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
 }
 
-.form__alert {
+.form-alert {
   display: inline-block;
   font-size: 12px;
   line-height: 1;
   padding-left: 20px;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
   color: transparent;
 }
 
@@ -101,17 +102,17 @@
   margin-bottom: 8px;
 }
 
-.feedback__name.alert {
+.feedback__input.alert {
   border: 1px solid #ff6972;
 }
 
 .feedback__btn {
   @include coloredBtn;
-  padding: 17px 32px;
+  padding: 16px 32px;
   margin-top: 24px;
 }
 
-.checkbox__label {
+.checkbox-label {
   margin-left: -5px;
   cursor: pointer;
 }
@@ -122,24 +123,17 @@
   color: var(--black);
 }
 
-.agriment_link {
+.agriment-link {
   display: inline-block;
   text-decoration-line: underline;
   color: var(--primary_main);
 }
 
-.agriment_link:hover {
+.agriment-link:hover {
   color: var(--primary_shade);
 }
 
-.agriment_link:focus {
+.agriment-link:focus {
   color: var(--primary_shade);
   background-color: var(--primary_light);
-}
-
-.feedback__img {
-  display: block;
-  max-width: 624px;
-  margin-top: -40px;
-  object-fit: cover;
 }

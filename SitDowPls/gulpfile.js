@@ -1,8 +1,12 @@
 const { src, dest, series, watch } = require('gulp'),
   htmlMin = require('gulp-htmlmin'),
   cleanCSS = require('gulp-clean-css'),
-  imageMin = require('gulp-imagemin'),
+  rename = require('gulp-rename'),
+  autoprefixer = require('gulp-autoprefixer'),
+  sprite = require('gulp-svg-sprite'),
   webpack = require('webpack-stream'),
+  sass = require('gulp-sass')(require('sass')),
+  notify = require('gulp-notify'),
   webp = require('gulp-webp'),
   del = require('del'),
   sourcemaps = require('gulp-sourcemaps'),
@@ -12,24 +16,16 @@ const clean = () => {
   return del('dist');
 };
 
-const styles = () => {
-  return src('src/css/style.min.css')
-    .pipe(sourcemaps.init())
-    .pipe(cleanCSS({
-      level: 2
+const svgSprites = () => {
+  return src('./src/sprite/*.svg')
+    .pipe(sprite({
+      mode: {
+        stack: {
+          sprite: '../sprite.svg'
+        }
+      }
     }))
-    .pipe(sourcemaps.write())
-    .pipe(dest('dist/styles'))
-    .pipe(browserSync.stream());
-};
-
-const copyFonts = () => {
-  return src([
-    'src/fonts/**/*.woff2',
-    'src/fonts/**/*.woff'
-  ])
-
-    .pipe(dest('dist/styles/fonts'));
+    .pipe(dest('dist'));
 };
 
 const htmlMinify = () => {
@@ -41,17 +37,41 @@ const htmlMinify = () => {
     .pipe(browserSync.stream());
 };
 
+const styles = () => {
+  return src('src/sass/**/*.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass({
+      outputStyle: 'expanded'
+    })).on('error', notify.onError())
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(autoprefixer({
+      cascade: false
+    }))
+    .pipe(cleanCSS({
+      level: 2
+    }))
+    .pipe(sourcemaps.write('.'))
+    .pipe(dest('dist/styles/'))
+    .pipe(browserSync.stream());
+};
+
+const copyFonts = () => {
+  return src([
+    'src/fonts/**/*.woff2',
+    'src/fonts/**/*.woff'
+  ])
+
+    .pipe(dest('dist/fonts'));
+};
+
 const imgCompress = () => {
   return src([
     'src/img/images/**/*.jpg',
     'src/img/images/**/*.jpeg',
     'src/img/images/**/*.png'
   ])
-
-    .pipe(imageMin([
-      imageMin.mozjpeg({ quality: 75, progressive: true }),
-      imageMin.optipng({ optimizationLevel: 5 }),
-    ]))
     .pipe(dest('dist/img/images'));
 };
 
@@ -123,24 +143,32 @@ const watchFiles = () => {
   });
 };
 
-
 watch('src/**/*.html', htmlMinify);
 watch('src/css/**/*.css', styles);
 watch('src/js/**/*.js', scripts);
+watch('src/sprite/**/*.svg', svgSprites);
 
-
-exports.default = series(clean, copyFonts, htmlMinify, styles, imgCompress, webpImg, faviconFiles, copySvg, scripts, watchFiles);
+exports.default = series(clean, copyFonts, htmlMinify, styles, imgCompress, webpImg, svgSprites, faviconFiles, copySvg, scripts, watchFiles);
 
 const buildClean = () => {
   return del('build');
 };
 
 const buildStyles = () => {
-  return src('src/css/style.min.css')
+  return src('src/sass/**/*.scss')
+    .pipe(sass({
+      outputStyle: 'expanded'
+    })).on('error', notify.onError())
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(autoprefixer({
+      cascade: false
+    }))
     .pipe(cleanCSS({
       level: 2
     }))
-    .pipe(dest('build/styles'));
+    .pipe(dest('build/styles/'));
 };
 
 const copyBuildFonts = () => {
@@ -149,7 +177,7 @@ const copyBuildFonts = () => {
     'src/fonts/**/*.woff'
   ])
 
-    .pipe(dest('build/styles/fonts'));
+    .pipe(dest('build/fonts'));
 };
 
 const buildHtmlMinify = () => {
@@ -160,17 +188,24 @@ const buildHtmlMinify = () => {
     .pipe(dest('build'));
 };
 
+const buildsvgSprites = () => {
+  return src('./src/sprite/*.svg')
+    .pipe(sprite({
+      mode: {
+        stack: {
+          sprite: '../sprite.svg'
+        }
+      }
+    }))
+    .pipe(dest('build'));
+};
+
 const buildImgCompress = () => {
   return src([
     'src/img/images/**/*.jpg',
     'src/img/images/**/*.jpeg',
     'src/img/images/**/*.png'
   ])
-
-    .pipe(imageMin([
-      imageMin.mozjpeg({ quality: 75, progressive: true }),
-      imageMin.optipng({ optimizationLevel: 5 }),
-    ]))
     .pipe(dest('build/img/images'));
 };
 
@@ -232,4 +267,4 @@ const buildScripts = () => {
     .pipe(dest('build/js'));
 };
 
-exports.build = series(buildClean, buildHtmlMinify, copyBuildFonts, buildStyles, buildImgCompress, buildWebpImg, buildFaviconFiles, buildCopySvg, buildScripts);
+exports.build = series(buildClean, buildHtmlMinify, copyBuildFonts, buildStyles, buildsvgSprites, buildImgCompress, buildWebpImg, buildFaviconFiles, buildCopySvg, buildScripts);

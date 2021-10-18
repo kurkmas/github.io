@@ -1,17 +1,23 @@
-.cooperation__title {
-  margin-bottom: 32px;
+.cooperation-header {
+  .header__margin-bottom {
+    margin-bottom: 24px;
+  }
+}
+
+.cooperation-title {
+  margin-bottom: 34px;
 }
 
 .cooperation__descr {
   max-width: 842px;
-  margin-bottom: 32px;
+  margin-bottom: 33px;
 }
 
 .cooperation__descr:last-child {
   margin-bottom: 32px;
 }
 
-.cooperation__descr__title {
+.cooperation__descr-title {
   font-weight: 400;
   font-size: 24px;
   line-height: 33px;

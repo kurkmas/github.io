@@ -9,12 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
     itemSelectText: ''
   });
 
-  const selectchoices = new Choices('#bottom_header_select', {
+  const selectchoices = new Choices('#header-bottom__select', {
     searchEnabled: false,
+    shouldSort: false,
     itemSelectText: ''
   });
 
-  const swiperPromo = new Swiper('.promo__swiper.swiper-container', {
+  const swiperPromo = new Swiper('.swiper-container.promo__swiper', {
     direction: 'horizontal',
     slidesPerGroup: 1,
     slidesPerColumn: 1,
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     pagination: {
       el: '.swiper-pagination',
       type: 'bullets',
+      clickable: true,
     },
 
     autoplay: {
@@ -35,15 +37,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  const offersSwiper = new Swiper('.offer_cards__field.swiper-container', {
+  const offersSwiper = new Swiper('.swiper-container.special-offers__swiper', {
     direction: 'horizontal',
     slidesPerColumn: 1,
     slidesPerView: 'auto',
     spaceBetween: 32,
 
     navigation: {
-      nextEl: '.offer__button_next',
-      prevEl: '.offer__button_prev',
+      nextEl: '.special-offers__button-next',
+      prevEl: '.special-offers__button-prev',
     },
 
     breakpoints: {
@@ -59,15 +61,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  const usefulSwiper = new Swiper('.useful__swiper.swiper-container', {
+  const usefulSwiper = new Swiper('.swiper-container.useful__swiper', {
     direction: 'horizontal',
     slidesPerColumn: 1,
     slidesPerView: 'auto',
     spaceBetween: 32,
 
     navigation: {
-      nextEl: '.useful__button_next',
-      prevEl: '.useful__button_prev',
+      nextEl: '.useful__button-next',
+      prevEl: '.useful__button-prev',
     },
 
     breakpoints: {
@@ -85,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  const catalogSwiper = new Swiper('.swiper-container.catalog_products__field', {
+  const catalogSwiper = new Swiper('.swiper-container.catalog-products-field', {
     direction: 'horizontal',
     slidesPerColumnFill: 'row',
 
@@ -113,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     pagination: {
-      el: '.catalog_pagination.swiper-pagination',
+      el: '.catalog-pagination.swiper-pagination',
       clickable: true,
       renderBullet: function (index, className) {
         return '<span class="' + className + '">' + (index + 1) + "</span>";
@@ -121,11 +123,19 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   });
 
-  const productSwiper = new Swiper('.swiper-container.product__swiper', {
+  const secondaryPicturesSlider = new Swiper('.swiper-container.secondary-pictures-slider', {
+    direction: 'horizontal',
+    slidesPerGroup: 1,
+    slidesPerColumn: 1,
+    slidesPerView: 'auto',
+    spaceBetween: 38,
+  });
+
+  const productSwiper = new Swiper('.swiper-container.product-slider', {
     direction: 'horizontal',
 
     breakpoints: {
-      300: {
+      100: {
         slidesPerGroup: 2,
         slidesPerColumn: 1,
         slidesPerView: 'auto',
@@ -141,12 +151,12 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     navigation: {
-      nextEl: '.product__button_next',
-      prevEl: '.product__button_prev',
+      nextEl: '.product-button-next',
+      prevEl: '.product-button-prev',
     },
   });
 
-  const modalSwiperThumbs = new Swiper('.swiper-container.slider__thumbs', {
+  const modalSwiperThumbs = new Swiper('.swiper-container.slider-thumbs', {
     direction: 'horizontal',
 
     breakpoints: {
@@ -175,12 +185,12 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     navigation: {
-      nextEl: '.slider__thumbs_next',
-      prevEl: '.slider__thumbs_prev',
+      nextEl: '.modal-slider__thumbs-next',
+      prevEl: '.modal-slider__thumbs-prev',
     },
   });
 
-  const modalSwiper = new Swiper('.swiper-container.modal__slider', {
+  const modalSwiper = new Swiper('.swiper-container.modal-slider__inner', {
     loop: true,
     spaceBetween: 10,
     slidesPerView: 1,
@@ -191,45 +201,67 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   });
 
-  const productCards = document.querySelectorAll('.product__item');
-  const mainPageProductBtn = document.querySelector('.product_btn');
+  // burger
 
-  if (mainPageProductBtn) {
-    mainPageProductBtn.addEventListener('click', () => {
-      if (!mainPageProductBtn.classList.contains('active')) {
+  const burger = document.querySelector('.burger');
+  const hederNav = document.querySelector('.header-nav');
+
+  if (burger) {
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      hederNav.classList.toggle('active');
+    });
+  }
+
+  // rating cards
+
+  const productCards = document.querySelectorAll('.product-list__item');
+  const raitingBtn = document.querySelector('.rating-btn');
+
+  if (raitingBtn) {
+    raitingBtn.addEventListener('click', () => {
+      if (!raitingBtn.classList.contains('active')) {
         productCards.forEach(el => {
-          if (el.classList.contains('display_none')) {
-            el.classList.remove('display_none');
-            el.classList.add('display_block');
+          if (el.classList.contains('display-none')) {
+            el.classList.remove('display-none');
+            el.classList.add('display-block');
+          } else if (el.classList.contains('hidden')) {
+            el.classList.remove('hidden');
+            el.classList.add('shown');
           }
         });
-        mainPageProductBtn.textContent = 'Свернуть';
-        mainPageProductBtn.classList.add('active');
+        raitingBtn.textContent = 'Свернуть';
+        raitingBtn.classList.add('active');
       } else {
         productCards.forEach(el => {
-          if (el.classList.contains('display_block')) {
-            el.classList.remove('display_block');
-            el.classList.add('display_none');
+          if (el.classList.contains('display-block')) {
+            el.classList.remove('display-block');
+            el.classList.add('display-none');
+          } else if (el.classList.contains('shown')) {
+            el.classList.remove('shown');
+            el.classList.add('hidden');
           }
         });
-        mainPageProductBtn.textContent = 'Смотреть больше товаров';
-        mainPageProductBtn.classList.remove('active');
+        raitingBtn.textContent = 'Смотреть больше товаров';
+        raitingBtn.classList.remove('active');
       }
     });
   }
 
-  const rangeSlider = document.querySelector('.fiter__range');
-  const rangeInputs = document.querySelectorAll('.input_number');
+  // range slider
+
+  const rangeSlider = document.querySelector('.filter__range');
+  const rangeInputs = document.querySelectorAll('.input-number');
 
   if (rangeSlider) {
     noUiSlider.create(rangeSlider, {
-      start: [2000, 250000],
+      start: [2000, 150000],
       connect: true,
-      step: 25000,
+      step: 15000,
       keyboardSupport: true,
       range: {
         'min': [2000],
-        'max': [250000]
+        'max': [150000]
       }
     });
 
@@ -268,75 +300,180 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const burger = document.querySelector('.burger');
-  const hederNav = document.querySelector('.header__nav');
+  // scroll
 
-  if (burger) {
-    burger.addEventListener('click', () => {
-      burger.classList.toggle('active');
-      hederNav.classList.toggle('active');
+  const disableScroll = () => {
+    const scrollWidth = window.innerWidth - document.body.clientWidth + 'px';
+    body.style.overflow = 'hidden';
+    modalFixed.forEach(el => {
+      el.paddingRight = scrollWidth;
     });
+    body.style.paddingRight = scrollWidth;
+  };
 
-    burger.addEventListener('keydown', (e) => {
-      if (e.code == 'Enter') {
-        burger.classList.toggle('active');
-        hederNav.classList.toggle('active');
+  const anableScroll = () => {
+    body.style.overflow = '';
+    modalFixed.forEach(el => {
+      el.paddingRight = 0;
+    });
+    body.style.paddingRight = 0;
+  };
+
+  // forms
+
+  const inputName = document.querySelector('.input-name');
+  const nameAlert = document.querySelector('.name-alert');
+  const phoneInput = document.querySelector('.phone-input');
+  const feedbackForm = document.querySelector('.feedback__form');
+
+  if (inputName) {
+    inputName.addEventListener('input', () => {
+      if (inputName.value.match(/\w/g)) {
+        nameAlert.style.color = '#ff6972';
+        inputName.classList.add('alert');
+      } else {
+        nameAlert.style.color = 'transparent';
+        inputName.classList.remove('alert');
       }
     });
   }
 
-  const feedbackName = document.querySelector('.feedback__name');
-  const nameAlert = document.querySelector('.name_alert');
-  const feedbackForm = document.querySelector('.feedback__form');
+  let setCursorPosition = (pos, elem) => {
+    elem.focus();
+
+    if (elem.setSelectionRange) {
+      elem.setSelectionRange(pos, pos);
+    } else if (elem.createTextRange) {
+      let range = elem.createTextRange();
+
+      range.collapse(true);
+      range.moveEnd('character', pos);
+      range.moveStart('character', pos);
+      range.select();
+    }
+  };
+
+  if (phoneInput) {
+    phoneInput.addEventListener('input', function () {
+      let matrix = '+7 (___) ___ __ __',
+        i = 0,
+        def = matrix.replace(/\D/g, ''),
+        val = this.value.replace(/\D/g, '');
+
+      if (def.length >= val.length) {
+        val = def;
+      }
+
+      this.value = matrix.replace(/./g, function (a) {
+        return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? '' : a;
+      });
+      setCursorPosition(this.value.length, this);
+    });
+
+    phoneInput.addEventListener('focus', function () {
+      let matrix = '+7 (___) ___ __ __',
+        i = 0,
+        def = matrix.replace(/\D/g, ''),
+        val = this.value.replace(/\D/g, '');
+
+      if (def.length >= val.length) {
+        val = def;
+      }
+
+      this.value = matrix.replace(/./g, function (a) {
+        return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? '' : a;
+      });
+      setCursorPosition(this.value.length, this);
+    });
+
+    phoneInput.addEventListener('blur', function () {
+      if (this.value.length == 2) {
+        this.value = '';
+      }
+    });
+  }
+
+  const inputMail = document.querySelector('.feedback__mail'),
+    mailAlert = document.querySelector('.mail-alert');
+
+  function validateEmail(email) {
+    const pattern = /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i;
+    return pattern.test(email);
+  }
+
+  if (inputMail) {
+    inputMail.addEventListener('input', function () {
+      if (validateEmail(inputMail.value)) {
+        mailAlert.style.color = 'transparent';
+        inputMail.classList.remove('alert');
+      } else {
+        mailAlert.style.color = '#ff6972';
+        inputMail.classList.add('alert');
+      }
+    });
+
+    inputMail.addEventListener('blur', () => {
+      if (inputMail.value == '') {
+        mailAlert.style.color = 'transparent';
+        inputMail.classList.remove('alert');
+      }
+    });
+  }
+
+  const agreementCheckbox = document.getElementById('agreement');
 
   if (feedbackForm) {
     feedbackForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      if (feedbackName.value.match(/\w/g)) {
-        nameAlert.style.color = '#ff6972';
-        feedbackName.classList.add('alert');
-      } else {
-        nameAlert.style.color = 'transparent';
-        feedbackName.classList.remove('alert');
-        feedbackForm.reset();
+      if (agreementCheckbox && agreementCheckbox.checked == true) {
         modalField.classList.add('active');
         disableScroll();
+        document.querySelector('.modal__thank-text')
+          .textContent = 'Спасибо, мы вам перезвоним!';
+        feedbackForm.reset();
         setTimeout(() => {
           modalField.classList.remove('active');
           anableScroll();
-        }, 3000);
+        }, 2000);
+      } else {
+        modalField.classList.add('active');
+        disableScroll();
+        document.querySelector('.modal__thank-text')
+          .textContent = 'Ознакомтесь с пользовательским соглашением';
       }
     });
   }
 
-  const filterOpen = document.querySelectorAll('.filters__open_btn');
-  const filterDropdown = document.querySelectorAll('.tablet_filter__inner');
+  // filters
+
+  const filterOpen = document.querySelectorAll('.filter__open-btn');
+  const filterDropdown = document.querySelectorAll('.tablet-filter-inner');
 
   filterOpen.forEach((item, i) => {
-    item.addEventListener('click', () => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
       item.classList.toggle('active');
       filterDropdown[i].classList.toggle('active');
     });
   });
 
-  const checkboxIinputs = document.querySelectorAll('.filter_checkbox');
-  const optionsField = document.querySelector('.catalog__options');
-  const checkboxName = document.querySelectorAll('.checkbox_name');
-  const checkboxCost = document.querySelectorAll('.checkbox_cost');
+  const checkboxIinputs = document.querySelectorAll('.filter-checkbox');
+  const checkboxCost = document.querySelectorAll('.checkbox-cost');
 
-  const openHiddenFilters = (btnSelector, hiddenCategory, string) => {
+  const openHiddenFilters = (btnSelector, hiddenLabel, string) => {
     const button = document.querySelectorAll(btnSelector);
-    const hiddenCheckboxes = document.querySelectorAll(hiddenCategory);
+    const hiddenCheckboxes = document.querySelectorAll(hiddenLabel);
     if (button) {
       button.forEach(element => {
-        element.addEventListener('click', () => {
+        element.addEventListener('click', (e) => {
+          e.preventDefault();
           element.classList.toggle('active');
           if (element.classList.contains('active')) {
             element.textContent = 'Свернуть';
           } else {
             element.textContent = string;
           }
-          let toggleSelector = hiddenCategory.slice(1);
+          let toggleSelector = hiddenLabel.slice(1);
           hiddenCheckboxes.forEach(item => {
             item.classList.toggle(toggleSelector);
           });
@@ -345,124 +482,97 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  openHiddenFilters('.filter__category__btn', '.filter_category__hidden', '+ еще 12');
-  openHiddenFilters('.filter__color__btn', '.filter__color_hidden', '+ еще 7');
-
-
-  class Option {
-    constructor(selector, checkboxName, parentSelector) {
-      this.selector = selector;
-      this.checkboxName = checkboxName;
-      this.parent = document.querySelector(parentSelector);
-    }
-
-    render() {
-      const el = document.createElement('span');
-      el.classList.add(this.selector);
-      el.innerHTML =
-        `${this.checkboxName}
-          <button class="catalog__option_btn btn_reset">
-            <svg width="12" height="12" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M1.42872 0.238643L6.75487 5.42386C7.08171 5.74206 7.08171 6.25794 6.75487 6.57614L1.42872 11.7614C1.10188 12.0795 0.571969 12.0795 0.245129 11.7614C-0.0817098 11.4432 -0.0817098 10.9273 0.24513 10.6091L4.97949 6L0.24513 1.39091C-0.0817089 1.07272 -0.0817089 0.556834 0.24513 0.238643C0.57197 -0.0795478 1.10188 -0.0795477 1.42872 0.238643Z" />
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M10.5713 0.238643L5.24513 5.42386C4.91829 5.74206 4.91829 6.25794 5.24513 6.57614L10.5713 11.7614C10.8981 12.0795 11.428 12.0795 11.7549 11.7614C12.0817 11.4432 12.0817 10.9273 11.7549 10.6091L7.02051 6L11.7549 1.39091C12.0817 1.07272 12.0817 0.556834 11.7549 0.238643C11.428 -0.0795478 10.8981 -0.0795477 10.5713 0.238643Z" />
-            </svg>
-          </button>`;
-      this.parent.append(el);
-    }
-  }
-
-  const checkedFalse = () => {
-    checkboxIinputs.forEach(item => item.checked = false);
-  };
-
-  checkboxIinputs.forEach((item, i) => {
-    item.addEventListener('click', () => {
-      let currentName;
-      checkboxName.forEach(item => {
-        if (item) {
-          currentName = checkboxName[i].textContent;
-        }
-      });
-
-      if (item.checked == true) {
-        if (item.classList.contains('checkbox_category')) {
-          new Option('lime_color', currentName, '.catalog__options').render();
-        } else if (item.classList.contains('checkbox_sale')) {
-          new Option('pink_violet_color', currentName, '.catalog__options').render();
-        } else if (item.classList.contains('checkbox_color')) {
-          new Option('md_grey', currentName, '.catalog__options').render();
-        }
-      }
-      setTimeout(checkedFalse, 3000);
-    });
-  });
+  openHiddenFilters('.filter__category-btn', '.filter-category-hidden', '+ еще 12');
+  openHiddenFilters('.filter__color-btn', '.filter-color-hidden', '+ еще 7');
 
   checkboxCost.forEach(item => {
     item.addEventListener('change', () => {
       const inputValue = item.value;
-      const el = document.createElement('span');
-      el.classList.add('bone_color');
+      const parentEl = document.querySelector('.bone-color');
+      const el = document.querySelector('.bone-color> span');
       el.innerHTML =
-        `До ${inputValue}
-          <button class="catalog__option_btn btn_reset">
-            <svg width="12" height="12" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M1.42872 0.238643L6.75487 5.42386C7.08171 5.74206 7.08171 6.25794 6.75487 6.57614L1.42872 11.7614C1.10188 12.0795 0.571969 12.0795 0.245129 11.7614C-0.0817098 11.4432 -0.0817098 10.9273 0.24513 10.6091L4.97949 6L0.24513 1.39091C-0.0817089 1.07272 -0.0817089 0.556834 0.24513 0.238643C0.57197 -0.0795478 1.10188 -0.0795477 1.42872 0.238643Z" />
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M10.5713 0.238643L5.24513 5.42386C4.91829 5.74206 4.91829 6.25794 5.24513 6.57614L10.5713 11.7614C10.8981 12.0795 11.428 12.0795 11.7549 11.7614C12.0817 11.4432 12.0817 10.9273 11.7549 10.6091L7.02051 6L11.7549 1.39091C12.0817 1.07272 12.0817 0.556834 11.7549 0.238643C11.428 -0.0795478 10.8981 -0.0795477 10.5713 0.238643Z" />
-            </svg>
-          </button>`;
-      document.querySelector('.catalog__options').append(el);
+        `До ${inputValue}`;
+      parentEl.classList.remove('hidden');
       item.value = '';
     });
   });
 
-  if (optionsField) {
-    optionsField.addEventListener('click', (e) => {
-      const target = e.target.parentElement;
-      if (target.classList.contains('catalog__option_btn') || target.tagName == 'svg') {
-        target.closest('span').remove();
+  checkboxIinputs.forEach(item => {
+    item.addEventListener('change', () => {
+      let data = item.dataset.filter;
+      if (item.checked == true) {
+        catalogOptionBtn.forEach(item => {
+          if (item.dataset.option == data) {
+            item.parentElement.classList.remove('hidden');
+          }
+        });
+      } else {
+        catalogOptionBtn.forEach(item => {
+          if (item.dataset.option == data) {
+            item.parentElement.classList.add('hidden');
+          }
+        });
       }
     });
-  }
+  });
+
+  const catalogOptionBtn = document.querySelectorAll('.catalog__option-btn'),
+    filterCheckbox = document.querySelectorAll('.filter-checkbox');
+
+
+  catalogOptionBtn.forEach(item => {
+    item.addEventListener('click', (e) => {
+      let target = e.currentTarget;
+      let data = target.dataset.option;
+      item.parentElement.classList.add('hidden');
+      filterCheckbox.forEach(item => {
+        if (item.dataset.filter == data) {
+          item.checked = false;
+        }
+      });
+    });
+  });
+
+  //tabs
+
+  const slideBtns = document.querySelectorAll('.secondary-pictures-slide'),
+    mainPictures = document.querySelectorAll('.product__main-picture');
+
+  slideBtns.forEach(element => {
+    element.addEventListener('click', (e) => {
+      let target = e.currentTarget;
+      let data = target.dataset.secondary;
+      mainPictures.forEach(item => {
+        item.classList.add('hidden');
+        if (item.dataset.main == data) {
+          item.classList.remove('hidden');
+        }
+      });
+    });
+  });
+
+  // modal
 
   const modalForm = document.querySelector('.modal__form');
   const modalThank = document.createElement('div');
+  const modalAgreement = document.createElement('div');
   const modalWindow = document.querySelector('.modal');
   const modalInner = document.querySelector('.modal__inner');
   const productBtn = document.querySelector('.product__btn');
-  const modalField = document.querySelector('.modal__field');
+  const modalField = document.querySelector('.modal-field');
   const body = document.querySelector('body');
-  const modalCloseBtn = document.querySelector('.modal__close_btn');
-  const productImg = document.querySelector('.product__main_img');
-  const modalSlider = document.querySelector('.modal__slider__field');
-  const modalSliderCloseBtn = document.querySelector('.modal__slider__btn');
-  const modalSliderField = document.querySelector('.modal__slider__field');
+  const modalCloseBtn = document.querySelector('.modal__close-btn');
+  const productImg = document.querySelectorAll('.product__main-img');
+  const modalSlider = document.querySelector('.modal-slider');
+  const modalSliderCloseBtn = document.querySelector('.modal-slider__btn');
   const modalFixed = document.querySelectorAll('.fixed');
 
-  const disableScroll = () => {
-    const scrollWidth = window.innerWidth - document.body.clientWidth + 'px';
-    body.style.overflow = 'hidden';
-    modalFixed.forEach(el => {
-      el.paddingRight = scrollWidth;
-    });
-    document.body.style.paddingRight = scrollWidth;
-  };
-
-  const anableScroll = () => {
-    body.style.overflow = 'auto';
-    modalFixed.forEach(el => {
-      el.paddingRight = 0;
-    });
-    document.body.style.paddingRight = 0;
-  };
-
   if (productImg) {
-    productImg.addEventListener('click', () => {
-      modalSlider.classList.toggle('hidden');
-      disableScroll();
+    productImg.forEach(element => {
+      element.addEventListener('click', () => {
+        modalSlider.classList.toggle('hidden');
+        disableScroll();
+      });
     });
   }
 
@@ -473,10 +583,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if (modalSliderField) {
-    modalSliderField.addEventListener('click', (e) => {
+  if (modalSlider) {
+    modalSlider.addEventListener('click', (e) => {
       const target = e.target;
-      if (target == modalSliderField) {
+      if (target == modalSlider) {
         modalSlider.classList.toggle('hidden');
         anableScroll();
       }
@@ -509,28 +619,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
   modalThank.classList.add('modal__thank');
   modalThank.innerHTML =
-    `<div class="modal__thank__img">
-    <svg viewBox="0 0 32 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.08411 20.6446C9.11043 20.6446 9.86916 17.0981 9.86916 14.2587C10.3474 14.2587 14.1267 14.2587 15.8505 14.2587C25.2271 14.2587 25.2295 0.96875 16.1495 0.96875C13.6798 0.96875 12.0891 2.46863 11.6633 2.99113C6.59708 2.99113 5.98131 5.64294 5.98131 10.792C5.98131 11.7854 5.98131 15.0144 5.98131 15.5118C5.98131 16.7225 5.49563 17.508 4.18662 17.508C3.06901 17.508 2.53967 16.5166 2.09316 15.1254C1.86049 15.2506 0.22669 16.1359 0 16.281C0.494354 17.6708 1.0237 20.6446 5.08411 20.6446ZM10.7765 8.76935C12.3104 8.76935 12.4408 11.0806 10.668 11.0806C9.17353 11.0806 9.21241 8.76935 10.7765 8.76935ZM16.1498 15.6955C14.8534 15.6955 11.0654 15.4143 11.0654 15.4143V22.5398L14.6542 22.5912L15.5514 17.4367L26.9159 17.2228L27.2153 22.8741L31.4022 22.9257C31.4022 22.9257 32 11.8567 32 9.63608C32 5.51717 30.1604 3.18592 26.0187 2.99113C24.9809 2.94236 23.6232 2.74842 22.729 2.70221C26.6267 7.45342 23.5254 15.6955 16.1498 15.6955ZM23.3274 18.5846L23.6262 22.7714L26.0187 22.823L25.7196 18.5846H23.3274ZM15.8505 22.6431L18.243 22.6944L18.8408 18.5846H16.7474L15.8505 22.6431Z" fill="#FF862F"/>
-    </svg>
+    `<div class="modal__thank-img">
+      <img src="./img/svg/mapIcon.svg">
     </div>
-    <div class="modal__thank__text">Спасибо, мы вам перезвоним!</div>`;
+    <div class="modal__thank-text">Спасибо, мы вам перезвоним!</div>`;
+
+  modalAgreement.classList.add('modal__thank');
+  modalAgreement.innerHTML =
+    `<div class="modal__thank-img">
+      <img src="./img/svg/mapIcon.svg">
+    </div>
+    <div class="modal__thank-text">Ознакомтесь с  пользовательским соглашением</div>`;
 
   if (modalForm) {
     modalForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      modalWindow.prepend(modalThank);
-      modalWindow.classList.add('thank');
-      modalInner.style.display = 'none';
+      if (agreementCheckbox && agreementCheckbox.checked == true) {
+        modalWindow.prepend(modalThank);
+        modalWindow.classList.add('thank');
+        modalInner.style.display = 'none';
 
-      setTimeout(() => {
-        modalThank.remove();
-        modalWindow.classList.remove('thank');
-        modalInner.style.display = 'block';
-        modalForm.reset();
-        modalField.classList.remove('active');
-        anableScroll();
-      }, 3000);
+        setTimeout(() => {
+          modalThank.remove();
+          modalWindow.classList.remove('thank');
+          modalInner.style.display = 'block';
+          modalForm.reset();
+          modalField.classList.remove('active');
+          anableScroll();
+        }, 2000);
+      } else {
+        modalWindow.prepend(modalAgreement);
+        modalWindow.classList.add('agreement');
+        modalInner.style.display = 'none';
+
+        setTimeout(() => {
+          modalAgreement.remove();
+          modalWindow.classList.remove('agreement');
+          modalInner.style.display = 'block';
+        }, 5000);
+      }
     });
   }
 
@@ -551,24 +678,23 @@ document.addEventListener('DOMContentLoaded', () => {
         myPlacemarkWithContent = new ymaps.Placemark([55.752831393462664, 37.63848494650637], {
           balloonContent: `
           <div class="balloon">
-          <h4>SitDownPls на Солянке </h4>
-          <address>м. Китай-город, ул. Солянка, д.24</address>
-          <a href="tel:+74958854547" class="tel_number">
-            <svg width="100%" height="100%" viewbox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M16.3425 12.0983C15.215 12.0983 14.1242 11.915 13.1067 11.585C12.7858 11.475 12.4283 11.5575 12.1808 11.805L10.7417 13.6108C8.1475 12.3733 5.71833 10.0358 4.42583 7.35L6.21333 5.82833C6.46083 5.57167 6.53417 5.21417 6.43333 4.89333C6.09417 3.87583 5.92 2.785 5.92 1.6575C5.92 1.1625 5.5075 0.75 5.0125 0.75H1.84083C1.34583 0.75 0.75 0.97 0.75 1.6575C0.75 10.1733 7.83583 17.25 16.3425 17.25C16.9933 17.25 17.25 16.6725 17.25 16.1683V13.0058C17.25 12.5108 16.8375 12.0983 16.3425 12.0983Z" />
-            </svg>
-            <span>+7 (495) 885-45-47</span>
-          </a>
-          <div class="worktime">
-            <span class="grey_text">Часы работы:</span>
-            с 10:00 до 21:00
+            <h4>SitDownPls на Солянке </h4>
+            <address>м. Китай-город, ул. Солянка, д.24</address>
+            <a href="tel:+74958854547" class="tel-number">
+              <svg viewbox="0 0 32 32">
+                <use xlink:href="sprite.svg#Vector"></use>
+              </svg>
+              <span>+7 (495) 885-45-47</span>
+            </a>
+            <div class="worktime">
+              <span class="grey-text">Часы работы:</span>
+              с 10:00 до 21:00
+            </div>
+            <div class="balloon__descr">
+              <span class="grey-text">Что здесь:</span>
+              шоурум, пункт отгрузки, пункт выдачи, пункт обмена-возврата, сервисный центр
+            </div>
           </div>
-          <div class="balloon__descr">
-            <span class="grey_text">Что здесь:</span>
-            шоурум, пункт отгрузки, пункт выдачи, пункт обмена-возврата, сервисный центр
-          </div>
-        </div>
         `,
         },
           {
@@ -595,6 +721,15 @@ document.addEventListener('DOMContentLoaded', () => {
       myMap.geoObjects
         .add(myPlacemark)
         .add(myPlacemarkWithContent);
+
+      myMap.controls.remove('geolocationControl'); // удаляем геолокацию
+      myMap.controls.remove('searchControl'); // удаляем поиск
+      myMap.controls.remove('trafficControl'); // удаляем контроль трафика
+      myMap.controls.remove('typeSelector'); // удаляем тип
+      myMap.controls.remove('fullscreenControl'); // удаляем кнопку перехода в полноэкранный режим
+      myMap.controls.remove('zoomControl'); // удаляем контрол зуммирования
+      myMap.controls.remove('rulerControl'); // удаляем контрол правил
+      myMap.behaviors.disable(['scrollZoom']); // отключаем скролл карты (опционально)
     });
   }
 });

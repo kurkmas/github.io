@@ -3,7 +3,8 @@ const modals = () => {
     const trigger = document.querySelectorAll(triggerSelector),
       modal = document.querySelector(modalSelector),
       closeBtn = document.querySelector(closeBtnSelector),
-      modalWindows = document.querySelectorAll('[data-modal]');
+      modalWindows = document.querySelectorAll('[data-modal]'),
+      scroll = calcScroll();
 
     const closeModalWindows = () => {
       modalWindows.forEach(item => {
@@ -21,6 +22,7 @@ const modals = () => {
 
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
+        document.body.style.paddingRight = scroll;
       });
     });
 
@@ -28,6 +30,7 @@ const modals = () => {
       closeModalWindows();
       modal.style.display = 'none';
       document.body.style.overflow = '';
+      document.body.style.paddingRight = 0;
     });
 
     modal.addEventListener('click', (e) => {
@@ -35,6 +38,7 @@ const modals = () => {
         closeModalWindows();
         modal.style.display = 'none';
         document.body.style.overflow = '';
+        document.body.style.paddingRight = 0;
       }
     });
   }
@@ -43,8 +47,14 @@ const modals = () => {
     setTimeout(() => {
       document.querySelector(selector).style.display = 'block';
       document.body.style.overflow = '';
+      document.body.style.paddingRight = scroll;
     }, time);
   }
+
+  const calcScroll = () => {
+    const scrollWidth = window.innerWidth - document.body.clientWidth + 'px';
+    return scrollWidth;
+  };
 
   bindModal('.popup_engineer_btn', '.popup_engineer', '.popup_engineer .popup_close');
   bindModal('.phone_link', '.popup', '.popup .popup_close');
