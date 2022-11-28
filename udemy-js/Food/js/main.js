@@ -44,7 +44,6 @@ window.addEventListener('DOMContentLoaded', () => {
       hours = Math.floor((t / 1000 * 60 * 60) % 24),
       minutes = Math.floor((t / 1000 / 60) % 60),
       seconds = Math.floor((t / 1000) % 60);
-    // console.log(t);
 
 
     return {
@@ -63,8 +62,6 @@ window.addEventListener('DOMContentLoaded', () => {
       return num;
     }
   }
-
-  // console.log(getTimeRemaining(deadline));
 
   function setClock(selector, endTime) {
     const timer = document.querySelector(selector),
@@ -103,7 +100,6 @@ window.addEventListener('DOMContentLoaded', () => {
   function openModal() {
     modalWindow.classList.add('modal_active');
     document.querySelector('body').style.overflowY = 'hidden';
-    // clearInterval(modalTimerId);
   }
 
   function closeModal() {
