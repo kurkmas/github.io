@@ -1,0 +1,24 @@
+.office {
+  padding: 45px 0 75px;
+}
+
+.office-container {
+  background-image: url(../img/images/office.png);
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.office__inner {
+  max-width: 635px;
+}
+
+.office__header {
+  margin-bottom: 40px;
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.office__text {
+  line-height: 1.75;
+  margin-bottom: 150px;
+}

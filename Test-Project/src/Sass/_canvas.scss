@@ -1,0 +1,52 @@
+.canvas {
+  padding: 45px 0 55px;
+  border-bottom: 13px solid #ddd9b3;
+}
+
+.canvas__flex {
+  display: flex;
+  align-items: start;
+}
+
+.canvas__left {
+  max-width: 540px;
+}
+
+.canvas__header {
+  margin-bottom: 35px;
+  padding-left: 10px;
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.canvas__text {
+  display: inline-block;
+  line-height: 1.75;
+}
+
+.canvas__text:first-of-type {
+  margin-bottom: 40px;
+}
+
+.canvas__text:last-of-type {
+  margin-bottom: 90px;
+}
+
+.detailes-link-wrapper.left {
+  padding-left: 40px;
+  text-align: left;
+}
+
+.canvas__right {
+  padding-top: 77px;
+}
+
+.canvas__right-img {
+  margin-bottom: 24px;
+}
+
+.caption {
+  padding-bottom: 8px;
+  font-size: 14px;
+  border-bottom: 4px solid #ffe400;
+}

@@ -1,0 +1,76 @@
+.hero-section {
+  margin-bottom: 18px;
+}
+
+.price-wrapper {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.price {
+  display: block;
+  font-size: 70px;
+  line-height: 1;
+  font-weight: 800;
+  color: var(--text-color-red);
+
+  span {
+    display: inline-block;
+    color: #fff;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: var(--text-color-red);
+  }
+}
+
+.Точный_расчет_хотите_____Получите_Звоните_сразу {
+  font-size: 48px;
+  font-family: "OpenSans";
+  color: rgb(87, 87, 87);
+  line-height: 1.146;
+  text-align: left;
+  position: absolute;
+  left: 404.73px;
+  top: 457.149px;
+  z-index: 455;
+}
+
+.price-text {
+  display: block;
+  margin-bottom: 105px;
+  font-size: 48px;
+  color: var(--text-color);
+  line-height: 1.1;
+}
+
+.price-details {
+  color: var(--text-color-black);
+  background-color: #f5f5f5;
+}
+
+.price-detail__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-details__item {
+  padding-left: 60px;
+  font-size: 16px;
+  line-height: 3;
+  font-weight: 800;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.price-details__item:first-child {
+  background-image: url(../img/images/hummer.png);
+}
+
+.price-details__item:nth-child(2) {
+  background-image: url(../img/images/red-wallet.png);
+}
+
+.price-details__item:last-child {
+  background-image: url(../img/images/sale.png);
+}

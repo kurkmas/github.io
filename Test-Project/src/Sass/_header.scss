@@ -1,0 +1,136 @@
+.header {
+  margin-bottom: 95px;
+}
+
+.header-top {
+  border-bottom: 2px solid #eaeaea;
+}
+
+.header-top__container {
+  display: flex;
+  justify-content: space-between;
+  padding: 31px 0 17px 0;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.logo-link__name-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-link__img {
+  margin-right: 13px;
+}
+
+.logo-link__subname {
+  display: inline-block;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.logo-link__name {
+  font-size: 36px;
+  font-weight: 900;
+}
+
+.header-price {
+  display: flex;
+}
+
+.header-price__btn {
+  display: inline-block;
+  width: 14px;
+  max-height: 16px;
+  margin-top: 17px;
+  margin-right: 24px;
+}
+
+.burger-line {
+  width: 100%;
+  height: 2px;
+  background-color: #1a171b;
+}
+
+.burger-line:not(:last-child) {
+  margin-bottom: 4px;
+}
+
+.header-price__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-price__item {
+  padding-left: 32px;
+  font-weight: 700;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.header-price__item:first-child {
+  margin-bottom: 11px;
+  background-image: url(../img/images/calc.png);
+}
+
+.header-price__item:last-child {
+  background-image: url(../img/images/wallet.png);
+}
+
+.header-social__list {
+  display: flex;
+  margin-bottom: 9px;
+
+  .header-social__item:not(:last-child) {
+    margin-right: 6px;
+  }
+}
+
+.header-social__tel {
+  display: inline-block;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.header-social__text {
+  font-size: 12px;
+
+  span {
+    display: block;
+  }
+
+  span:first-child {
+    font-weight: 700;
+  }
+
+  span:last-child {
+    font-weight: 300;
+  }
+}
+
+.header-bottom {
+  padding-top: 23px;
+}
+
+.header-bottom__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-bottom__link {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-color-black);
+  transition: color .3s ease;
+}
+
+.header-bottom__link:hover {
+  color: var(--text-color-red);
+  transition: color .3s ease;
+}

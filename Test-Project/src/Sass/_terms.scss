@@ -1,0 +1,58 @@
+.terms {
+  padding-top: 50px;
+  padding-bottom: 23px;
+  border-bottom: 13px solid #ddd9b3;
+}
+
+.container-terms {
+  padding-left: 410px;
+  background-image: url(../img/images/worker.png);
+  background-repeat: no-repeat;
+  background-position: left bottom;
+}
+
+.terms-header {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.terms__features {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.terms__feature {
+  padding: 13px 24px;
+  font-weight: 600;
+  border: 7px solid transparent;
+  border-radius: 50px;
+}
+
+.terms__feature--yellow {
+  margin-right: 12px;
+  border: 7px solid #fff667;
+  background-color: #ffd800;
+}
+
+.terms__feature--green {
+  padding: 9px 24px;
+  padding-left: 12px;
+  color: #fff;
+  border: 7px solid #5dd926;
+  background-color: #56ab27;
+
+  span {
+    font-size: 21px;
+  }
+}
+
+.term__text-wrapper {
+  max-width: 535px;
+
+  .terms__text {
+    margin-bottom: 50px;
+    font-size: 14px;
+    line-height: 2;
+  }
+}

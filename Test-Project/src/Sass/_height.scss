@@ -1,0 +1,29 @@
+.height {
+  padding: 50px 0 40px;
+  border-bottom: 13px solid #ddd9b3;
+}
+
+.height-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-image: url(../img/images/measure.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.height__inner {
+  max-width: 765px;
+  padding-left: 100px;
+}
+
+.height__header {
+  margin-bottom: 40px;
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.height__text {
+  margin-bottom: 115px;
+  line-height: 1.75;
+}

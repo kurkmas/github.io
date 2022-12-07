@@ -1,0 +1,46 @@
+.produser-china {
+  padding: 45px 0 65px;
+  border-bottom: 13px solid #ddd9b3;
+}
+
+.producer-china__inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.produser-china__left {
+  max-width: 510px;
+}
+
+.producer-china__header {
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.producer-china__text {
+  line-height: 1.75;
+  margin-bottom: 105px;
+}
+
+.detailes-link-wrapper.center {
+  text-align: center;
+}
+
+.producer-china__right {
+  max-width: 260px;
+
+  span {
+    display: block;
+    color: #00d2ff;
+  }
+}
+
+.msd {
+  font-size: 110px;
+  font-weight: 900;
+}
+
+.msd-details {
+  font-size: 16px;
+}

@@ -1,0 +1,32 @@
+.dark-section {
+  padding: 50px 0 60px;
+  border-bottom: 13px solid #ddd9b3;
+  background: linear-gradient(180deg, rgba(0, 23, 11, 1) 0%, rgba(0, 6, 27, 1) 100%);
+  background-image: url(../img/images/pulse-bg.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.dark-section__inner {
+  max-width: 560px;
+}
+
+.dark-section__header {
+  margin-bottom: 120px;
+  font-size: 36px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.dark-section__text {
+  color: #fff;
+  line-height: 1.75;
+
+  span {
+    color: #f0ff00;
+  }
+}
+
+.detailes-link.white {
+  color: #fff;
+}

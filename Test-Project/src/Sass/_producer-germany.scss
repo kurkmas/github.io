@@ -1,0 +1,44 @@
+.producer-germany {
+  padding: 45px 0 100px;
+  border-bottom: 13px solid #ddd9b3;
+}
+
+.producer-germany__inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.produser-germany__left {
+  max-width: 505px;
+}
+
+.producer-germany__header {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.producer-germany__text {
+  margin-bottom: 115px;
+  line-height: 1.75;
+}
+
+.producer-germany__right {
+  max-width: 360px;
+
+  span {
+    display: block;
+  }
+}
+
+.pongs-bauf {
+  color: #b1b1b1;
+  font-size: 110px;
+  font-weight: 900;
+}
+
+.pongs-bauf-details {
+  padding-left: 7px;
+  margin: 25px 0 10px;
+}

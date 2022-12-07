@@ -1,0 +1,86 @@
+.contacts {
+  margin-bottom: 30px;
+}
+
+.contacts-top {
+  display: flex;
+  margin-bottom: 70px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.contacts-top__inner {
+  display: flex;
+  align-items: center;
+}
+
+.contacts-top__span {
+  display: inline-block;
+  margin-right: 32px;
+  font-size: 52px;
+  color: rgb(45, 119, 0);
+}
+
+.contacts-top__list {
+  display: flex;
+  align-items: center;
+}
+
+.contacts-top__item:not(:last-child) {
+  margin-right: 9px;
+}
+
+.contacts-top__link {
+  span {
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    color: rgb(212, 212, 212);
+  }
+}
+
+.contacts-top__item:last-child {
+  .contacts-top__link {
+    img {
+      display: inline-block;
+      margin-bottom: 7px;
+    }
+  }
+}
+
+.contacts__tel {
+  font-size: 52px;
+  font-weight: 800;
+  color: #cacaca;
+}
+
+.contacts-bottom {
+  margin-bottom: 185px;
+
+  p {
+    font-size: 48px;
+  }
+}
+
+.contacts-footer {
+  background-color: #f5f5f5;
+
+  .container {
+    text-align: center;
+  }
+}
+
+.contacts-footer__item {
+  display: inline-block;
+  @include footer-detail;
+}
+
+.contacts-footer__item:first-child {
+  margin-right: 50px;
+  background-image: url(../img/images/red-wallet.png);
+}
+
+.contacts-footer__item:last-child {
+  background-image: url(../img/images/sale.png);
+}
