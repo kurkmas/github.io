@@ -1,0 +1,45 @@
+.consulting {
+  padding: 65px 70px;
+  background-image: url(../img/images/bg-image2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.consulting__inner {
+  display: flex;
+  align-items: center;
+}
+
+.consultant {
+  margin-right: 70px;
+  font-size: 25px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.consulting__input {
+  margin-right: 25px;
+  padding: 12px 20px;
+  background-repeat: no-repeat;
+  background-position: 90% center;
+}
+
+.consulting__input,
+.consulting__btn {
+  border-radius: 30px;
+}
+
+.consulting__btn {
+  padding: 12px 60px;
+  color: #fff;
+  background-color: var(--text-color-red);
+}
+
+.consulting__input--name {
+  background-image: url(../img/images/user-icon.png);
+}
+
+.consulting__input--tel {
+  background-image: url(../img/images/phone-icon.png);
+}

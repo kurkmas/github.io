@@ -1,0 +1,30 @@
+.cheaper-order {
+  padding: 47px 0 84px;
+}
+
+.cheaper-order__container {
+  background-image: url(../img/images/order-together.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.cheaper-order__header {
+  margin-bottom: 95px;
+  font-size: 36px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.cheaper-order__details {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cheaper-order__text-wrapper {
+  max-width: 510px;
+}
+
+.cheaper-order__text {
+  margin-bottom: 115px;
+  line-height: 1.75;
+}

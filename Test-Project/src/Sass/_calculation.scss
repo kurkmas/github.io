@@ -1,0 +1,96 @@
+.calculation {
+  padding-bottom: 40px;
+}
+
+.calculation__header {
+  margin-bottom: 55px;
+  font-weight: 800;
+}
+
+.calculation__slider-wrapper {
+  margin-bottom: 70px;
+}
+
+.slider-input-label {
+  margin-right: 65px;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.slider-input {
+  margin-left: 20px;
+  padding: 10px;
+  max-width: 110px;
+  font-size: 16px;
+  font-weight: 800;
+  border: 1px solid #e1e1e1;
+  border-radius: 10px;
+}
+
+.calculation__cards {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.calculation__card {
+  position: relative;
+  padding: 25px 75px 125px;
+  max-width: 50%;
+  background-color:#f6f6f6;
+}
+
+.calculation__card:first-child {
+  border-right: 1px solid #e6e6e6;
+}
+
+.calculation__card-header {
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.calculation__card-descr {
+  line-height: 1;
+}
+
+.calculation__card-link {
+  color: var(--text-color-red);
+}
+
+.calculation__card-cost {
+  position: absolute;
+  left: calc(50% - 110px);
+  bottom: 15px;
+  padding: 20px 40px;
+  background-color: #fff;
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.calculation__btns-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.calculation__btn-container {
+  width: 50%;
+}
+
+.calculation__btn-container:first-child {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 15px;
+}
+
+.calculation__btn-container:last-child {
+  padding-left: 15px;
+}
+
+.calculation__btn {
+  display: inline-block;
+  padding: 15px 70px;
+  color: #fff;
+  font-weight: 800;
+  background-color: var(--text-color-red);
+  border-radius: 30px;
+}
+

@@ -1,0 +1,55 @@
+.about-company {
+  padding: 70px 0 65px;
+}
+
+.about-company__item {
+  max-width: 150px;
+}
+
+.about-company__list {
+  display: flex;
+  margin-bottom: 50px;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.about-company__link {
+  display: block;
+  text-align: center;
+
+  figcaption {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--text-color-black);
+    transition: color .3s ease;
+  }
+
+  &:hover {
+    figcaption {
+    color: var(--text-color-red);
+    transition: color .3s ease;
+    }
+  }
+}
+
+.about-company__header {
+  margin-bottom: 40px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.about-company__text-wrapper {
+  background-image: url(../img/images/image-bg.png);
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: contain;
+}
+
+.about-company__text {
+  max-width: 600px;
+}
+
+.about-company__text:not(:last-child) {
+  margin-bottom: 35px;
+}

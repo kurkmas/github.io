@@ -1,0 +1,36 @@
+.contract {
+  padding: 38px 0 34px;
+}
+
+.contract__header{
+  margin-bottom: 30px;
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.contract__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.contract__text {
+  margin-bottom: 215px;
+  line-height: 1.75;
+}
+
+.contract__img-wrapper {
+  display: flex;
+}
+
+.contract__img:first-of-type {
+  margin-right: 20px;
+}
+
+.contract__caption--1 {
+  padding-left: 80px;
+}
+
+.contract__caption--2 {
+  max-width: 264px;
+}
