@@ -56,8 +56,13 @@
   background-color: #1a171b;
 }
 
+.burger-line:not(:first-child) {
+  transition: transform .3s ease;
+}
+
 .burger-line:not(:last-child) {
   margin-bottom: 4px;
+  transition: transform .3s ease;
 }
 
 .header-price__wrapper {
