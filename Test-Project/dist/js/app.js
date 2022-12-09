@@ -2353,6 +2353,9 @@ const modalCloseBtn = document.querySelector('.modal__close');
 const modalForm = document.getElementById('modal-form');
 const modalInputName = document.getElementById('modal-name');
 const modalInputTel = document.getElementById('modal-tel');
+const consultInputName = document.querySelector('.consult-name-js');
+const consultInputTel = document.querySelector('.consult-tel-js');
+const consultForm = document.querySelector('.consult-form-js');
 nouislider__WEBPACK_IMPORTED_MODULE_0___default().create(slider, {
   start: 0,
   connect: [false, false],
@@ -2416,15 +2419,21 @@ function showModalByScroll() {
   }
 }
 window.addEventListener('scroll', showModalByScroll);
-function getModalInfo(e) {
-  e.preventDefault();
-  let user = {};
-  user.name = modalInputName.value;
-  user.tel = modalInputTel.value;
-  modalForm.reset();
-  console.log(user);
+function getFormInfo(form, nameSelector, telSelector) {
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    let user = {};
+    user.name = nameSelector.value;
+    user.tel = telSelector.value;
+    form.reset();
+    if (form.classList.contains('modal__form')) {
+      closeModal();
+    }
+    console.log(user);
+  });
 }
-modalForm.addEventListener('submit', getModalInfo);
+getFormInfo(modalForm, modalInputName, modalInputTel);
+getFormInfo(consultForm, consultInputName, consultInputTel);
 }();
 /******/ })()
 ;

@@ -1,0 +1,811 @@
+@media screen and (max-width: 1200px) {
+  .quality {
+    background-image: none;
+  }
+
+  .height-container {
+    background-size: 20%;
+  }
+
+  .guaranty-container {
+    background-size: 60%;
+  }
+
+  .cheaper-order__container {
+    background-size: 45%;
+  }
+
+
+
+  .range-slider {
+    width: 60%;
+  }
+
+  .consulting {
+    padding: 30px 0;
+  }
+
+  .consultant {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+
+  .consulting__input {
+    margin-right: 20px;
+  }
+
+  .about-company__text-wrapper {
+    background-size: 45%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .header-popup.popup-open {
+    padding-bottom: 20px;
+  }
+
+  .logo-link__img {
+    max-width: 100px;
+  }
+
+  .logo-link__subname {
+    font-size: 20px;
+  }
+
+  .logo-link__name {
+    font-size: 24px;
+  }
+
+  .header-price__wrapper {
+    display: none;
+  }
+
+  .header-social__link {
+    display: inline-block;
+    max-width: 28px;
+  }
+
+  .header-bottom__list {
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+
+  .header-bottom__item:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  .header-bottom__link {
+    line-height: 2;
+  }
+
+  .header-popup {
+    top: 55px;
+  }
+
+  .price-detail__list {
+    padding-left: 30%;
+    flex-direction: column;
+  }
+
+  .price-details__item {
+    align-self: flex-start;
+  }
+
+  .price-details__item {
+    margin-bottom: 20px;
+  }
+
+  .price-details__item:last-child {
+    margin-bottom: 0;
+  }
+
+  .contacts-top__link {
+    display: inline-block;
+    max-width: 50px;
+  }
+
+  .contacts-top__item:last-child {
+    .contacts-top__link {
+      img {
+        margin-bottom: 19px;
+      }
+    }
+  }
+
+  .detailes-container {
+    row-gap: 0;
+  }
+
+  .detailes-info {
+    grid-column: 2/5;
+  }
+
+  .contacts-bottom {
+    margin-bottom: 50px;
+  }
+
+  .producer-china__inner {
+    flex-direction: column;
+  }
+
+  .produser-china__left {
+    max-width: 100%;
+  }
+
+  .producer-china__header {
+    margin-bottom: 20px;
+  }
+
+  .producer-china__text {
+    margin-bottom: 20px;
+  }
+
+  .producer-china__right,
+  .producer-germany__right {
+    margin: 0;
+    margin-left: auto;
+  }
+
+  .producer-germany {
+    padding-bottom: 0;
+  }
+
+  .producer-germany__inner {
+    flex-direction: column;
+  }
+
+  .producer-germany__text {
+    margin-bottom: 20px;
+  }
+
+  .pongs-bauf-details {
+    margin: 15px 0 0px;
+  }
+
+  .dark-section {
+    padding: 20px 0 20px;
+    background-size: cover;
+  }
+
+  .canvas__flex {
+    flex-direction: column;
+  }
+
+  .canvas__left {
+    max-width: 100%;
+  }
+
+  .canvas__text:first-of-type {
+    margin-bottom: 20px;
+  }
+
+  .canvas__text:last-of-type {
+    margin-bottom: 30px;
+  }
+
+  .canvas__right {
+    margin: 0 auto;
+    padding-top: 20px;
+  }
+
+  .height-container {
+    background-position: left bottom;
+  }
+
+  .height__inner {
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .height__text {
+    margin-bottom: 150px;
+  }
+
+  .office-container {
+    background-size: 35%;
+    background-position: right bottom;
+  }
+
+  .contract__inner {
+    flex-direction: column;
+  }
+
+  .contract__text {
+    margin-bottom: 30px;
+  }
+
+  .contract__left {
+    margin-bottom: 30px;
+  }
+
+  .cheaper-order__container {
+    background-position: left bottom;
+  }
+
+  .features__item-left {
+    flex-shrink: 0;
+  }
+
+  .features__item-left--1 {
+    padding: 45px 40px;
+  }
+
+  .fetures__item:not(:last-child) {
+    margin-bottom: 30px;
+  }
+
+  .features-item-inner__header {
+    font-size: 30px;
+    line-height: 1;
+  }
+
+  .features-item-inner__text {
+    font-size: 14px;
+  }
+
+  .features-item-inner__text:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  .features__item-header,
+  .features__item-text:not(:last-child) {
+    margin-bottom: 15px;
+  }
+
+  .slider-input-label {
+    margin-right: 20px;
+  }
+
+  .range-slider {
+    width: 55%;
+  }
+
+  .calculation__card {
+    padding: 25px 25px 110px;
+  }
+
+  .consulting__inner {
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  .consulting__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .consulting__input,
+  .consulting__btn {
+    display: block;
+    width: 100%;
+  }
+
+  .consulting__input {
+    margin: 0;
+    margin-bottom: 15px;
+  }
+
+  .about-company__link {
+    display: inline-block;
+    max-width: 100px;
+  }
+
+  .about-company__text-wrapper {
+    background-image: none;
+  }
+
+  .about-company__text {
+    max-width: 100%;
+  }
+
+  .footer__social {
+    display: none;
+  }
+
+  .footer__list {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .footer__item:not(:last-child) {
+    margin-right: 25px;
+  }
+
+  .footer__item:nth-child(2) {
+    margin-bottom: 20px;
+  }
+}
+
+
+@media screen and (max-width: 965px) {
+  .container-terms {
+    padding-left: 300px;
+    background-size: 30%;
+  }
+}
+
+@media screen and (max-width: 919px) {
+  .header-popup {
+    top: 80px;
+  }
+}
+
+
+
+@media screen and (max-width: 850px) {
+  .container-terms {
+    padding-left: 200px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    margin-bottom: 30px;
+  }
+
+  section {
+    padding: 20px 0;
+  }
+
+  .header-top__container {
+    flex-wrap: wrap;
+  }
+
+  .logo-link {
+    margin-bottom: 15px;
+  }
+
+  .header-bottom__item:not(:last-child) {
+    margin-right: 40px;
+  }
+
+  .footer__item:nth-child(4) {
+    margin-bottom: 20px;
+  }
+
+  .price {
+    font-size: 40px;
+  }
+
+  .price-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .price-text {
+    margin-bottom: 30px;
+    font-size: 30px;
+  }
+
+  .price-detail__list {
+    padding: 0;
+  }
+
+  .quality {
+    margin: 0;
+  }
+
+  .quality-header {
+    padding: 0;
+  }
+
+  .quality-info {
+    font-size: 24px;
+  }
+
+  .quality-info__text {
+    margin-bottom: 20px;
+  }
+
+  .quality-info__link-wrapper {
+    margin-bottom: 30px;
+  }
+
+  .quality-details__text {
+    line-height: 2;
+    padding-left: 85px;
+  }
+
+  .contacts-top__inner {
+    margin-bottom: 20px;
+    flex-direction: column;
+  }
+
+  .contacts-top__span {
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  .contacts__tel {
+    font-size: 40px;
+  }
+
+  .contacts-top {
+    margin-bottom: 20px;
+  }
+
+  .contacts-bottom {
+    p {
+      font-size: 28px;
+    }
+  }
+
+  .contacts-footer {
+    .container {
+      text-align: start;
+    }
+  }
+
+  .detailes {
+    margin: 0;
+    background-image: none;
+  }
+
+  .detailes-header {
+    margin-bottom: 30px;
+  }
+
+  .detailes-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .detailes-info {
+    margin-bottom: 30px;
+  }
+
+  .detailes-info__bold-text,
+  .detailes-info__text {
+    font-size: 28px;
+  }
+
+  .detailes-info__bold-text {
+    margin-bottom: 20px;
+  }
+
+  .terms {
+    padding-top: 20px;
+  }
+
+  .container-terms {
+    padding: 0;
+    background-image: none;
+  }
+
+  .terms__features {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .terms__feature--yellow {
+    margin-bottom: 20px;
+  }
+
+  .terms__features {
+    margin-bottom: 25px;
+  }
+
+  .term__text-wrapper {
+    .terms__text {
+      margin-bottom: 10px;
+    }
+  }
+
+  .produser-china,
+  .producer-germany,
+  .canvas,
+  .contract,
+  .guaranty,
+  .cheaper-order,
+  .features,
+  .office,
+  .about-company {
+    padding: 20px 0;
+  }
+
+  .dark-section__header {
+    margin-bottom: 60px;
+  }
+
+  .canvas__header,
+  .height__header,
+  .office__header,
+  .contract__header,
+  .guaranty__header,
+  .cheaper-order__header {
+    margin-bottom: 15px;
+  }
+
+  .height {
+    padding: 20px 0;
+  }
+
+  .height__text {
+    margin-bottom: 60px;
+  }
+
+  .office__text {
+    margin-bottom: 75px;
+  }
+
+  .contract__caption--1 {
+    padding-left: 20px;
+  }
+
+  .guaranty-container {
+    background-size: 40%;
+  }
+
+  .guaranty__inner {
+    max-width: 100%;
+  }
+
+  .guaranty__text {
+    margin-bottom: 20px;
+  }
+
+  .detailes-link-wrapper.left {
+    padding-left: 20px;
+  }
+
+  .cheaper-order__container {
+    background-image: none;
+  }
+
+  .cheaper-order__text {
+    margin-bottom: 20px;
+  }
+
+  .fetures__item {
+    flex-direction: column;
+  }
+
+  .features__item-left {
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  .features__item-header,
+  .features__item-text:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  .features__item-text {
+    line-height: 1.5;
+  }
+
+  .calculation__slider-wrapper {
+    flex-direction: column;
+  }
+
+  .slider-input-label {
+    margin-bottom: 20px;
+  }
+
+  .range-slider {
+    width: 90%;
+  }
+
+  .calculation__cards {
+    flex-direction: column;
+  }
+
+  .calculation__card {
+    max-width: 100%;
+  }
+
+  .calculation__card:first-child {
+    border: none;
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  .calculation__btn-container {
+    width: 100%;
+  }
+
+  .calculation__btn {
+    padding: 15px 18px;
+  }
+
+  .calculation__btn-container:first-child {
+    display: block;
+    padding: 0;
+  }
+
+  .calculation__btn-container:last-child {
+    padding: 0;
+  }
+
+  .about-company__list {
+    margin: 0;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .about-company__item,
+  .about-company__header,
+  .about-company__text:not(:last-child) {
+    margin-bottom: 20px;
+    margin-right: 20px;
+  }
+
+  .footer__light-bottom {
+    flex-direction: column;
+  }
+
+  .footer__dark-social {
+    span {
+      display: none;
+    }
+  }
+
+  .footer__dark {
+    address {
+      max-width: 305px;
+    }
+  }
+
+  .footer__dark-vk {
+    flex-shrink: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header-popup {
+    top: 110px;
+  }
+}
+
+@media screen and (max-width: 424px) {
+  .header {
+    margin: 0;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+
+  .logo-link__img {
+    margin-right: 5px;
+    max-width: 75px;
+  }
+
+  .logo-link__subname {
+    font-size: 18px;
+  }
+
+  .logo-link__name {
+    font-size: 22px;
+  }
+
+  .header-price__btn {
+    margin: 0;
+  }
+
+  .header-social__list {
+    margin-bottom: 0;
+  }
+
+  .header-social__tel {
+    margin: 0;
+  }
+
+  .price {
+    font-size: 30px;
+  }
+
+  .price-text {
+    font-size: 24px;
+  }
+
+  .price-details__item {
+    margin-bottom: 15px;
+  }
+
+  .price-details__item {
+    line-height: 1;
+    padding: 10px 10px 10px 60px;
+  }
+
+  .quality-info__grey-text {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  .quality-wallet-block {
+    span {
+      padding: 15px 40px 15px 15px;
+      line-height: 1;
+    }
+  }
+
+  .quality-details__text {
+    line-height: 1.5;
+  }
+
+  .contacts__tel {
+    font-size: 34px;
+  }
+
+  .contacts-bottom {
+    p {
+      font-size: 22px;
+    }
+  }
+
+  .contacts-bottom {
+    margin-bottom: 20px;
+  }
+
+  .contacts-footer__item {
+    padding: 15px 10px 15px 60px;
+    line-height: 1;
+  }
+
+  .guaranty-container {
+    background-image: none;
+  }
+
+  .contacts {
+    margin: 0;
+  }
+
+  .pongs-bauf {
+    font-size: 85px;
+  }
+
+  .dark-section__header {
+    font-size: 32px;
+  }
+
+  .detailes-link-wrapper.left {
+    padding: 0;
+  }
+
+  .features__item-left--1 {
+    padding: 62px 52px;
+  }
+
+  .features__item-left--3 {
+    padding: 70px 60px;
+  }
+
+  .slider-input {
+    margin-left: 10px;
+  }
+
+  .calculation__btn-container:first-child {
+    width: 40%;
+    margin-right: 5px;
+  }
+
+  .consultant {
+    margin-bottom: 20px;
+  }
+
+  .consulting__inner {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-company__item:last-child {
+    margin-right: 0;
+  }
+
+  .footer__dark-social {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .header-popup {
+    top: 150px;
+  }
+}
+
+@media screen and (max-width: 335px) {
+
+  .header-popup {
+    top: 175px;
+  }
+}
